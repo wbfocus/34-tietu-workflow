@@ -1,0 +1,33 @@
+---
+description: 3:4贴图制作工作流 — 出图前必须先问 A 深色玻璃 或 B 亮色高级 主题
+alwaysApply: true
+---
+
+# 3:4 贴图 · 备用主题选择
+
+凡触发 **34-tietu-workflow**（3:4贴图、贴图制作、贴图套图、小红书贴图、微信贴图；或旧词 HTML卡片、知识卡、一键出卡片），在写 HTML **之前**必须先问主题。
+
+**默认尺寸**：1080×1440（3:4），用于小红书、微信贴图。
+
+## 两套备用主题
+
+| ID | 名称 | 规范 | 金标准 |
+|---|---|---|---|
+| **A** | 深色玻璃 | `.cursor/skills/34-tietu-workflow/references/theme-a-dark-glass.md` | `examples/gold-a-ceo-star-dark/` |
+| **B** | 亮色高级 | `.cursor/skills/34-tietu-workflow/references/theme-b-light-premium.md` | `examples/gold-b-ceo-star-light/` |
+
+索引：`.cursor/skills/34-tietu-workflow/references/theme-index.md`
+
+## 必问话术
+
+> 要做成 **3:4 贴图套图**（1080×1440），请选主题：
+> - **A 深色玻璃** — 夜间/科技感
+> - **B 亮色高级** — 日间/刊物感
+>
+> 回复 A 或 B；两套都要则回复「A+B」。
+
+## 铁律
+
+- 出卡前读 `examples/_card-registry.yaml`，已登记 slug 不重复出
+- 尺寸默认 **3:4 · 1080×1440**，非用户明确要求不改比例
+- 主题规范优先于 design-system 旧字体方案

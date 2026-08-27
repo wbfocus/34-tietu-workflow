@@ -1,0 +1,60 @@
+{
+  "zone": "A",
+  "aspect_ratio": "3:4",
+  "export_px": [1080, 1440],
+  "selection": "random_from_pool",
+  "layout_lock": {
+    "locked_at": "2026-08-01",
+    "align": "center",
+    "side_gap_px": 120,
+    "title_max_width_px": 820,
+    "title_max_lines": 2,
+    "title_font_px_4chars": [160, 172],
+    "series_label": "lightweight_text_no_heavy_pill",
+    "bottom_warm_glow": true,
+    "brand_at_bottom": true,
+    "forbidden": [
+      "edge_to_edge_title",
+      "title_3plus_lines",
+      "left_column_tiny_type",
+      "heavy_border_pill_series_label"
+    ]
+  },
+  "pool": [
+    {
+      "id": "1",
+      "name": "dark-cyan-type",
+      "label": "暗底 + 青系列标 + 居中大白字",
+      "html": "templates/01-dark-cyan.html"
+    },
+    {
+      "id": "1b",
+      "name": "dark-cyan-type-alt",
+      "label": "同上模板换题",
+      "html": "templates/01b-dark-cyan-alt.html"
+    },
+    {
+      "id": "2",
+      "name": "dark-orange-type",
+      "label": "暗底 + 橙系列标 + 居中大字",
+      "html": "templates/02-dark-orange.html"
+    },
+    {
+      "id": "3",
+      "name": "type-plus-chart",
+      "label": "居中大字 + 底部轻图表剪影",
+      "html": "templates/03-type-chart.html"
+    },
+    {
+      "id": "4",
+      "name": "contrast-hook",
+      "label": "痛点问句钩子（大标题仍最多两行）",
+      "html": "templates/04-contrast-hook.html"
+    }
+  ],
+  "first_frame": {
+    "required": true,
+    "hold_seconds": 0.034,
+    "note": "封面必须拼进成片第 0 帧；仅 1 帧（约 0.034s）"
+  }
+}

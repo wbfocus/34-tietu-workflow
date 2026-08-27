@@ -1,0 +1,25 @@
+version: 1
+
+articles:
+  - slug: gm-variance-price-cost-mix
+    title: 毛利率差异拆解 · 价格成本结构根因
+    sets:
+      - folder: examples/sample-gm-variance-dark
+        theme: A
+        cards: 8
+        status: done
+        note: 成型样例（含封面与成片 MP4；成品 PNG 请用 render.mjs 重渲）
+
+  - slug: analysis-bi-star-schema-mfg
+    title: 经营分析 CEO 看板 · 最小星型模型
+    sets:
+      - folder: examples/gold-a-ceo-star-dark
+        theme: A
+        cards: 8
+        status: done
+        role: gold-standard
+      - folder: examples/gold-b-ceo-star-light
+        theme: B
+        cards: 8
+        status: done
+        role: gold-standard

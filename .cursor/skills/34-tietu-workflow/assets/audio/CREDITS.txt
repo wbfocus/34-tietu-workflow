@@ -1,0 +1,10 @@
+bgm-serene-view.mp3  ← 当前默认
+Mixkit — Serene View — Arulo
+https://mixkit.co/free-stock-music/
+轻 chill 底床。Mixkit License（可商用；不强制署名）。
+
+备选：
+- bgm-piano-reflections.mp3（Mixkit Piano Reflections — Ahjay Stelino）
+
+翻页音效：
+- ../sfx/whoosh-page.wav（Mixkit whoosh-1490）

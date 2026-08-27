@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P2：痛点场景 · 亮色高级刊</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Bold/Bold.css"/>
+  <style>
+    html,body{margin:0;padding:0;background:#faf8f5;overflow:hidden}
+    .ui-bold{font-family:'HarmonyOS_Sans_SC_Bold','HarmonyOS Sans SC',sans-serif;font-weight:700}
+    .wenkai{font-family:'LXGW WenKai','霞鹜文楷',serif}
+    .card-premium{
+      background:#fff;border-radius:16px;border:1px solid transparent;background-clip:padding-box;position:relative;
+      box-shadow:0 1px 2px rgba(13,37,61,.04),0 8px 24px rgba(14,165,233,.1),0 24px 48px rgba(14,165,233,.05);
+    }
+    .card-premium::before{
+      content:'';position:absolute;inset:0;border-radius:16px;padding:1px;
+      background:linear-gradient(135deg,#BAE6FD,#0EA5E9 40%,#FF7700 80%,#BAE6FD);
+      -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+      mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+      -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
+    }
+    .card-featured{
+      background:linear-gradient(135deg,#fff 0%,#FFF4E6 100%);border-radius:16px;
+      box-shadow:0 1px 2px rgba(255,119,0,.08),0 8px 32px rgba(255,119,0,.15),0 0 60px rgba(255,119,0,.08);
+      border:1px solid rgba(255,119,0,.2);border-top:2px solid rgba(255,255,255,.9);
+    }
+    .badge{background:#E0F2FE;color:#0284C7;border:1px solid #BAE6FD;border-radius:9999px}
+  </style>
+</head>
+<body>
+<div class="w-[1080px] h-[1440px] bg-[#faf8f5] flex flex-col relative box-border overflow-hidden wenkai px-10 py-9">
+  <div class="flex justify-between items-center mb-7">
+    <span class="badge px-7 py-3 text-[26px] ui-bold"># 痛点场景</span>
+    <span class="text-[#1C1917] text-[28px] ui-bold">02 / 08</span>
+  </div>
+
+  <div class="flex flex-col gap-6 flex-1 pb-14">
+    <h1 class="text-[56px] text-[#1C1917] leading-[1.12] ui-bold">财务经理小方的困境<br/><span class="text-[#0284C7]">4张表拼到半夜</span></h1>
+
+    <div class="grid grid-cols-4 gap-4">
+      <div class="card-premium p-5 text-center relative">
+        <div class="text-[#0EA5E9] text-[40px] mb-2">📦</div>
+        <div class="text-[#1C1917] text-[30px] ui-bold mb-1">销售出库</div>
+        <div class="text-[#1C1917] text-[24px]">金蝶导出</div>
+      </div>
+      <div class="card-premium p-5 text-center relative">
+        <div class="text-[#0EA5E9] text-[40px] mb-2">💵</div>
+        <div class="text-[#1C1917] text-[30px] ui-bold mb-1">成本汇总</div>
+        <div class="text-[#1C1917] text-[24px]">金蝶导出</div>
+      </div>
+      <div class="card-premium p-5 text-center relative">
+        <div class="text-[#0EA5E9] text-[40px] mb-2">📋</div>
+        <div class="text-[#1C1917] text-[30px] ui-bold mb-1">预算表</div>
+        <div class="text-[#1C1917] text-[24px]">金蝶导出</div>
+      </div>
+      <div class="card-premium p-5 text-center relative">
+        <div class="text-[#0EA5E9] text-[40px] mb-2">🏢</div>
+        <div class="text-[#1C1917] text-[30px] ui-bold mb-1">组织对照</div>
+        <div class="text-[#1C1917] text-[24px]">HR 提供</div>
+      </div>
+    </div>
+
+    <div class="card-premium p-7 relative border-l-4 border-l-[#0EA5E9]">
+      <p class="text-[28px] text-[#1C1917] leading-relaxed">半年会前，四张 Sheet 之间 <span class="text-[#0284C7] ui-bold">VLOOKUP + 数据透视</span>，做出「分客户毛利」——<span class="ui-bold">老板问「上个月那个客户呢」，她要重新拉数、重新拼。</span></p>
+    </div>
+
+    <div class="flex flex-col gap-4 flex-1">
+      <div class="card-premium p-6 flex justify-between items-center relative">
+        <span class="text-[#1C1917] text-[28px]">能出 <span class="ui-bold">公司级</span> 损益</span>
+        <span class="text-emerald-600 text-[28px] ui-bold">金蝶月结 OK ✓</span>
+      </div>
+      <div class="card-featured p-6 flex justify-between items-center">
+        <span class="text-[#1C1917] text-[28px]">能出 <span class="ui-bold">分客户/分产品</span> 表</span>
+        <span class="text-[#FF7700] text-[28px] ui-bold">每次临时拼 ⚠</span>
+      </div>
+      <div class="card-premium p-6 flex justify-between items-center relative border-red-200">
+        <span class="text-[#1C1917] text-[28px]">老板要 <span class="ui-bold">CEO 看板</span></span>
+        <span class="text-red-500 text-[28px] ui-bold">半年会重做一次 ✕</span>
+      </div>
+    </div>
+
+    <div class="rounded-2xl p-[2px] bg-gradient-to-r from-[#0EA5E9] to-[#0284C7]">
+      <div class="bg-[#E0F2FE] rounded-[14px] px-8 py-7">
+        <p class="text-[28px] text-[#1C1917] leading-relaxed"><span class="text-[#0284C7] ui-bold">老汪判断：</span>问题不在不会 Excel，而在<span class="ui-bold">没有「经营分析用」的数据模型</span>。对象没进同一个模型，分析会永远停在手工拼表。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-6 left-0 w-full text-center text-[#1C1917]/40 text-[22px] ui-bold tracking-widest whitespace-nowrap z-50 pointer-events-none select-none">@小微之家会计服务 &nbsp;|&nbsp; @老汪洞察 &nbsp;|&nbsp; @汪斌带你开公司</div>
+</div>
+</body>
+</html>

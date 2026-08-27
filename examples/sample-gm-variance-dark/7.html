@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P7：业务下钻</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Bold/Bold.css"/>
+<style>
+html,body{margin:0;padding:0;background:#0a0f1a;overflow:hidden}
+.ui-bold{font-family:'HarmonyOS_Sans_SC_Bold','HarmonyOS Sans SC',sans-serif;font-weight:700}
+.wenkai{font-family:'LXGW WenKai','霞鹜文楷',serif}
+.glass{background:rgba(15,23,42,.62);backdrop-filter:blur(24px);border:1px solid rgba(148,163,184,.22);border-top:1px solid rgba(255,255,255,.14);box-shadow:0 12px 40px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.08);position:relative;overflow:hidden}
+.glass-hl{background:linear-gradient(135deg,rgba(14,165,233,.22),rgba(30,58,138,.3));backdrop-filter:blur(20px);border:1px solid rgba(14,165,233,.4);border-top:1px solid rgba(255,255,255,.18);box-shadow:0 0 50px rgba(14,165,233,.18),0 16px 48px rgba(0,0,0,.45);position:relative;overflow:hidden}
+.noise{opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+</style>
+</head>
+<body>
+<div class="w-[1080px] h-[1440px] bg-[#0a0f1a] relative overflow-hidden box-border wenkai pt-9 pb-20">
+<div class="absolute top-[-100px] left-[-60px] w-[680px] h-[680px] bg-cyan-500/28 rounded-full blur-[170px] z-0"></div>
+<div class="absolute bottom-[-80px] right-[-40px] w-[580px] h-[580px] bg-blue-600/22 rounded-full blur-[140px] z-0"></div>
+<div class="absolute inset-0 noise pointer-events-none z-[1]"></div>
+<div class="flex justify-between items-center px-10 relative z-10">
+<span class="glass px-7 py-3 rounded-full text-[22px] text-cyan-200 ui-bold"># 从贡献下钻到责任</span>
+<span class="text-slate-400 text-[24px] ui-bold">07 / 08</span>
+</div>
+<div class="px-10 mt-7 relative z-10">
+<h1 class="text-[50px] text-white leading-tight ui-bold">数字拆完<br/><span class="text-[#0EA5E9]">还要能点到部门</span></h1>
+</div>
+<div class="px-10 mt-6 relative z-10 flex flex-col gap-4">
+<div class="glass rounded-2xl p-6 border-l-[6px] border-l-[#0EA5E9]">
+<div class="absolute inset-0 noise pointer-events-none"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-2"><div class="w-12 h-12 rounded-lg bg-cyan-500/25 text-cyan-300 text-[22px] ui-bold flex items-center justify-center">价</div><div class="text-white text-[32px] ui-bold">价格下钻</div></div>
+<div class="text-slate-200 text-[24px] leading-relaxed">目录价 vs 成交价、折扣返利、区域价差、锁价合同、产品升级换档</div>
+</div>
+</div>
+<div class="glass rounded-2xl p-6 ml-8 border-l-[6px] border-l-[#FF7700]">
+<div class="absolute inset-0 noise pointer-events-none"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-2"><div class="w-12 h-12 rounded-lg bg-orange-500/20 text-[#FF7700] text-[22px] ui-bold flex items-center justify-center">本</div><div class="text-white text-[32px] ui-bold">成本下钻</div></div>
+<div class="text-slate-200 text-[24px] leading-relaxed">原料价、BOM 用量、替代料、良率报废、工时效率、产能利用率、制造与物流费</div>
+</div>
+</div>
+<div class="glass rounded-2xl p-6 mr-8 border-l-[6px] border-l-cyan-400/50">
+<div class="absolute inset-0 noise pointer-events-none"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-2"><div class="w-12 h-12 rounded-lg bg-cyan-500/25 text-cyan-300 text-[22px] ui-bold flex items-center justify-center">构</div><div class="text-white text-[32px] ui-bold">结构下钻</div></div>
+<div class="text-slate-200 text-[24px] leading-relaxed">产品/客户/渠道组合、区域订单、高低毛利搭配、确认时点、新旧品切换</div>
+</div>
+</div>
+</div>
+<div class="px-10 mt-5 relative z-10">
+<div class="glass-hl rounded-2xl px-7 py-6">
+<div class="absolute inset-0 noise pointer-events-none"></div>
+<p class="relative z-10 text-[26px] text-slate-100 leading-relaxed"><span class="text-cyan-300 ui-bold">动作链：</span>财务贡献 → 业务指标 → 根因证据 → 责任部门 → 改善措施 → 效果验证。额还要另拆销量、数量结构、价格、成本。</p>
+</div>
+</div>
+<div class="absolute bottom-6 left-0 w-full text-center text-slate-600 text-[20px] ui-bold tracking-widest whitespace-nowrap z-50 pointer-events-none">@小微之家会计服务 &nbsp;|&nbsp; @老汪洞察 &nbsp;|&nbsp; @汪斌带你开公司</div>
+</div>
+</body>
+</html>

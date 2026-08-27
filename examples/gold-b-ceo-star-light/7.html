@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P7：CEO三句话 · 亮色高级刊</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Bold/Bold.css"/>
+  <style>
+    html,body{margin:0;padding:0;background:#faf8f5;overflow:hidden}
+    .ui-bold{font-family:'HarmonyOS_Sans_SC_Bold','HarmonyOS Sans SC',sans-serif;font-weight:700}
+    .wenkai{font-family:'LXGW WenKai','霞鹜文楷',serif}
+    .card-premium{
+      background:#fff;border-radius:16px;border:1px solid transparent;background-clip:padding-box;position:relative;
+      box-shadow:0 1px 2px rgba(13,37,61,.04),0 8px 24px rgba(14,165,233,.1),0 24px 48px rgba(14,165,233,.05);
+    }
+    .card-premium::before{
+      content:'';position:absolute;inset:0;border-radius:16px;padding:1px;
+      background:linear-gradient(135deg,#BAE6FD,#0EA5E9 40%,#FF7700 80%,#BAE6FD);
+      -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+      mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+      -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
+    }
+    .card-inner{background:#faf8f5;border-radius:12px;border:1px solid #BAE6FD}
+    .badge{background:#E0F2FE;color:#0284C7;border:1px solid #BAE6FD;border-radius:9999px}
+  </style>
+</head>
+<body>
+<div class="w-[1080px] h-[1440px] bg-[#faf8f5] flex flex-col relative box-border overflow-hidden wenkai px-10 py-9">
+  <div class="flex justify-between items-center mb-6">
+    <span class="badge px-7 py-3 text-[26px] ui-bold"># 给CEO的三句话</span>
+    <span class="text-[#1C1917] text-[28px] ui-bold">07 / 08</span>
+  </div>
+
+  <h1 class="text-[54px] text-[#1C1917] leading-[1.12] ui-bold mb-7">模型能刷新，<span class="text-[#0284C7]">才谈得上经营分析</span></h1>
+
+  <div class="card-premium p-8 mb-6 relative">
+    <h3 class="text-[32px] text-[#0284C7] ui-bold mb-5">给 CEO（可直接转发）</h3>
+    <div class="flex flex-col gap-5 text-[28px] text-[#1C1917] leading-relaxed">
+      <div class="flex gap-4">
+        <span class="text-[#0EA5E9] ui-bold text-[34px] flex-shrink-0">1.</span>
+        <span><span class="ui-bold">CEO 看板不是买软件</span>，是先有「最小星型模型」——每月同一口径、同一对象。</span>
+      </div>
+      <div class="flex gap-4">
+        <span class="text-[#0EA5E9] ui-bold text-[34px] flex-shrink-0">2.</span>
+        <span>请先批准<span class="ui-bold">口径说明 1 页</span>，再批大屏预算。</span>
+      </div>
+      <div class="flex gap-4">
+        <span class="text-[#0EA5E9] ui-bold text-[34px] flex-shrink-0">3.</span>
+        <span>分析会只看三张：<span class="ui-bold">摘要、结构、异常 TOP</span>。</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-premium p-8 flex-1 flex flex-col relative">
+    <h3 class="text-[32px] text-[#0284C7] ui-bold mb-5">财务 BP 自检 5 项</h3>
+    <div class="flex flex-col gap-4 flex-1">
+      <div class="card-inner p-5 flex items-center gap-5">
+        <span class="text-[#FF7700] text-[36px] ui-bold flex-shrink-0">☐</span>
+        <span class="text-[#1C1917] text-[28px] ui-bold">Fact 表粒度写在一句话里了吗？</span>
+      </div>
+      <div class="card-inner p-5 flex items-center gap-5">
+        <span class="text-[#FF7700] text-[36px] ui-bold flex-shrink-0">☐</span>
+        <span class="text-[#1C1917] text-[28px] ui-bold">四张 Dim 编码与金蝶主数据一致吗？</span>
+      </div>
+      <div class="card-inner p-5 flex items-center gap-5">
+        <span class="text-[#FF7700] text-[36px] ui-bold flex-shrink-0">☐</span>
+        <span class="text-[#1C1917] text-[28px] ui-bold">口径文档销售财务签字了吗？</span>
+      </div>
+      <div class="card-inner p-5 flex items-center gap-5">
+        <span class="text-[#FF7700] text-[36px] ui-bold flex-shrink-0">☐</span>
+        <span class="text-[#1C1917] text-[28px] ui-bold">PQ 能否一键刷新上月数据（&lt;15分钟）？</span>
+      </div>
+      <div class="card-inner p-5 flex items-center gap-5">
+        <span class="text-[#FF7700] text-[36px] ui-bold flex-shrink-0">☐</span>
+        <span class="text-[#1C1917] text-[28px] ui-bold">至少1个 CUBE 或透视视图能复用吗？</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="absolute bottom-6 left-0 w-full text-center text-[#1C1917]/40 text-[22px] ui-bold tracking-widest whitespace-nowrap z-50 pointer-events-none select-none">@小微之家会计服务 &nbsp;|&nbsp; @老汪洞察 &nbsp;|&nbsp; @汪斌带你开公司</div>
+</div>
+</body>
+</html>

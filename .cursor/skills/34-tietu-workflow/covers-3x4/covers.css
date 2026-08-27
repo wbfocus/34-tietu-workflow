@@ -1,0 +1,173 @@
+/* A-zone 3:4 HTML cover — 参考「原料成本/帕累托图」：字居中、两边留空、空间感 */
+:root {
+  --safe-x: 120px;   /* 两边明显留白 ≈11% */
+  --safe-y: 100px;
+  --title-max: 820px; /* 主标题块约占画面 60–76% 宽，不贴边 */
+  --bg0: #05070c;
+  --bg1: #0a101c;
+  --text: #ffffff;
+  --mute: rgba(255, 255, 255, 0.82);
+  --cyan: #5ec8ff;
+  --orange: #ff8a3d;
+  --gold: #f5c76a;
+  --rose: #ff5d7a;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: #000; }
+.cover {
+  position: relative;
+  width: 1080px;
+  height: 1440px;
+  overflow: hidden;
+  color: var(--text);
+  font-family: "Microsoft YaHei", "PingFang SC", "Source Han Sans SC", sans-serif;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 100%, rgba(255, 140, 60, 0.42), transparent 58%),
+    linear-gradient(180deg, var(--bg0) 0%, var(--bg1) 55%, #0c1018 100%);
+  padding: var(--safe-y) var(--safe-x) 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cover.cyan-glow {
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 100%, rgba(255, 140, 60, 0.36), transparent 58%),
+    radial-gradient(ellipse 50% 30% at 50% 0%, rgba(79, 209, 255, 0.08), transparent 55%),
+    linear-gradient(180deg, var(--bg0) 0%, var(--bg1) 55%, #0c1018 100%);
+}
+
+/* 系列标：轻量青字，不要厚边框胶囊抢戏 */
+.pill {
+  border: none;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  color: var(--accent, var(--cyan));
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  margin-bottom: 0;
+  align-self: center;
+}
+
+.hero {
+  flex: 1;
+  width: 100%;
+  max-width: var(--title-max);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  min-height: 0;
+  z-index: 1;
+}
+
+/*
+  大标题：最多两行；居中；两边留空（靠 max-width + 字号，不贴边）
+  4 字行 ≈ 160–172px（总宽约 640–720，两侧空隙清晰）
+*/
+.title {
+  margin: 0;
+  width: 100%;
+  max-width: var(--title-max);
+  text-align: center;
+  font-size: 168px;
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: 0.08em;
+  text-shadow: 0 8px 40px rgba(0, 0, 0, 0.45);
+}
+.title .em {
+  color: var(--text); /* 参考图两行都是白；强调色留给系列标 */
+}
+.title .em.accent {
+  color: var(--accent, var(--cyan));
+}
+.title.chars5 { font-size: 148px; letter-spacing: 0.05em; }
+.title.chars6 { font-size: 128px; letter-spacing: 0.03em; }
+
+.rule { display: none; } /* 参考图无下划线短条 */
+
+.sub {
+  margin: 48px 0 0;
+  font-size: 42px;
+  line-height: 1.45;
+  color: var(--mute);
+  width: 100%;
+  max-width: var(--title-max);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: 32px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.78);
+  letter-spacing: 0.1em;
+  z-index: 1;
+  width: 100%;
+}
+.brand::before {
+  content: "";
+  width: 6px;
+  height: 28px;
+  border-radius: 3px;
+  background: var(--accent, var(--cyan));
+  opacity: 0.9;
+}
+
+.chart {
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  bottom: 168px;
+  height: 220px;
+  opacity: 0.45;
+  display: flex;
+  align-items: flex-end;
+  gap: 18px;
+  pointer-events: none;
+  z-index: 0;
+}
+.chart span {
+  flex: 1;
+  border-radius: 14px 14px 4px 4px;
+  background: linear-gradient(180deg, rgba(79, 209, 255, 0.55), rgba(79, 209, 255, 0.04));
+}
+.chart span:nth-child(1) { height: 40%; }
+.chart span:nth-child(2) { height: 66%; }
+.chart span:nth-child(3) { height: 52%; }
+.chart span:nth-child(4) { height: 90%; }
+.chart span:nth-child(5) { height: 70%; }
+.chart span:nth-child(6) { height: 46%; }
+
+/* 痛点钩子：仍最多两行；同样两边留空 */
+.hook-q {
+  margin: 0;
+  width: 100%;
+  max-width: var(--title-max);
+  text-align: center;
+  font-size: 128px;
+  font-weight: 900;
+  line-height: 1.14;
+  letter-spacing: 0.04em;
+  text-shadow: 0 8px 40px rgba(0, 0, 0, 0.45);
+}
+.hook-q .bad { color: var(--rose); }
+.hook-a {
+  margin-top: 44px;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1.4;
+  width: 100%;
+  max-width: var(--title-max);
+  text-align: center;
+  letter-spacing: 0.04em;
+}

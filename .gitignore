@@ -1,0 +1,13 @@
+node_modules/
+.playwright-browsers/
+__pycache__/
+*.pyc
+.env
+.env.*
+Thumbs.db
+.DS_Store
+covers-3x4/_work/
+workspace/HTMLcards/*
+!workspace/HTMLcards/.gitkeep
+examples/**/成品图/
+*.log

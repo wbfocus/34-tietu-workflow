@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P6：ABC案例桥接</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Bold/Bold.css"/>
+<style>
+html,body{margin:0;padding:0;background:#0a0f1a;overflow:hidden}
+.ui-bold{font-family:'HarmonyOS_Sans_SC_Bold','HarmonyOS Sans SC',sans-serif;font-weight:700}
+.wenkai{font-family:'LXGW WenKai','霞鹜文楷',serif}
+.glass{background:rgba(15,23,42,.62);backdrop-filter:blur(24px);border:1px solid rgba(148,163,184,.22);border-top:1px solid rgba(255,255,255,.14);box-shadow:0 12px 40px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.08);position:relative;overflow:hidden}
+.glass-hl{background:linear-gradient(135deg,rgba(14,165,233,.22),rgba(30,58,138,.3));backdrop-filter:blur(20px);border:1px solid rgba(14,165,233,.4);border-top:1px solid rgba(255,255,255,.18);box-shadow:0 0 50px rgba(14,165,233,.18),0 16px 48px rgba(0,0,0,.45);position:relative;overflow:hidden}
+.noise{opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+</style>
+</head>
+<body>
+<div class="w-[1080px] h-[1440px] bg-[#0a0f1a] relative overflow-hidden box-border wenkai pt-9 pb-20">
+<div class="absolute top-[-100px] left-[-60px] w-[680px] h-[680px] bg-cyan-500/28 rounded-full blur-[170px] z-0"></div>
+<div class="absolute bottom-[-80px] right-[-40px] w-[580px] h-[580px] bg-blue-600/22 rounded-full blur-[140px] z-0"></div>
+<div class="absolute inset-0 noise pointer-events-none z-[1]"></div>
+<div class="flex justify-between items-center px-10 relative z-10">
+<span class="glass px-7 py-3 rounded-full text-[22px] text-cyan-200 ui-bold"># 案例：增收增利不增率</span>
+<span class="text-slate-400 text-[24px] ui-bold">06 / 08</span>
+</div>
+<div class="px-10 mt-7 relative z-10">
+<h1 class="text-[48px] text-white leading-tight ui-bold">A/B/C 三品一拆<br/><span class="text-[#0EA5E9]">价格和成本各拖约 1.1pp</span></h1>
+</div>
+<div class="px-10 mt-5 relative z-10">
+<div class="glass rounded-2xl p-6">
+<div class="absolute inset-0 noise pointer-events-none"></div>
+<div class="relative z-10">
+<div class="grid grid-cols-5 gap-2 text-[22px] ui-bold text-slate-300 mb-3">
+<div>产品</div><div class="text-right">价格</div><div class="text-right">成本</div><div class="text-right">结构</div><div class="text-right">净贡献</div>
+</div>
+<div class="grid grid-cols-5 gap-2 text-[26px] ui-bold text-white py-2 border-t border-white/10">
+<div>A</div><div class="text-right text-emerald-300">+0.98</div><div class="text-right text-red-300">-1.66</div><div class="text-right text-red-300">-1.69</div><div class="text-right">-2.37pp</div>
+</div>
+<div class="text-[24px] text-slate-200 py-3 border-t border-white/10 leading-relaxed">B、C 降价形成拖累，降本部分对冲；C 的收入权重上升，是结构正贡献主力。</div>
+<div class="grid grid-cols-5 gap-2 text-[26px] ui-bold text-cyan-200 py-3 border-t border-cyan-400/30 mt-1">
+<div>合计</div><div class="text-right">-1.07</div><div class="text-right">-1.06</div><div class="text-right">+0.23</div><div class="text-right">-1.90pp</div>
+</div>
+</div>
+</div>
+</div>
+<div class="px-10 mt-5 relative z-10">
+<div class="glass-hl rounded-2xl px-7 py-6">
+<div class="absolute inset-0 noise pointer-events-none"></div>
+<div class="relative z-10">
+<div class="text-cyan-200 text-[24px] ui-bold mb-3">桥接勾稽</div>
+<div class="text-white text-[32px] ui-bold leading-snug">31.56% − 1.07 − 1.06 + 0.23 = 29.66%</div>
+<p class="text-[24px] text-slate-100 mt-3 leading-relaxed">价本同时恶化，结构只对冲 0.23pp。A 是最大负贡献源。</p>
+</div>
+</div>
+</div>
+<div class="px-10 mt-5 relative z-10">
+<div class="glass rounded-2xl px-7 py-5 w-[94%] ml-auto">
+<div class="absolute inset-0 noise pointer-events-none"></div>
+<p class="relative z-10 text-[26px] text-slate-100 leading-relaxed"><span class="text-cyan-300 ui-bold">别混：</span>A 自身毛利率变 -2.38pp，对公司综合毛利率净贡献是 -2.37pp——权重也在掉。</p>
+</div>
+</div>
+<div class="absolute bottom-6 left-0 w-full text-center text-slate-600 text-[20px] ui-bold tracking-widest whitespace-nowrap z-50 pointer-events-none">@小微之家会计服务 &nbsp;|&nbsp; @老汪洞察 &nbsp;|&nbsp; @汪斌带你开公司</div>
+</div>
+</body>
+</html>

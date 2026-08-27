@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>Cover 3 · type + chart</title>
+<link rel="stylesheet" href="../covers.css" />
+<style>
+  .cover{--accent:var(--cyan)}
+  .hero{justify-content:flex-start;padding-top:80px}
+  .sub{position:relative;z-index:1}
+</style>
+</head>
+<body>
+  <div class="cover cyan-glow" id="root">
+    <div class="pill">{{PILL}}</div>
+    <div class="hero">
+      <h1 class="title {{TITLE_CLASS}}">{{TITLE_HTML}}</h1>
+      <p class="sub">{{SUB}}</p>
+    </div>
+    <div class="chart" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="brand">{{BRAND}}</div>
+  </div>
+</body>
+</html>

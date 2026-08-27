@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P4：最小星型模型-深色</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Bold/Bold.css"/>
+<style>
+html,body{margin:0;padding:0;background:#0a0f1a;overflow:hidden}
+.ui-bold{font-family:'HarmonyOS_Sans_SC_Bold','HarmonyOS Sans SC',sans-serif;font-weight:700}
+.wenkai{font-family:'LXGW WenKai','霞鹜文楷',serif}
+.glass{background:rgba(15,23,42,.62);backdrop-filter:blur(24px);border:1px solid rgba(148,163,184,.22);border-top:1px solid rgba(255,255,255,.14);box-shadow:0 12px 40px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.08);position:relative;overflow:hidden}
+.glass-hl{background:linear-gradient(135deg,rgba(14,165,233,.22),rgba(30,58,138,.3));backdrop-filter:blur(20px);border:1px solid rgba(14,165,233,.4);border-top:1px solid rgba(255,255,255,.18);box-shadow:0 0 50px rgba(14,165,233,.18),0 16px 48px rgba(0,0,0,.45);position:relative;overflow:hidden}
+.glass-inner{background:rgba(10,15,26,.5);border:1px solid rgba(148,163,184,.15);position:relative;overflow:hidden}
+.pill{background:rgba(14,165,233,.2);border:1px solid rgba(14,165,233,.4);color:#7dd3fc}
+.noise{opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+</style>
+</head>
+<body>
+<div class="w-[1080px] h-[1440px] bg-[#0a0f1a] flex flex-col relative overflow-hidden wenkai">
+<div class="absolute top-[-100px] left-[-60px] w-[680px] h-[680px] bg-cyan-500/28 rounded-full blur-[170px] z-0"></div>
+<div class="absolute bottom-[-80px] right-[-40px] w-[580px] h-[580px] bg-blue-600/22 rounded-full blur-[140px] z-0"></div>
+<div class="absolute inset-0 noise pointer-events-none z-[1]"></div>
+<div class="flex justify-between items-center px-10 pt-8 relative z-10">
+<span class="glass px-7 py-3 rounded-full text-[22px] text-cyan-200 ui-bold"># 最小星型模型</span>
+<span class="text-slate-400 text-[24px] ui-bold">04 / 08</span>
+</div>
+<div class="flex-1 px-10 flex flex-col gap-4 py-4 relative z-10 pb-14">
+<h1 class="text-[50px] text-white leading-tight ui-bold">中间 <span class="text-[#FF7700] text-[56px]">1</span> 张事实表，周围 <span class="text-[#FF7700] text-[56px]">4</span> 张维表</h1>
+<div class="glass-hl rounded-2xl p-5">
+<div class="absolute inset-0 noise pointer-events-none"></div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-3"><span class="pill px-4 py-1 rounded-lg text-[22px] ui-bold">Fact</span><span class="text-white text-[30px] ui-bold">经营结果 · 每行代表什么粒度</span></div>
+<div class="grid grid-cols-3 gap-3">
+<div class="glass-inner rounded-xl p-4"><div class="absolute inset-0 noise pointer-events-none"></div><div class="relative z-10"><div class="text-[#0EA5E9] ui-bold text-[24px] mb-1">出货行</div><div class="text-slate-200 text-[22px]">按单离散 / 贸易</div><div class="text-slate-400 text-[20px] ui-bold mt-1">金蝶销售出库明细</div></div></div>
+<div class="glass-inner rounded-xl p-4"><div class="absolute inset-0 noise pointer-events-none"></div><div class="relative z-10"><div class="text-[#0EA5E9] ui-bold text-[24px] mb-1">月度汇总行</div><div class="text-slate-200 text-[22px]">标准量产 / 多SKU</div><div class="text-slate-400 text-[20px] ui-bold mt-1">出库+成本月汇总</div></div></div>
+<div class="glass-inner rounded-xl p-4"><div class="absolute inset-0 noise pointer-events-none"></div><div class="relative z-10"><div class="text-[#0EA5E9] ui-bold text-[24px] mb-1">订单行</div><div class="text-slate-200 text-[22px]">项目型 / 定制</div><div class="text-slate-400 text-[20px] ui-bold mt-1">订单+结案成本</div></div></div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="glass rounded-2xl p-4"><div class="absolute inset-0 noise pointer-events-none"></div><div class="relative z-10"><div class="text-white ui-bold text-[30px] mb-2">Dim_时间</div><div class="text-slate-200 text-[24px]">年、月、会计期间、是否当月</div><div class="text-slate-400 text-[22px] ui-bold mt-1">来源：日历表（自建）</div></div></div>
+<div class="glass rounded-2xl p-4"><div class="absolute inset-0 noise pointer-events-none"></div><div class="relative z-10"><div class="text-white ui-bold text-[30px] mb-2">Dim_组织</div><div class="text-slate-200 text-[24px]">工厂、事业部、成本中心</div><div class="text-slate-400 text-[22px] ui-bold mt-1">来源：HR/组织对照表</div></div></div>
+<div class="glass rounded-2xl p-4"><div class="absolute inset-0 noise pointer-events-none"></div><div class="relative z-10"><div class="text-white ui-bold text-[30px] mb-2">Dim_客户</div><div class="text-slate-200 text-[24px]">客户编码、名称、区域、等级</div><div class="text-slate-400 text-[22px] ui-bold mt-1">来源：金蝶客户主数据</div></div></div>
+<div class="glass rounded-2xl p-4"><div class="absolute inset-0 noise pointer-events-none"></div><div class="relative z-10"><div class="text-white ui-bold text-[30px] mb-2">Dim_产品</div><div class="text-slate-200 text-[24px]">物料/SKU、产品线、大类</div><div class="text-slate-400 text-[22px] ui-bold mt-1">来源：金蝶物料+BOM大类</div></div></div>
+</div>
+<div class="glass rounded-2xl p-5 border-l-[6px] border-l-[#0EA5E9]">
+<div class="absolute inset-0 noise pointer-events-none"></div>
+<p class="relative z-10 text-[26px] text-slate-100 leading-relaxed"><span class="text-[#0EA5E9] ui-bold">口径规则：</span>收入按确认还是出库？成本按标准/实际/全月加权？毛利是否含运费——<span class="text-white ui-bold">全公司统一一句定义</span>。</p>
+</div>
+<div class="glass rounded-2xl p-5 flex-1 flex flex-col justify-center">
+<div class="absolute inset-0 noise pointer-events-none"></div>
+<div class="relative z-10">
+<div class="text-slate-400 text-[22px] ui-bold mb-4 text-center">关系线：全部一对多，从 Dim 指向 Fact</div>
+<div class="flex justify-center gap-3 flex-wrap">
+<span class="pill px-4 py-2 rounded-lg text-[20px] ui-bold">Dim_时间 → Fact</span>
+<span class="pill px-4 py-2 rounded-lg text-[20px] ui-bold">Dim_组织 → Fact</span>
+<span class="pill px-4 py-2 rounded-lg text-[20px] ui-bold">Dim_客户 → Fact</span>
+<span class="pill px-4 py-2 rounded-lg text-[20px] ui-bold">Dim_产品 → Fact</span>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-6 left-0 w-full text-center text-slate-600 text-[20px] ui-bold tracking-widest whitespace-nowrap z-50 pointer-events-none">@小微之家会计服务 &nbsp;|&nbsp; @老汪洞察 &nbsp;|&nbsp; @汪斌带你开公司</div>
+</div>
+</body>
+</html>

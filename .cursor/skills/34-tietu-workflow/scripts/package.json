@@ -1,0 +1,13 @@
+{
+  "name": "34-tietu-render",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "无头浏览器批量截图脚本，供 34-tietu-workflow 与 gzh-article-html-cards 复用",
+  "scripts": {
+    "render": "node render.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.48.0"
+  }
+}
