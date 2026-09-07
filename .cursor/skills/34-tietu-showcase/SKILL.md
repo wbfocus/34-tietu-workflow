@@ -1,0 +1,67 @@
+---
+name: 34-tietu-showcase
+description: 3:4卡片橱窗砸入出片。顶部目录胶囊跟着切卡滑过去，空镜呼吸，下一张带横向拖影砸入。音效只在淡出/砸入，静持和空镜必须静音。触发词：橱窗砸入、空镜砸入、目录胶囊、参考样例那种视频、砸入出片。不替代默认 5 秒丝滑轮播。
+---
+
+# 橱窗砸入出片（独立模式）
+
+把已有 **3:4 成品图** 做成 **3:4（1080×1440）** 展示片：顶部薄目录 + 空镜 + 砸入。
+
+**默认 5 秒丝滑轮播不要走这里。** 那条仍用 `finish_cards_media.py` → `carousel.mp4`。本模式只写 `showcase.mp4`，不覆盖 carousel。
+
+## 锁定规则（2026-09）
+
+1. **画布 = 3:4 · 1080×1440**，与贴图、封面同一比例。禁止 9:16 / 1080×1920（那会在卡片底下空一截黑边，视频号里核心区偏上）。
+2. 目录标题 + 胶囊是 **顶栏**，卡片仍是 **完整 3:4** 缩进顶栏下方，不要把卡片拉成 9:16。
+3. 静持 **5 秒**/张；8 张约 **48 秒**。禁止 10 秒静持。
+4. 切页音效只用 `assets/sfx/sample-slide.wav` + `sample-smash.wav`（从 `examples/参考样例/1.mp4` 原声裁出）。不要用 Mixkit whoosh 开头（前 0.5s 无声），不要用合成门轴声。
+5. **音效只跟切页走**：淡出开头轻一声（卡片往下走），砸入开头重一声。**静持 5 秒、空镜、淡出后半必须静音**。禁止空镜乱响、禁止砸入尾音拖进下一张静持。
+6. 出片后必须跑自检（脚本会拦）：`qa_tietu.py pngs`（竖向铺满）+ 成片音频 QA（hold/empty 不得响）。不过自检不准交付。
+7. 封面走 `covers-3x4/` 官方 DNA（居中大字，默认 style 3 图表剪影），**不要**把卡片 HTML / 测绘 UI / 「封面」书脊当封面。
+8. 成片第一帧可拼 `封面/cover-3x4.png` → `showcase_with_cover.mp4`（仍是 1080×1440，封面只占 1 帧）。
+
+## 何时用
+
+用户说「橱窗砸入 / 空镜翻页 / 顶部目录跟着动 / 像参考样例 1.mp4」时用本模式。
+
+卡片 HTML / 截图仍走 `34-tietu-workflow`。本模式只负责成片。样例 `1.mp4` 只对节拍和音效，**不对画幅**（那是手机录屏）。
+
+## 节拍（对标 examples/参考样例/1.mp4 的节奏，不是画幅）
+
+| 阶段 | 默认 | 画面 | 声音 |
+|---|---|---|---|
+| 静持 | **5s** | 3:4 卡停在顶栏下，胶囊停在当前目录 | **必须静** |
+| 淡出 | 0.35s | 卡溶进底色，胶囊还在旧项 | 开头轻一声（拉开），后半静 |
+| 空镜 | 0.50s | 只剩标题 + 目录，**胶囊滑到下一项** | **必须静**（不要在空画布上乱响） |
+| 砸入 | 0.25s | 下一张从左拖影砸入，胶囊已到位 | 开头重一声（砸上），不得拖进下一张静持 |
+
+8 张卡总时长约 **48 秒**（5 秒可读 × 8 + 切页）。
+
+## 命令
+
+```powershell
+py -3 ".cursor/skills/34-tietu-workflow/scripts/finish_cards_showcase.py" "<贴图文件夹>" --title "毛利率掉了别只会说成本升了"
+```
+
+目录胶囊默认读该文件夹 `文案.txt` 的 `第N张 | 短标签 | …`。也可手写：
+
+```powershell
+py -3 ".cursor/skills/34-tietu-workflow/scripts/finish_cards_showcase.py" "<贴图文件夹>" --tabs "封面|口径|铁律|方法|公式|案例|下钻|结尾"
+```
+
+只合成、不经封面：
+
+```powershell
+py -3 ".cursor/skills/34-tietu-workflow/scripts/cards_to_showcase.py" "<贴图文件夹>/成品图" --title "大标题" --tabs "封面|口径|铁律"
+```
+
+产出：`<贴图文件夹>/成品视频/showcase.mp4`（**1080×1440**）。
+
+`finish_cards_showcase.py` 会先跑 PNG 铺满自检，合成后再跑音频自检；**QA FAIL 不准交付**。也可手跑：
+
+```powershell
+py -3 ".cursor/skills/34-tietu-workflow/scripts/qa_tietu.py" pngs "<贴图文件夹>/成品图"
+py -3 ".cursor/skills/34-tietu-workflow/scripts/qa_tietu.py" showcase "<贴图文件夹>/成品视频/showcase.mp4" --n 8 --hold 5
+```
+
+依赖：ffmpeg + Pillow（`pip install pillow`）。切页音效从 `examples/参考样例/1.mp4` 原声裁出（`sample-slide.wav` / `sample-smash.wav`）。

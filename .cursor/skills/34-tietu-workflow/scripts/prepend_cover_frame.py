@@ -51,15 +51,20 @@ def prepend_cover(
     video: Path,
     out: Path,
     hold: float = DEFAULT_HOLD,
+    width: int = W,
+    height: int = H,
+    pad_color: str = "0x000000",
 ) -> None:
     out.parent.mkdir(parents=True, exist_ok=True)
     has_a = ffprobe_has_audio(video)
+    pad = (
+        f"scale={width}:{height}:force_original_aspect_ratio=decrease,"
+        f"pad={width}:{height}:(ow-iw)/2:(oh-ih)/2:color={pad_color},setsar=1,fps=30,format=yuv420p"
+    )
     if has_a:
         fc = (
-            f"[0:v]scale={W}:{H}:force_original_aspect_ratio=decrease,"
-            f"pad={W}:{H}:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=30,format=yuv420p,trim=duration={hold},setpts=PTS-STARTPTS[v0];"
-            f"[1:v]scale={W}:{H}:force_original_aspect_ratio=decrease,"
-            f"pad={W}:{H}:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=30,format=yuv420p,setpts=PTS-STARTPTS[v1];"
+            f"[0:v]{pad},trim=duration={hold},setpts=PTS-STARTPTS[v0];"
+            f"[1:v]{pad},setpts=PTS-STARTPTS[v1];"
             f"[v0][v1]concat=n=2:v=1:a=0[vout];"
             f"aevalsrc=0:d={hold}:channel_layout=stereo:sample_rate=48000[a0];"
             f"[1:a]aformat=sample_rates=48000:channel_layouts=stereo[a1];"
@@ -78,10 +83,8 @@ def prepend_cover(
         ]
     else:
         fc = (
-            f"[0:v]scale={W}:{H}:force_original_aspect_ratio=decrease,"
-            f"pad={W}:{H}:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=30,format=yuv420p,trim=duration={hold},setpts=PTS-STARTPTS[v0];"
-            f"[1:v]scale={W}:{H}:force_original_aspect_ratio=decrease,"
-            f"pad={W}:{H}:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=30,format=yuv420p,setpts=PTS-STARTPTS[v1];"
+            f"[0:v]{pad},trim=duration={hold},setpts=PTS-STARTPTS[v0];"
+            f"[1:v]{pad},setpts=PTS-STARTPTS[v1];"
             f"[v0][v1]concat=n=2:v=1:a=0[vout]"
         )
         cmd = [

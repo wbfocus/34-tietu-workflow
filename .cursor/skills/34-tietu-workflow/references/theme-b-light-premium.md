@@ -71,6 +71,8 @@ html,body{margin:0;padding:0;background:#faf8f5;overflow:hidden}
 .num-glow{color:#FF7700;text-shadow:0 4px 24px rgba(255,119,0,.35),0 0 60px rgba(255,119,0,.2)}
 .badge{background:#E0F2FE;color:#0284C7;border:1px solid #BAE6FD;border-radius:9999px}
 .noise{opacity:.03;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,...feTurbulence...")}
+.board{display:flex;flex-direction:column;justify-content:space-between;height:1310px}
+.board-cover{display:flex;flex-direction:column;justify-content:space-between;height:1140px}
 ```
 
 ## Mesh 顶区（封面 + 结尾卡必有）
@@ -79,7 +81,8 @@ html,body{margin:0;padding:0;background:#faf8f5;overflow:hidden}
 
 ## 饱满度规则
 
-- 间距 `gap-5` / `gap-6`；内容区 `flex flex-col` 紧凑堆叠。
+- 间距 `gap-5` / `gap-6`；内容区用 `.board` 竖向铺满（`space-between`），**禁止**全堆上半截、底下空一大块米色。
+- **禁止 `flex-1` 撑高**。内容少：拉开块间距或加大字号；内容多：收紧 gap / 合并 featured。
 - 重点卡用 `.card-featured`（橙光），普通卡用 `.card-premium`（渐变描边）。
 - 底部加关系 pills、自检清单、CTA 框填满空间——**但若总高度将超 1440px，合并进 featured，不要再加独立底栏**。
 

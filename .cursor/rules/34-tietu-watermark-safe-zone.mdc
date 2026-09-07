@@ -37,3 +37,21 @@ alwaysApply: true
 - [ ] 内层内容区无 `flex-1` 撑高（流程图 skill 横向区除外）
 - [ ] 心算：mesh + 标题区 + N 张卡 + 底栏 ≤ 约 **1320px**（留 80px 水印区 + 余量）
 - [ ] 最后一块内容（金句/提醒）**完整可见**，底部有空白再是水印
+- [ ] **底 25% 不能只有水印**：内容偏少时用 `.board`（高约 1310px）/ `.board-cover`（约 1140px）+ `justify-content:space-between` 拉开块间距或加大字号，把最后一块贴到水印安全区上沿；**禁止 `flex-1`**
+
+## D. 竖向铺满（底部禁止空一大块米色）
+
+水印安全区（A）防的是「压字」，防裁切（B）防的是「超高被切」。还要防第三种：**内容全堆在上半截，底下空 25%–40% 米色**。
+
+写 HTML 时 **必须**：
+
+1. 内页内容外包 `.board`：`display:flex; flex-direction:column; justify-content:space-between; height:1310px`（写进该套图 `theme-*.css`，**CSS 链接不要带 `?v=` 查询串**，Chrome `file://` 截图会加载失败）
+2. 封面/结尾用 `.board-cover`，高度约 `1140px`（已有 mesh 顶区）
+3. 块与块空隙拉开；仍空则加大标题/正文字号和卡片 `p-*`，不要加空洞底栏
+4. 截图后目视：最后一块（记住/闭环/金句）贴在水印上沿，不是漂在画面中部
+
+可用脚本自检：
+
+```bash
+py -3 ".cursor/skills/34-tietu-workflow/scripts/qa_tietu.py" pngs "<成品图文件夹>"
+```

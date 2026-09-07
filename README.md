@@ -61,6 +61,14 @@ py -3 .cursor/skills/34-tietu-workflow/scripts/finish_cards_media.py ".\workspac
 
 默认 BGM：Mixkit《Serene View》。翻页 whoosh 已压低。转场每次一种、各约 1 秒。
 
+另有独立 **橱窗砸入** 成片（顶部目录胶囊 + 空镜 + 拖影砸入），不覆盖默认轮播：
+
+```powershell
+py -3 .cursor/skills/34-tietu-workflow/scripts/finish_cards_showcase.py ".\workspace\HTMLcards\你的套图文件夹" --title "大标题"
+```
+
+产出 `成品视频/showcase.mp4`（**1080×1440 · 3:4**，不是 9:16）。
+
 ## 推到你的 GitHub
 
 ```powershell

@@ -113,6 +113,12 @@
 - **默认不要**把正文块、提醒框、CTA 放到水印行高度内；内容与水印之间至少留一截空白。
 - 只有内容极多、不得不挤时，才允许最后一块内容贴近安全区上沿——仍禁止与水印文字重叠或被 `overflow:hidden` 裁切。
 - 写卡后自检：底部最后一块内容完整可见，水印整行可读、不被遮挡。
+- **竖向铺满**：禁止内容全堆上半截、底下空一大块底色。内页用 `.board`（约 1310px 高 + `justify-content:space-between`），封面/结尾用 `.board-cover`；拉开块间距或加大字号，最后一块贴水印上沿。**禁止 `flex-1`。** CSS 引用不要带 `?v=`（`file://` 截图会丢样式）。
+
+```css
+.board{display:flex;flex-direction:column;justify-content:space-between;height:1310px}
+.board-cover{display:flex;flex-direction:column;justify-content:space-between;height:1140px}
+```
 
 ## 10. Tailwind 引入方式
 

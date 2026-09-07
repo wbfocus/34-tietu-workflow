@@ -7,4 +7,5 @@ https://mixkit.co/free-stock-music/
 - bgm-piano-reflections.mp3（Mixkit Piano Reflections — Ahjay Stelino）
 
 翻页音效：
-- ../sfx/whoosh-page.wav（Mixkit whoosh-1490）
+- ../sfx/whoosh-page.wav（Mixkit whoosh-1490，默认 5 秒轮播用）
+- ../sfx/sample-slide.wav、sample-smash.wav（橱窗砸入：从 examples/参考样例/1.mp4 切页原声裁出）

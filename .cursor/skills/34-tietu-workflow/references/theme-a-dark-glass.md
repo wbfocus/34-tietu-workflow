@@ -62,6 +62,8 @@ html,body{margin:0;padding:0;background:#0a0f1a;overflow:hidden}
 .glass-fail{background:rgba(239,68,68,.1);backdrop-filter:blur(24px);border:1px solid rgba(239,68,68,.3);...}
 .glow-num{text-shadow:0 0 50px rgba(255,119,0,.6),0 0 100px rgba(255,119,0,.3)}
 .noise{opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,...feTurbulence...")}
+.board{display:flex;flex-direction:column;justify-content:space-between;height:1310px}
+.board-cover{display:flex;flex-direction:column;justify-content:space-between;height:1140px}
 ```
 
 每张 `.glass` / `.glass-hl` 卡片内加 `<div class="absolute inset-0 noise pointer-events-none"></div>`。
@@ -77,6 +79,7 @@ html,body{margin:0;padding:0;background:#0a0f1a;overflow:hidden}
 ## 饱满度规则
 
 - 间距用 `gap-4` / `gap-5`，避免大块 `flex-1` 留白。
+- 内页用 `.board`（约 1310px + `space-between`）铺满，禁止底下空一大块；封面/结尾用 `.board-cover`。
 - 底部用关系条、口径栏、状态行、金句框填满纵向空间——**总高度将超画布时合并块、收紧 gap，禁止 flex-1 + 独立底栏叠穿**。
 - 页眉标签用 `.glass` 胶囊；高亮区块用 `.glass-hl` + 左侧 `border-l-[6px] border-l-[#0EA5E9]`。
 

@@ -129,6 +129,7 @@ py ".cursor/skills/awesome-design-md/scripts/fetch_design_md.py" stripe -o ".cur
 - [ ] 封面与至少一张内页版式结构不同（不是换字而已）
 - [ ] 对比度足够（浅色黑字 / 深色白字）
 - [ ] 与金标准（055/056/061）比，**密度和字号同一量级**，不能明显更「空」或更「挤」
+- [ ] **底 25% 不是只有水印**：最后一块贴在水印上沿（`.board` + `space-between`，禁止 flex-1）
 
 **防裁切（与 watermark-safe-zone 规则绑定，不可只做美学 QA）**
 

@@ -21,6 +21,21 @@ node .cursor/skills/34-tietu-workflow/scripts/render.mjs ".\workspace\HTMLcards\
 
 输出到该文件夹下的 `成品图/`，默认 DPR 3.0（3240×4320）。
 
+## 橱窗砸入 MP4（独立，不改默认轮播）
+
+```bash
+py -3 finish_cards_showcase.py "<贴图文件夹>" --title "大标题"
+# 产出 成品视频/showcase.mp4（1080×1440 · 3:4 · 每张静持 5 秒）
+# 内置自检：PNG 竖向铺满 + 静持/空镜不得有音效
+```
+
+出片自检也可手跑：
+
+```bash
+py -3 qa_tietu.py pngs "<贴图文件夹>/成品图"
+py -3 qa_tietu.py showcase "<贴图文件夹>/成品视频/showcase.mp4" --n 8 --hold 5
+```
+
 ## 原理
 
 1. Playwright 无头 Chromium，按贴图写死的宽高加载 HTML。

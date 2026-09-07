@@ -11,3 +11,7 @@
 金标准：`examples/gold-a-ceo-star-dark/`、`examples/gold-b-ceo-star-light/`。
 成型样例：`examples/sample-gm-variance-dark/`。
 新产出：`workspace/HTMLcards/`。
+
+橱窗砸入成片（顶部目录胶囊，**3:4 · 1080×1440**，不替代默认 5 秒轮播）见 `.cursor/skills/34-tietu-showcase/SKILL.md`。
+
+出图后必须自检：竖向铺满（底不能空一大块）+ 橱窗音效只在切页（静持/空镜不得乱响）。脚本：`.cursor/skills/34-tietu-workflow/scripts/qa_tietu.py`。
