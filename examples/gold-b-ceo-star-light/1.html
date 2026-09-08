@@ -2,99 +2,56 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>P1：封面 · 亮色高级刊</title>
+  <title>P1：封面-亮色</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.2.5/chinese-simplified-700.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.2.5/chinese-simplified-900.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Bold/Bold.css"/>
-  <style>
-    html,body{margin:0;padding:0;background:#faf8f5;overflow:hidden}
-    .ui-bold{font-family:'HarmonyOS_Sans_SC_Bold','HarmonyOS Sans SC',sans-serif;font-weight:700}
-    .wenkai{font-family:'LXGW WenKai','霞鹜文楷',serif}
-    .mesh{
-      background:
-        radial-gradient(ellipse 90% 70% at 10% 0%, rgba(245,233,212,.95) 0%, transparent 50%),
-        radial-gradient(ellipse 70% 60% at 50% 5%, rgba(186,230,253,.8) 0%, transparent 45%),
-        radial-gradient(ellipse 60% 50% at 85% 10%, rgba(255,119,0,.12) 0%, transparent 50%),
-        radial-gradient(ellipse 50% 40% at 70% 30%, rgba(83,58,253,.08) 0%, transparent 45%),
-        linear-gradient(180deg,#f0f9ff 0%,#faf8f5 45%,#faf8f5 100%);
-    }
-    .card-premium{
-      background:#fff;border-radius:16px;border:1px solid transparent;background-clip:padding-box;position:relative;
-      box-shadow:0 1px 2px rgba(13,37,61,.04),0 8px 24px rgba(14,165,233,.1),0 24px 48px rgba(14,165,233,.05);
-    }
-    .card-premium::before{
-      content:'';position:absolute;inset:0;border-radius:16px;padding:1px;
-      background:linear-gradient(135deg,#BAE6FD,#0EA5E9 40%,#FF7700 80%,#BAE6FD);
-      -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
-      mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
-      -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
-    }
-    .card-featured{
-      background:linear-gradient(135deg,#fff 0%,#FFF4E6 100%);border-radius:16px;
-      box-shadow:0 1px 2px rgba(255,119,0,.08),0 8px 32px rgba(255,119,0,.15),0 0 60px rgba(255,119,0,.08);
-      border:1px solid rgba(255,119,0,.2);border-top:2px solid rgba(255,255,255,.9);
-    }
-    .num-glow{color:#FF7700;text-shadow:0 4px 24px rgba(255,119,0,.35),0 0 60px rgba(255,119,0,.2)}
-    .noise{opacity:.03;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-  </style>
+  <link rel="stylesheet" href="theme-b.css"/>
 </head>
 <body>
-<div class="w-[1080px] h-[1440px] bg-[#faf8f5] flex flex-col relative box-border overflow-hidden wenkai">
-  <div class="mesh h-[300px] flex-shrink-0 relative">
-    <div class="absolute inset-0 noise pointer-events-none"></div>
-    <div class="flex justify-between items-start px-10 pt-9 relative z-10">
-      <span class="bg-white/80 backdrop-blur-md px-6 py-3 rounded-full text-[26px] text-[#0284C7] ui-bold tracking-wide border border-white shadow-[0_4px_20px_rgba(14,165,233,.12)]">老汪洞察 · 制造业经营分析</span>
-      <span class="text-[#1C1917] text-[28px] ui-bold">01 / 08</span>
-    </div>
-  </div>
-
-  <div class="flex-1 px-10 -mt-20 flex flex-col justify-between relative z-10 pb-16">
-    <div class="text-center pt-2">
-      <h1 class="text-[80px] text-[#1C1917] leading-[1.05] ui-bold tracking-tight mb-10 drop-shadow-sm">CEO看板从哪建？</h1>
-      <div class="flex items-center justify-center gap-10 mb-6">
-        <span class="num-glow text-[150px] ui-bold leading-none">4</span>
-        <div class="text-left">
-          <div class="text-[52px] text-[#1C1917] ui-bold leading-tight">步搭出最小星型模型</div>
-          <div class="text-[34px] text-[#0284C7] ui-bold mt-3">PQ → PP → CUBE 路线图</div>
+<div class="w-[1080px] h-[1440px] bg-[#faf8f5] relative box-border overflow-hidden wenkai pt-9 pb-20 px-10">
+  <div class="absolute inset-0 mesh pointer-events-none z-0"></div>
+  <div class="absolute inset-0 noise pointer-events-none z-[1]"></div>
+  <div class="board-cover">
+    <div class="relative">
+      <div class="wm-num ui-title">01</div>
+      <div class="flex items-center gap-4 relative z-10">
+        <div class="idx-sq terra ui-bold">01</div>
+        <div>
+          <div class="c-en ui-bold">BUILD</div>
+          <div class="c-cn">最小星型</div>
         </div>
       </div>
     </div>
-
-    <div class="grid grid-cols-4 gap-5">
-      <div class="card-premium p-7 text-center relative">
-        <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-[#E0F2FE] to-[#BAE6FD] flex items-center justify-center text-[#0284C7] text-[32px] ui-bold shadow-inner">01</div>
-        <div class="text-[#1C1917] text-[32px] ui-bold mb-2">需求</div>
-        <div class="text-[#1C1917] text-[26px]">对象+粒度+口径</div>
-      </div>
-      <div class="card-premium p-7 text-center relative">
-        <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-[#E0F2FE] to-[#BAE6FD] flex items-center justify-center text-[#0284C7] text-[32px] ui-bold">02</div>
-        <div class="text-[#1C1917] text-[32px] ui-bold mb-2">架构</div>
-        <div class="text-[#1C1917] text-[26px]">画星型模型图</div>
-      </div>
-      <div class="card-premium p-7 text-center relative">
-        <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-[#E0F2FE] to-[#BAE6FD] flex items-center justify-center text-[#0284C7] text-[32px] ui-bold">03</div>
-        <div class="text-[#1C1917] text-[32px] ui-bold mb-2">清洗</div>
-        <div class="text-[#1C1917] text-[26px]">Power Query</div>
-      </div>
-      <div class="card-featured p-7 text-center">
-        <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-gradient-to-br from-[#FF7700] to-[#fb923c] flex items-center justify-center text-white text-[32px] ui-bold shadow-lg">04</div>
-        <div class="text-[#1C1917] text-[32px] ui-bold mb-2">呈现</div>
-        <div class="text-[#1C1917] text-[26px]">PP + CUBE</div>
+    <div>
+      <h1 class="text-[56px] text-[#1C1917] leading-[1.12] ui-title">CEO看板从哪建？<br/>先搭<span class="text-[#FF7700]">最小星型</span></h1>
+      <p class="text-[28px] text-[#6B6560] mt-4 leading-relaxed">经营分析会拆到客户/产品/工厂，财务却每月靠<span class="mark">VLOOKUP拼表</span>。</p>
+    </div>
+    <div class="pill-dark px-8 py-5 flex items-center gap-4">
+      <span class="bg-[#FF7700] text-white text-[22px] ui-bold px-4 py-1.5 rounded-full">判断</span>
+      <span class="text-[26px] wenkai leading-snug">先建<span class="mark">最小星型模型</span>，再谈指标和大屏</span>
+    </div>
+    <div class="flex items-center gap-8">
+      <div class="hero-orb ui-title text-[92px] leading-none">4</div>
+      <div>
+        <div class="text-[32px] text-[#1C1917] ui-title leading-tight">四步搭出<br/>可刷新的星型</div>
+        <p class="text-[26px] text-[#6B6560] mt-3 leading-relaxed">路线：<span class="mark-sage">PQ → PP → CUBE</span></p>
       </div>
     </div>
-
-    <div class="rounded-2xl p-[2px] bg-gradient-to-r from-[#0EA5E9] via-[#0284C7] to-[#FF7700] shadow-[0_12px_40px_rgba(14,165,233,.15)]">
-      <div class="bg-white rounded-[14px] px-10 py-8">
-        <p class="text-[28px] text-[#1C1917] leading-relaxed text-center">
-          <span class="text-[#0284C7] ui-bold">老汪洞察：</span>
-          经营分析会拆到客户/产品/工厂，财务却每月靠<span class="ui-bold">VLOOKUP拼表</span>？
-          先建<span class="ui-bold">最小星型模型</span>，再谈指标和大屏。
-        </p>
-      </div>
+    <div class="flex flex-wrap gap-3">
+      <span class="card-paper px-4 py-3 text-[22px] ui-bold text-[#1C1917] flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-[#0EA5E9]"></span>需求</span>
+      <span class="card-paper px-4 py-3 text-[22px] ui-bold text-[#1C1917] flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-[#0EA5E9]"></span>架构</span>
+      <span class="card-paper px-4 py-3 text-[22px] ui-bold text-[#1C1917] flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-[#0EA5E9]"></span>清洗</span>
+      <span class="card-paper px-4 py-3 text-[22px] ui-bold text-[#1C1917] flex items-center gap-2"><span class="w-2.5 h-2.5 rounded-full bg-[#FF7700]"></span>呈现</span>
+    </div>
+    <div class="c-foot ui-bold">
+      <div><span class="c-foot-sq"></span>老汪洞察 · 信息图</div>
+      <div>01 / 08 · 封面</div>
     </div>
   </div>
-
-  <div class="absolute bottom-6 left-0 w-full text-center text-[#1C1917]/40 text-[22px] ui-bold tracking-widest whitespace-nowrap z-50 pointer-events-none select-none">@小微之家会计服务 &nbsp;|&nbsp; @老汪洞察 &nbsp;|&nbsp; @汪斌带你开公司</div>
+  <div class="absolute bottom-6 left-0 w-full text-center text-[#1C1917]/40 text-[20px] ui-bold tracking-widest whitespace-nowrap z-50 pointer-events-none">@小微之家会计服务 &nbsp;|&nbsp; @老汪洞察 &nbsp;|&nbsp; @汪斌带你开公司</div>
 </div>
 </body>
 </html>

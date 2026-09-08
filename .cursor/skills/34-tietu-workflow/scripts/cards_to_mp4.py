@@ -246,7 +246,7 @@ def main() -> int:
     if not pngs:
         print("no png in", folder, file=sys.stderr)
         return 1
-    out = args.out or (folder.parent / "成品视频" / "carousel.mp4")
+    out = args.out or (folder.parent / "成品视频" / f"{folder.parent.name}（轮播）.mp4")
     cards_to_mp4(
         pngs,
         out,

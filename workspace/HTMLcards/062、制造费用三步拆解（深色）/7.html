@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P7：验证</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.2.5/chinese-simplified-700.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.2.5/chinese-simplified-900.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Bold/Bold.css"/>
+  <link rel="stylesheet" href="theme-a.css"/>
+</head>
+<body>
+<div class="w-[1080px] h-[1440px] bg-[#0a0f1a] relative box-border overflow-hidden wenkai pt-9 pb-20 px-10">
+  <div class="absolute top-[-100px] left-[-60px] w-[680px] h-[680px] bg-cyan-500/28 rounded-full blur-[170px] z-0"></div>
+  <div class="absolute bottom-[-80px] right-[-40px] w-[580px] h-[580px] bg-blue-600/22 rounded-full blur-[140px] z-0"></div>
+  <div class="absolute inset-0 noise pointer-events-none z-[1]"></div>
+  <div class="board">
+    <div class="relative">
+      <div class="wm-num ui-title">07</div>
+      <div class="flex items-center gap-4 relative z-10">
+        <div class="idx-sq terra ui-bold">07</div>
+        <div>
+          <div class="c-en ui-bold">CHECK</div>
+          <div class="c-cn">换标准验</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h1 class="text-[50px] text-white leading-[1.12] ui-title">分完了不算完<br/>换个标准重算一遍</h1>
+      <p class="text-[26px] text-slate-300 mt-3">本月制造费用 300,000。产量法按 100 件 / 200 件摊；机器工时按 1,800 / 1,200 小时摊。</p>
+    </div>
+    <div class="hl-bar px-6 py-5">
+      <div class="text-[22px] text-slate-400 ui-bold">产量法 → 机器工时法</div>
+      <div class="text-[26px] text-white ui-title mt-1">同一笔费用，A 从 100,000 变成 <span class="mark-sage">180,000</span></div>
+    </div>
+    <div class="grid grid-cols-2 gap-3">
+      <div class="card-paper p-5 flex justify-between items-center">
+        <span class="text-[24px] text-slate-200">产量法 A</span>
+        <span class="text-[28px] text-white ui-bold">100,000</span>
+      </div>
+      <div class="card-paper p-5 flex justify-between items-center">
+        <span class="text-[24px] text-slate-200">工时法 A</span>
+        <span class="text-[28px] text-[#0EA5E9] ui-bold">180,000</span>
+      </div>
+      <div class="card-paper p-5 flex justify-between items-center">
+        <span class="text-[24px] text-slate-200">产量法 B</span>
+        <span class="text-[28px] text-white ui-bold">200,000</span>
+      </div>
+      <div class="card-blush p-5 flex justify-between items-center">
+        <span class="text-[24px] text-white ui-title">A 被低估</span>
+        <span class="text-[32px] text-[#FF7700] ui-bold">80,000</span>
+      </div>
+    </div>
+    <div class="card-principle px-6 py-5">
+      <p class="text-[26px] text-slate-100 leading-relaxed"><span class="mark ui-title">原则：</span>若 A 毛利率从 30% 掉到 15%，这就不是小差异，是单品成本被<span class="mark">扭曲</span>了。</p>
+    </div>
+    <div class="c-foot ui-bold">
+      <div><span class="c-foot-sq"></span>老汪洞察 · 信息图</div>
+      <div>07 / 08 · 验证</div>
+    </div>
+  </div>
+  <div class="absolute bottom-6 left-0 w-full text-center text-slate-600 text-[20px] ui-bold tracking-widest whitespace-nowrap z-50 pointer-events-none">@小微之家会计服务 &nbsp;|&nbsp; @老汪洞察 &nbsp;|&nbsp; @汪斌带你开公司</div>
+</div>
+</body>
+</html>

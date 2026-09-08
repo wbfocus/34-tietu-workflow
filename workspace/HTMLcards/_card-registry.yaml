@@ -1,0 +1,56 @@
+version: 1
+articles:
+  - slug: gm-four-slice-product-channel-region-customer
+    title: 毛利率分析真正该盯的4个维度
+    sets:
+      - folder: workspace/HTMLcards/057、毛利率四维切片（测绘）
+        theme: survey-map
+        cards: 8
+        status: done
+        note: 打样 · 测绘切片 UI（非 A/B）
+
+  - slug: mfg-cost-lean-five-dimensions
+    title: 制造业成本精益管控 · 五个维度
+    sets:
+      - folder: workspace/HTMLcards/058、制造业成本精益管控（浅色）
+        theme: B
+        cards: 8
+        status: done
+        note: 橱窗砸入 3:4
+
+  - slug: mfg-analysis-wont-reach-workshop
+    title: 制造业经营分析 · 为什么总落不到车间
+    sets:
+      - folder: workspace/HTMLcards/059、经营分析落不到车间（刊物）
+        theme: C
+        cards: 8
+        status: done
+        note: 橱窗砸入 3:4 · 主题 C 金标准同源
+
+  - slug: cogs-vs-cogm-cost-flow
+    title: 完工成本和销货成本怎么分 · 从零售商到制造商
+    sets:
+      - folder: workspace/HTMLcards/060、COGS和COGM怎么分（深色）
+        theme: A
+        cards: 8
+        status: done
+        note: 橱窗砸入 3:4 · 主题 A 新骨架
+
+  - slug: fbp-gm-analysis-root-action
+    title: 财务BP毛利率分析 · 分完之后往哪走
+    sets:
+      - folder: workspace/HTMLcards/061、财务BP毛利率分析（浅色）
+        theme: B
+        cards: 8
+        status: done
+        note: 橱窗砸入 3:4 · 主题 B
+
+  - slug: mfg-oh-collect-allocate-verify
+    title: 制造费用三步拆解 · 归集分配验证
+    sets:
+      - folder: workspace/HTMLcards/062、制造费用三步拆解（深色）
+        theme: A
+        cards: 8
+        status: done
+        note: 橱窗砸入 3:4 · 主题 A
+

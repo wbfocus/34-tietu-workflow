@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P2：两张皮</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.2.5/chinese-simplified-700.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.2.5/chinese-simplified-900.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Bold/Bold.css"/>
+  <link rel="stylesheet" href="theme-c.css"/>
+</head>
+<body>
+<div class="w-[1080px] h-[1440px] bg-[#FDF8F2] relative box-border overflow-hidden wenkai pt-9 pb-20 px-10">
+  <div class="board">
+    <div class="relative">
+      <div class="wm-num ui-title">02</div>
+      <div class="flex items-center gap-4 relative z-10">
+        <div class="idx-sq sage ui-bold">02</div>
+        <div>
+          <div class="c-en ui-bold" style="color:#6F8A6A">GAP</div>
+          <div class="c-cn">两张皮</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h1 class="text-[50px] text-[#2A2724] leading-[1.12] ui-title">财务和车间<br/>从来不是一张表</h1>
+      <p class="text-[26px] text-[#6B6560] mt-3">左边是<span class="mark">会议室</span>里的坑，右边是<span class="mark-sage">车间</span>里的修法。</p>
+    </div>
+
+    <!-- 对比行 -->
+    <div class="card-paper overflow-hidden">
+      <div class="grid grid-cols-[1fr_36px_1fr] items-center">
+        <div class="px-5 py-5 flex items-center gap-3">
+          <span class="text-[#9A938C] ui-bold text-[22px]">01</span>
+          <span class="x-mark ui-bold">✕</span>
+          <span class="text-[24px] text-[#2A2724]">月报开会控成本</span>
+        </div>
+        <div class="text-[#9A938C] text-[22px] ui-bold text-center">→</div>
+        <div class="px-5 py-5 flex items-center gap-3 bg-[#E8F0E4] h-full">
+          <span class="ok-mark ui-bold">✓</span>
+          <span class="text-[24px] text-[#2A2724]"><span class="mark-sage">空转、堆积、压料</span></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-paper overflow-hidden">
+      <div class="grid grid-cols-[1fr_36px_1fr] items-center">
+        <div class="px-5 py-5 flex items-center gap-3">
+          <span class="text-[#9A938C] ui-bold text-[22px]">02</span>
+          <span class="x-mark ui-bold">✕</span>
+          <span class="text-[24px] text-[#2A2724]">收入差了就加销售</span>
+        </div>
+        <div class="text-[#9A938C] text-[22px] ui-bold text-center">→</div>
+        <div class="px-5 py-5 flex items-center gap-3 bg-[#E8F0E4] h-full">
+          <span class="ok-mark ui-bold">✓</span>
+          <span class="text-[24px] text-[#2A2724]">拆到<span class="mark-sage">产品、客户、工序</span></span>
+        </div>
+      </div>
+    </div>
+    <div class="card-paper overflow-hidden">
+      <div class="grid grid-cols-[1fr_36px_1fr] items-center">
+        <div class="px-5 py-5 flex items-center gap-3">
+          <span class="text-[#9A938C] ui-bold text-[22px]">03</span>
+          <span class="x-mark ui-bold">✕</span>
+          <span class="text-[24px] text-[#2A2724]">产品好就换先进产线</span>
+        </div>
+        <div class="text-[#9A938C] text-[22px] ui-bold text-center">→</div>
+        <div class="px-5 py-5 flex items-center gap-3 bg-[#E8F0E4] h-full">
+          <span class="ok-mark ui-bold">✓</span>
+          <span class="text-[24px] text-[#2A2724]">先看<span class="mark-sage">使用率、复购、售后</span></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-3 gap-3">
+      <div class="card-blush p-5 text-center">
+        <div class="text-[40px] text-[#D16C4F] ui-bold leading-none">40%</div>
+        <div class="text-[22px] text-[#2A2724] ui-bold mt-2">新品使用率</div>
+      </div>
+      <div class="card-blush p-5 text-center">
+        <div class="text-[40px] text-[#D16C4F] ui-bold leading-none">28%</div>
+        <div class="text-[22px] text-[#2A2724] ui-bold mt-2">老客复购</div>
+      </div>
+      <div class="card-blush p-5 text-center">
+        <div class="text-[40px] text-[#D16C4F] ui-bold leading-none">15%</div>
+        <div class="text-[22px] text-[#2A2724] ui-bold mt-2">售后吃营收</div>
+      </div>
+    </div>
+
+    <div class="card-principle px-6 py-5">
+      <p class="text-[26px] text-[#2A2724] leading-relaxed"><span class="mark ui-title">原则：</span>财务看<span class="mark">结果</span>，车间看<span class="mark-sage">过程</span>。对不上，所有决策都是隔靴搔痒。</p>
+    </div>
+
+    <div class="c-foot ui-bold">
+      <div><span class="c-foot-sq"></span>老汪洞察 · 信息图</div>
+      <div>02 / 08 · 两张皮</div>
+    </div>
+  </div>
+  <div class="absolute bottom-6 left-0 w-full text-center text-[#2A2724]/35 text-[20px] ui-bold tracking-widest whitespace-nowrap z-50 pointer-events-none">@小微之家会计服务 &nbsp;|&nbsp; @老汪洞察 &nbsp;|&nbsp; @汪斌带你开公司</div>
+</div>
+</body>
+</html>

@@ -34,21 +34,24 @@
 | 流程图卡 | `1440x1080` | 步骤多、节点多、需要横向蛇形排布时 |
 | 公众号头图/banner | 按需（如 `1080x450`） | 头图、引流海报等特殊场景，参照 HTMLcards 已有同类文件 |
 
-## 3. 字体（`<head>` 里全量引入，一个都不能少）
+## 3. 字体（以主题规范为准，禁止旧方案）
+
+**不要**再用 ZCOOL XiaoWei / Ma Shan Zheng。三套主题共用文字见 [type-shared.md](type-shared.md)：
 
 ```html
-<link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.2.5/chinese-simplified-700.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.2.5/chinese-simplified-900.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Bold/Bold.css"/>
 ```
 
 ```css
-.font-title { font-family: 'ZCOOL XiaoWei', serif; }   /* 大标题，显权威 */
-.font-accent { font-family: 'Ma Shan Zheng', cursive; } /* 背景大字/数字冲击，显张力 */
-.font-body { font-family: 'LXGW WenKai', sans-serif; }  /* 正文，显书卷气 */
-.font-sans { font-family: sans-serif; }                 /* 英文标签/页码等零碎小字 */
+.ui-title { font-family: 'Noto Serif SC','Source Han Serif SC',serif; font-weight:900; } /* 大标题/卡片标题 */
+.wenkai   { font-family: 'LXGW WenKai','霞鹜文楷',serif; } /* 正文 */
+.ui-bold  { font-family: 'HarmonyOS_Sans_SC_Bold','HarmonyOS Sans SC',sans-serif; font-weight:700; } /* 数字/页码/水印 */
 ```
 
-正文默认套 `font-body`。不要出现英文单词（品牌词、页码格式如 `01 / 08`、`Manufacturing Insight / 2026` 这种装饰性英文小字除外）或繁体字。
+最外层卡片加 `wenkai`。标题用 `.ui-title`，**禁止** HarmonyOS 当大标题。正文 1–3 个重点词用 `.mark` / `.mark-sage`（色值按主题）。不要出现英文单词（品牌词、页码格式如 `01 / 08`、装饰性英文小标除外）或繁体字。
 
 ## 4. 配色（主题 A/B 为准，拒绝塑料感配色）
 
@@ -68,7 +71,7 @@
 - 背景大光晕：`absolute w-[NNNpx] h-[NNNpx] bg-<色>-600 rounded-full mix-blend-screen filter blur-[150~250px] opacity-20~40`，通常放 1-2 个在角落。
 - 毛玻璃卡片：`bg-slate-800/50 backdrop-blur border border-slate-700 rounded-2xl`。
 - 渐变高亮文字（金句/关键词）：`text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400`。
-- 背景巨字衬底（可选，营造氛围）：`font-accent text-[NNNpx] opacity-5 absolute`，用一个和主题相关的单字。
+- 背景巨字衬底（可选，营造氛围）：`ui-title text-[NNNpx] opacity-5 absolute`，用一个和主题相关的单字。不要再用 Ma Shan Zheng。
 
 ## 6. 版式布局
 

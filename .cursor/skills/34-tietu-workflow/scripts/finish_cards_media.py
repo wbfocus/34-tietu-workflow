@@ -75,6 +75,19 @@ def fill_cover_html(
     )
 
 
+def video_paths(card_dir: Path) -> dict[str, Path]:
+    """成品视频按套图文件夹名命名，避免每套都叫 showcase.mp4。"""
+    stem = card_dir.name.strip()
+    vd = card_dir / "成品视频"
+    return {
+        "dir": vd,
+        "showcase": vd / f"{stem}.mp4",
+        "showcase_cover": vd / f"{stem}（带封面）.mp4",
+        "carousel": vd / f"{stem}（轮播）.mp4",
+        "carousel_cover": vd / f"{stem}（轮播带封面）.mp4",
+    }
+
+
 def resolve_card_dir(path: Path) -> Path:
     if (path / "成品图").is_dir():
         return path
@@ -107,8 +120,9 @@ def main() -> int:
         print("no png in", img_dir, file=sys.stderr)
         return 1
 
-    video_dir = card_dir / "成品视频"
-    carousel = video_dir / "carousel.mp4"
+    paths = video_paths(card_dir)
+    video_dir = paths["dir"]
+    carousel = paths["carousel"]
     cards_to_mp4(
         pngs,
         carousel,
@@ -182,7 +196,7 @@ def main() -> int:
     # keep a copy of filled html next to deliverable
     (cover_dir / "cover.html").write_text(html_path.read_text(encoding="utf-8"), encoding="utf-8")
 
-    out_with = video_dir / "carousel_with_cover.mp4"
+    out_with = paths["carousel_cover"]
     hold = float(CATALOG.get("first_frame", {}).get("hold_seconds", 0.034))
     prepend_cover(cover_png, carousel, out_with, hold=hold)
     print("OK", out_with)

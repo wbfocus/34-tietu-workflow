@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P2：按产量分会冤枉人</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.2.5/chinese-simplified-700.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.2.5/chinese-simplified-900.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Bold/Bold.css"/>
+  <link rel="stylesheet" href="theme-a.css"/>
+</head>
+<body>
+<div class="w-[1080px] h-[1440px] bg-[#0a0f1a] relative box-border overflow-hidden wenkai pt-9 pb-20 px-10">
+  <div class="absolute top-[-100px] left-[-60px] w-[680px] h-[680px] bg-cyan-500/28 rounded-full blur-[170px] z-0"></div>
+  <div class="absolute bottom-[-80px] right-[-40px] w-[580px] h-[580px] bg-blue-600/22 rounded-full blur-[140px] z-0"></div>
+  <div class="absolute inset-0 noise pointer-events-none z-[1]"></div>
+  <div class="board">
+    <div class="relative">
+      <div class="wm-num ui-title">02</div>
+      <div class="flex items-center gap-4 relative z-10">
+        <div class="idx-sq sage ui-bold">02</div>
+        <div>
+          <div class="c-en sage ui-bold">FLOOR</div>
+          <div class="c-cn">会上常混</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h1 class="text-[50px] text-white leading-[1.12] ui-title">按产量分最公平？<br/>复杂产品会吃哑巴亏</h1>
+      <p class="text-[26px] text-slate-300 mt-3">一条产线同时做 A、B。自动化高，折旧能耗是大头。</p>
+    </div>
+    <div class="card-blush p-6">
+      <p class="text-[26px] text-slate-100 leading-relaxed">老板常说：「制造费用都按产量摊。」车间实际是：A 工艺复杂、产量小但耗时长；B 工艺简单、产量大但耗时短。</p>
+    </div>
+    <div class="card-paper overflow-hidden">
+      <div class="grid grid-cols-[1fr_36px_1fr] items-center">
+        <div class="px-5 py-5 flex items-center gap-3">
+          <span class="x-mark ui-bold">✕</span>
+          <span class="text-[24px] text-white">产量大的 B 分得多</span>
+        </div>
+        <div class="text-slate-500 text-[22px] ui-bold text-center">→</div>
+        <div class="px-5 py-5 flex items-center gap-3 fix-bg h-full">
+          <span class="ok-mark ui-bold">✓</span>
+          <span class="text-[24px] text-white">费用跟<span class="mark-sage">机器运转时间</span>挂钩</span>
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="card-paper p-6">
+        <div class="text-[22px] text-slate-400 ui-bold">产品 A</div>
+        <div class="text-[28px] text-white ui-title mt-2">成本被低估</div>
+        <p class="text-[24px] text-slate-300 mt-2">毛利率看起来<span class="mark">虚高</span></p>
+      </div>
+      <div class="card-paper p-6">
+        <div class="text-[22px] text-slate-400 ui-bold">产品 B</div>
+        <div class="text-[28px] text-white ui-title mt-2">成本被高估</div>
+        <p class="text-[24px] text-slate-300 mt-2">毛利率看起来虚低</p>
+      </div>
+    </div>
+    <div class="card-principle px-6 py-5">
+      <p class="text-[26px] text-slate-100 leading-relaxed"><span class="mark ui-title">原则：</span>合理不是「一直这么分」，是费用跟谁有关，就按谁的消耗量来分。</p>
+    </div>
+    <div class="c-foot ui-bold">
+      <div><span class="c-foot-sq"></span>老汪洞察 · 信息图</div>
+      <div>02 / 08 · 会场</div>
+    </div>
+  </div>
+  <div class="absolute bottom-6 left-0 w-full text-center text-slate-600 text-[20px] ui-bold tracking-widest whitespace-nowrap z-50 pointer-events-none">@小微之家会计服务 &nbsp;|&nbsp; @老汪洞察 &nbsp;|&nbsp; @汪斌带你开公司</div>
+</div>
+</body>
+</html>

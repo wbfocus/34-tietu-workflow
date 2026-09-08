@@ -11,7 +11,7 @@
 | AI 通病 | 本工作流的反制 |
 |---|---|
 | 紫蓝渐变糊一脸 | **禁用**紫/靛大面积渐变；老汪品牌只用天蓝 `#0EA5E9` + 亮橙 `#FF7700` |
-| Inter / Roboto / Arial 万能字 | **禁用**作结构字；用 HarmonyOS Bold + 霞鹜文楷 +（可选）ZCOOL XiaoWei |
+| Inter / Roboto / Arial 万能字 | **禁用**作结构字；正文霞鹜文楷 `.wenkai`，标题思源宋体 `.ui-title`，数字/页码 HarmonyOS `.ui-bold`（见 type-shared.md） |
 | 左右对称三列排排坐 | 每套图至少 **2 张**用不对称版式（错位、左重右轻、宽窄不一） |
 | 每张卡长得一模一样 | 封面冲击 / 内页清单 / 结尾 CTA **版式要有节奏变化** |
 | 毛玻璃 + 大光晕堆满 | 背景层 ≤2 个光晕；**全卡只有 1 张** featured 高亮卡 |
@@ -88,11 +88,11 @@
 
 每张卡 **2–3 层**即可，不要 5 层特效叠罗汉：
 
-| 层级 | 深色 A | 亮色 B |
-|---|---|---|
-| 底 | 1–2 个偏移光晕 + noise | mesh 顶区 **或** 暖白底 + 轻 noise |
-| 中 | `.glass` 普通卡 | `.card-premium` 描边卡 |
-| 顶 | **一张** `.glass-hl` / `.card-featured` | 同上 |
+| 层级 | 深色 A | 亮色 B | 奶油 C |
+|---|---|---|---|
+| 底 | 1–2 个偏移光晕 + noise | mesh 顶区 **或** 暖白底 + 轻 noise | 纯奶油底 + 右上浅色巨号 |
+| 中 | `.glass` 普通卡 | `.card-premium` 描边卡 | `.card-paper` 白卡软阴影 |
+| 顶 | **一张** `.glass-hl` / `.card-featured` | 同上 | **一张** `.card-principle` 虚线框 |
 
 阴影：用 **分层软阴影**（theme B 已定义），不要黑色硬投影 `shadow-lg` 单独糊一层。
 
@@ -120,7 +120,10 @@ py ".cursor/skills/awesome-design-md/scripts/fetch_design_md.py" stripe -o ".cur
 
 **美学**
 
-- [ ] 没用 Inter/Roboto/Arial 当主字体
+- [ ] 没用 Inter/Roboto/Arial 当主字体；大标题 `.ui-title`（思源宋体），正文 `.wenkai`，不要用 HarmonyOS 当大标题
+- [ ] 每段正文有 1–3 处 `.mark` / `.mark-sage` 重点词，没有整句染色
+- [ ] 页眉中文是读者能看懂的栏目名，没有「封面钩子 / 分镜 / CTA」
+- [ ] 页眉是方标 + 英文小标 + 巨号水印，不是旧胶囊/蓝徽章；一套至少换 3 种骨架（见 layout-shared.md）
 - [ ] 没有紫/靛大面积渐变背景
 - [ ] 正文最小字号 ≥24px（3:4）/ 节点主文案 ≥28px（流程图）
 - [ ] 全卡 featured 高亮卡 ≤1 张
@@ -142,6 +145,6 @@ py ".cursor/skills/awesome-design-md/scripts/fetch_design_md.py" stripe -o ".cur
 
 ## 八、与现有主题的关系
 
-- 本文件 **不替代** `theme-a-dark-glass.md` / `theme-b-light-premium.md` / `theme-dark-flow.md`。
+- 本文件 **不替代** `theme-a-dark-glass.md` / `theme-b-light-premium.md` / `theme-c-cream-editorial.md` / `theme-dark-flow.md`。
 - 主题是「组件与色板」；本文件是「审美与版式纪律」。
 - 冲突时：**品牌色与水印铁律 > 主题 > 本文件审美建议**。

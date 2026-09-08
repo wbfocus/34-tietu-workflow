@@ -10,6 +10,20 @@ articles:
         status: done
         note: 成型样例（含封面与成片 MP4；成品 PNG 请用 render.mjs 重渲）
 
+  - slug: mfg-analysis-wont-reach-workshop
+    title: 制造业经营分析 · 为什么总落不到车间
+    sets:
+      - folder: examples/gold-c-workshop-editorial
+        theme: C
+        cards: 8
+        status: done
+        role: gold-standard
+      - folder: workspace/HTMLcards/059、经营分析落不到车间（刊物）
+        theme: C
+        cards: 8
+        status: done
+        note: 橱窗砸入 3:4 · 主题 C 首套
+
   - slug: analysis-bi-star-schema-mfg
     title: 经营分析 CEO 看板 · 最小星型模型
     sets:
@@ -23,3 +37,31 @@ articles:
         cards: 8
         status: done
         role: gold-standard
+
+  - slug: cogs-vs-cogm-cost-flow
+    title: 完工成本和销货成本怎么分 · 从零售商到制造商
+    sets:
+      - folder: workspace/HTMLcards/060、COGS和COGM怎么分（深色）
+        theme: A
+        cards: 8
+        status: done
+        note: 主题 A 新骨架首套内容出图
+
+  - slug: fbp-gm-analysis-root-action
+    title: 财务BP毛利率分析 · 分完之后往哪走
+    sets:
+      - folder: workspace/HTMLcards/061、财务BP毛利率分析（浅色）
+        theme: B
+        cards: 8
+        status: done
+        note: 橱窗砸入 3:4 · 主题 B
+
+  - slug: mfg-oh-collect-allocate-verify
+    title: 制造费用三步拆解 · 归集分配验证
+    sets:
+      - folder: workspace/HTMLcards/062、制造费用三步拆解（深色）
+        theme: A
+        cards: 8
+        status: done
+        note: 橱窗砸入 3:4 · 主题 A
+

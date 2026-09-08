@@ -2,103 +2,70 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>P4：最小星型模型 · 亮色高级刊</title>
+  <title>P4：最小星型-亮色</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.2.5/chinese-simplified-700.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.2.5/chinese-simplified-900.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Bold/Bold.css"/>
-  <style>
-    html,body{margin:0;padding:0;background:#faf8f5;overflow:hidden}
-    .ui-bold{font-family:'HarmonyOS_Sans_SC_Bold','HarmonyOS Sans SC',sans-serif;font-weight:700}
-    .wenkai{font-family:'LXGW WenKai','霞鹜文楷',serif}
-    .card-premium{
-      background:#fff;border-radius:16px;border:1px solid transparent;background-clip:padding-box;position:relative;
-      box-shadow:0 1px 2px rgba(13,37,61,.04),0 8px 24px rgba(14,165,233,.1),0 24px 48px rgba(14,165,233,.05);
-    }
-    .card-premium::before{
-      content:'';position:absolute;inset:0;border-radius:16px;padding:1px;
-      background:linear-gradient(135deg,#BAE6FD,#0EA5E9 40%,#FF7700 80%,#BAE6FD);
-      -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
-      mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
-      -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
-    }
-    .card-inner{background:#faf8f5;border-radius:12px;border:1px solid #BAE6FD}
-    .num-glow{color:#FF7700;text-shadow:0 4px 24px rgba(255,119,0,.35),0 0 60px rgba(255,119,0,.2)}
-    .badge{background:#E0F2FE;color:#0284C7;border:1px solid #BAE6FD;border-radius:9999px}
-  </style>
+  <link rel="stylesheet" href="theme-b.css"/>
 </head>
 <body>
-<div class="w-[1080px] h-[1440px] bg-[#faf8f5] flex flex-col relative box-border overflow-hidden wenkai px-10 py-9">
-  <div class="flex justify-between items-center mb-6">
-    <span class="badge px-7 py-3 text-[26px] ui-bold"># 最小星型模型</span>
-    <span class="text-[#1C1917] text-[28px] ui-bold">04 / 08</span>
-  </div>
-
-  <h1 class="text-[52px] text-[#1C1917] leading-[1.12] ui-bold mb-6">中间 <span class="num-glow text-[64px]">1</span> 张事实表，周围 <span class="num-glow text-[64px]">4</span> 张维表</h1>
-
-  <div class="card-premium p-6 mb-5 relative">
-    <div class="flex items-center gap-4 mb-4">
-      <span class="badge px-5 py-2 text-[24px] ui-bold rounded-lg">Fact</span>
-      <span class="text-[#1C1917] text-[30px] ui-bold">经营结果 · 每行代表什么粒度</span>
-    </div>
-    <div class="grid grid-cols-3 gap-4">
-      <div class="card-inner p-5">
-        <div class="text-[#0284C7] ui-bold text-[28px] mb-2">出货行</div>
-        <div class="text-[#1C1917] text-[26px] mb-1">按单离散 / 贸易</div>
-        <div class="text-[#1C1917] text-[24px]">金蝶销售出库明细</div>
-      </div>
-      <div class="card-inner p-5">
-        <div class="text-[#0284C7] ui-bold text-[28px] mb-2">月度汇总行</div>
-        <div class="text-[#1C1917] text-[26px] mb-1">标准量产 / 多SKU</div>
-        <div class="text-[#1C1917] text-[24px]">出库+成本月汇总</div>
-      </div>
-      <div class="card-inner p-5">
-        <div class="text-[#0284C7] ui-bold text-[28px] mb-2">订单行</div>
-        <div class="text-[#1C1917] text-[26px] mb-1">项目型 / 定制</div>
-        <div class="text-[#1C1917] text-[24px]">订单+结案成本</div>
+<div class="w-[1080px] h-[1440px] bg-[#faf8f5] relative box-border overflow-hidden wenkai pt-9 pb-20 px-10">
+  <div class="board">
+    <div class="relative">
+      <div class="wm-num ui-title">04</div>
+      <div class="flex items-center gap-4 relative z-10">
+        <div class="idx-sq sage ui-bold">04</div>
+        <div>
+          <div class="c-en sage ui-bold">STAR</div>
+          <div class="c-cn">星型模型</div>
+        </div>
       </div>
     </div>
+    <div>
+      <h1 class="text-[50px] text-[#1C1917] leading-[1.12] ui-title">中间 1 张事实表<br/>周围 4 张维表</h1>
+      <p class="text-[26px] text-[#6B6560] mt-3">每行代表什么粒度，先写在<span class="mark">一句话</span>里。</p>
+    </div>
+    <div class="hl-bar px-6 py-5">
+      <div class="text-[22px] text-[#9A938C] ui-bold">FACT · 经营结果</div>
+      <div class="text-[28px] text-[#1C1917] ui-title mt-1">出货行 / 月度汇总行 / 订单行，按工厂类型选一种</div>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="card-paper p-6">
+        <div class="idx-sq terra ui-bold text-[26px] w-14 h-14 rounded-2xl">时</div>
+        <div class="text-[22px] text-[#9A938C] ui-bold mt-4">TIME</div>
+        <div class="text-[30px] text-[#1C1917] ui-title mt-1">Dim_时间</div>
+        <p class="text-[24px] text-[#6B6560] mt-2 leading-relaxed">年、月、会计期间。来源：自建日历表。</p>
+      </div>
+      <div class="card-paper p-6">
+        <div class="idx-sq sage ui-bold text-[26px] w-14 h-14 rounded-2xl">组</div>
+        <div class="text-[22px] text-[#9A938C] ui-bold mt-4">ORG</div>
+        <div class="text-[30px] text-[#1C1917] ui-title mt-1">Dim_组织</div>
+        <p class="text-[24px] text-[#6B6560] mt-2 leading-relaxed">工厂、事业部、成本中心。来源：HR 对照。</p>
+      </div>
+      <div class="card-paper p-6">
+        <div class="idx-sq ochre ui-bold text-[26px] w-14 h-14 rounded-2xl">客</div>
+        <div class="text-[22px] text-[#9A938C] ui-bold mt-4">CUSTOMER</div>
+        <div class="text-[30px] text-[#1C1917] ui-title mt-1">Dim_客户</div>
+        <p class="text-[24px] text-[#6B6560] mt-2 leading-relaxed">编码、名称、区域、等级。来源：金蝶主数据。</p>
+      </div>
+      <div class="card-paper p-6">
+        <div class="idx-sq terra ui-bold text-[26px] w-14 h-14 rounded-2xl">品</div>
+        <div class="text-[22px] text-[#9A938C] ui-bold mt-4">PRODUCT</div>
+        <div class="text-[30px] text-[#1C1917] ui-title mt-1">Dim_产品</div>
+        <p class="text-[24px] text-[#6B6560] mt-2 leading-relaxed">SKU、产品线、大类。来源：物料+BOM。</p>
+      </div>
+    </div>
+    <div class="card-principle px-6 py-5">
+      <p class="text-[26px] text-[#1C1917] leading-relaxed"><span class="mark ui-title">原则：</span>收入按确认还是出库、成本按标准还是实际——<span class="mark">全公司统一一句定义</span>。</p>
+    </div>
+    <div class="c-foot ui-bold">
+      <div><span class="c-foot-sq"></span>老汪洞察 · 信息图</div>
+      <div>04 / 08 · 星型</div>
+    </div>
   </div>
-
-  <div class="grid grid-cols-2 gap-4 mb-5">
-    <div class="card-premium p-5 relative">
-      <div class="text-[#1C1917] ui-bold text-[30px] mb-2">Dim_时间</div>
-      <div class="text-[#1C1917] text-[26px] mb-1">年、月、会计期间、是否当月</div>
-      <div class="text-[#1C1917] text-[24px]">来源：日历表（自建）</div>
-    </div>
-    <div class="card-premium p-5 relative">
-      <div class="text-[#1C1917] ui-bold text-[30px] mb-2">Dim_组织</div>
-      <div class="text-[#1C1917] text-[26px] mb-1">工厂、事业部、成本中心</div>
-      <div class="text-[#1C1917] text-[24px]">来源：HR/组织对照表</div>
-    </div>
-    <div class="card-premium p-5 relative">
-      <div class="text-[#1C1917] ui-bold text-[30px] mb-2">Dim_客户</div>
-      <div class="text-[#1C1917] text-[26px] mb-1">客户编码、名称、区域、等级</div>
-      <div class="text-[#1C1917] text-[24px]">来源：金蝶客户主数据</div>
-    </div>
-    <div class="card-premium p-5 relative">
-      <div class="text-[#1C1917] ui-bold text-[30px] mb-2">Dim_产品</div>
-      <div class="text-[#1C1917] text-[26px] mb-1">物料/SKU、产品线、大类</div>
-      <div class="text-[#1C1917] text-[24px]">来源：金蝶物料+BOM大类</div>
-    </div>
-  </div>
-
-  <div class="rounded-2xl p-[2px] bg-gradient-to-r from-[#0EA5E9] to-[#0284C7] mb-5">
-    <div class="bg-[#E0F2FE] rounded-[14px] px-7 py-6">
-      <p class="text-[26px] text-[#1C1917] leading-relaxed"><span class="text-[#0284C7] ui-bold">口径规则：</span>收入按确认还是出库？成本按标准/实际/全月加权？毛利是否含运费——<span class="ui-bold">全公司统一一句定义</span>。</p>
-    </div>
-  </div>
-
-  <div class="card-premium p-6 flex-1 flex flex-col justify-center relative">
-    <div class="text-[#1C1917] text-[26px] ui-bold mb-5 text-center">关系线：全部一对多，从 Dim 指向 Fact</div>
-    <div class="flex justify-center gap-4 flex-wrap">
-      <span class="badge px-5 py-3 text-[24px] ui-bold rounded-lg">Dim_时间 → Fact</span>
-      <span class="badge px-5 py-3 text-[24px] ui-bold rounded-lg">Dim_组织 → Fact</span>
-      <span class="badge px-5 py-3 text-[24px] ui-bold rounded-lg">Dim_客户 → Fact</span>
-      <span class="badge px-5 py-3 text-[24px] ui-bold rounded-lg">Dim_产品 → Fact</span>
-    </div>
-  </div>
-
-  <div class="absolute bottom-6 left-0 w-full text-center text-[#1C1917]/40 text-[22px] ui-bold tracking-widest whitespace-nowrap z-50 pointer-events-none select-none">@小微之家会计服务 &nbsp;|&nbsp; @老汪洞察 &nbsp;|&nbsp; @汪斌带你开公司</div>
+  <div class="absolute bottom-6 left-0 w-full text-center text-[#1C1917]/40 text-[20px] ui-bold tracking-widest whitespace-nowrap z-50 pointer-events-none">@小微之家会计服务 &nbsp;|&nbsp; @老汪洞察 &nbsp;|&nbsp; @汪斌带你开公司</div>
 </div>
 </body>
 </html>

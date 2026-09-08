@@ -1,54 +1,69 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>P8：写在最后-深色</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Bold/Bold.css"/>
-<style>
-html,body{margin:0;padding:0;background:#0a0f1a;overflow:hidden}
-.ui-bold{font-family:'HarmonyOS_Sans_SC_Bold','HarmonyOS Sans SC',sans-serif;font-weight:700}
-.wenkai{font-family:'LXGW WenKai','霞鹜文楷',serif}
-.glass{background:rgba(15,23,42,.62);backdrop-filter:blur(24px);border:1px solid rgba(148,163,184,.22);border-top:1px solid rgba(255,255,255,.14);box-shadow:0 12px 40px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.08);position:relative;overflow:hidden}
-.glass-hl{background:linear-gradient(135deg,rgba(14,165,233,.22),rgba(30,58,138,.3));backdrop-filter:blur(20px);border:1px solid rgba(14,165,233,.4);border-top:1px solid rgba(255,255,255,.18);box-shadow:0 0 50px rgba(14,165,233,.18),0 16px 48px rgba(0,0,0,.45);position:relative;overflow:hidden}
-.glow-num{text-shadow:0 0 50px rgba(255,119,0,.6),0 0 100px rgba(255,119,0,.3)}
-.cta-gradient{background:linear-gradient(135deg,rgba(14,165,233,.15),rgba(255,119,0,.12));border:1px solid rgba(14,165,233,.35);position:relative;overflow:hidden}
-.headline-gradient{background:linear-gradient(135deg,#0EA5E9,#38bdf8,#FF7700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.noise{opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-</style>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P8：结尾-深色</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.2.5/chinese-simplified-700.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.2.5/chinese-simplified-900.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Bold/Bold.css"/>
+  <link rel="stylesheet" href="theme-a.css"/>
 </head>
 <body>
-<div class="w-[1080px] h-[1440px] bg-[#0a0f1a] flex flex-col relative overflow-hidden wenkai">
-<div class="absolute top-[-100px] left-[-60px] w-[680px] h-[680px] bg-cyan-500/28 rounded-full blur-[170px] z-0"></div>
-<div class="absolute bottom-[-80px] right-[-40px] w-[580px] h-[580px] bg-blue-600/22 rounded-full blur-[140px] z-0"></div>
-<div class="absolute top-[40%] left-[30%] w-[400px] h-[400px] bg-orange-500/15 rounded-full blur-[120px] z-0"></div>
-<div class="absolute inset-0 noise pointer-events-none z-[1]"></div>
-<div class="flex justify-between items-center px-10 pt-8 relative z-10">
-<span class="glass px-7 py-3 rounded-full text-[22px] text-cyan-200 ui-bold">老汪出品 · 必是精品</span>
-<span class="text-slate-400 text-[24px] ui-bold">08 / 08</span>
-</div>
-<div class="flex-1 px-10 flex flex-col justify-center items-center gap-5 relative z-10 pb-14">
-<p class="text-[54px] headline-gradient ui-bold text-center leading-tight">先有对象和口径，<br/>再有公式和图表。</p>
-<div class="glass rounded-2xl px-10 py-7 w-full max-w-[900px]">
-<div class="absolute inset-0 noise pointer-events-none"></div>
-<p class="relative z-10 text-[28px] text-slate-100 text-center leading-relaxed"><span class="text-[#0EA5E9] ui-bold">最小星型模型：</span>Fact + Dim（时间/组织/客户/产品）+ <span class="text-white ui-bold">口径 1 页</span></p>
-</div>
-<div class="glass rounded-2xl px-10 py-7 w-full max-w-[900px]">
-<div class="absolute inset-0 noise pointer-events-none"></div>
-<p class="relative z-10 text-[28px] text-slate-100 text-center leading-relaxed"><span class="text-[#0EA5E9] ui-bold">PQ→PP→CUBE：</span>洗表 → 关系与度量 → <span class="text-white ui-bold">CEO 视图</span></p>
-</div>
-<div class="rounded-2xl p-[3px] bg-gradient-to-r from-[#0EA5E9] to-[#FF7700] shadow-lg w-full max-w-[900px]">
-<div class="cta-gradient rounded-[13px] px-12 py-8 text-center">
-<div class="absolute inset-0 noise pointer-events-none rounded-[13px]"></div>
-<div class="relative z-10">
-<div class="text-[26px] text-slate-300 ui-bold mb-2">点赞 · 收藏 · 转发给</div>
-<div class="text-[38px] text-white ui-bold">还在半年会前 <span class="text-[#FF7700] text-[48px] glow-num">VLOOKUP</span> 的同事</div>
-</div>
-</div>
-</div>
-</div>
-<div class="absolute bottom-6 left-0 w-full text-center text-slate-600 text-[20px] ui-bold tracking-widest whitespace-nowrap z-50 pointer-events-none">@小微之家会计服务 &nbsp;|&nbsp; @老汪洞察 &nbsp;|&nbsp; @汪斌带你开公司</div>
+<div class="w-[1080px] h-[1440px] bg-[#0a0f1a] relative box-border overflow-hidden wenkai pt-9 pb-20 px-10">
+  <div class="absolute top-[-100px] left-[-60px] w-[680px] h-[680px] bg-cyan-500/28 rounded-full blur-[170px] z-0"></div>
+  <div class="absolute bottom-[-80px] right-[-40px] w-[580px] h-[580px] bg-blue-600/22 rounded-full blur-[140px] z-0"></div>
+  <div class="absolute inset-0 noise pointer-events-none z-[1]"></div>
+  <div class="board-cover">
+    <div class="relative">
+      <div class="wm-num ui-title">08</div>
+      <div class="flex items-center gap-4 relative z-10">
+        <div class="idx-sq sage ui-bold">08</div>
+        <div>
+          <div class="c-en sage ui-bold">LOCK</div>
+          <div class="c-cn">先建模型</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h1 class="text-[50px] text-white leading-[1.12] ui-title">先有对象和口径<br/>再有公式和图表</h1>
+      <p class="text-[26px] text-slate-300 mt-3">还在半年会前 <span class="mark">VLOOKUP</span> 的同事，从这三件开始。</p>
+    </div>
+    <div class="card-paper p-7 flex items-center gap-5">
+      <div class="idx-sq terra ui-bold">01</div>
+      <div>
+        <div class="text-[22px] text-slate-400 ui-bold">OBJECT</div>
+        <div class="text-[32px] text-white ui-title">Fact + 四张 Dim</div>
+      </div>
+    </div>
+    <div class="card-paper p-7 flex items-center gap-5 w-[94%] ml-auto">
+      <div class="idx-sq sage ui-bold">02</div>
+      <div>
+        <div class="text-[22px] text-slate-400 ui-bold">RULE</div>
+        <div class="text-[32px] text-white ui-title">口径说明 1 页</div>
+      </div>
+    </div>
+    <div class="card-paper p-7 flex items-center gap-5 w-[88%] ml-auto">
+      <div class="idx-sq ochre ui-bold">03</div>
+      <div>
+        <div class="text-[22px] text-slate-400 ui-bold">PATH</div>
+        <div class="text-[32px] text-white ui-title">PQ → PP → CUBE</div>
+      </div>
+    </div>
+    <div class="card-principle px-6 py-6">
+      <p class="text-[28px] text-slate-100 leading-relaxed"><span class="mark ui-title">原则：</span>最小星型能<span class="mark">每月刷新</span>，才谈得上经营分析，而不是临时拼表。</p>
+    </div>
+    <div class="pill-dark px-8 py-6 text-center">
+      <div class="text-[24px] text-white/70 ui-bold">点赞 · 收藏 · 转发给</div>
+      <div class="text-[30px] text-white ui-title mt-2 leading-snug">还在半年会前 VLOOKUP 的同事</div>
+    </div>
+    <div class="c-foot ui-bold">
+      <div><span class="c-foot-sq"></span>老汪洞察 · 信息图</div>
+      <div>08 / 08 · 结尾</div>
+    </div>
+  </div>
+  <div class="absolute bottom-6 left-0 w-full text-center text-slate-600 text-[20px] ui-bold tracking-widest whitespace-nowrap z-50 pointer-events-none">@小微之家会计服务 &nbsp;|&nbsp; @老汪洞察 &nbsp;|&nbsp; @汪斌带你开公司</div>
 </div>
 </body>
 </html>

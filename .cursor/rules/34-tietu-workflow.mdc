@@ -1,5 +1,5 @@
 ---
-description: 3:4贴图制作工作流 — 出图前必须先问 A 深色玻璃 或 B 亮色高级 主题
+description: 3:4贴图制作工作流 — 出图前必须先问 A 深色玻璃 / B 亮色高级 / C 奶油刊物 主题
 alwaysApply: true
 ---
 
@@ -9,12 +9,13 @@ alwaysApply: true
 
 **默认尺寸**：1080×1440（3:4），用于小红书、微信贴图。
 
-## 两套备用主题
+## 三套备用主题
 
 | ID | 名称 | 规范 | 金标准 |
 |---|---|---|---|
 | **A** | 深色玻璃 | `.cursor/skills/34-tietu-workflow/references/theme-a-dark-glass.md` | `examples/gold-a-ceo-star-dark/` |
 | **B** | 亮色高级 | `.cursor/skills/34-tietu-workflow/references/theme-b-light-premium.md` | `examples/gold-b-ceo-star-light/` |
+| **C** | 奶油刊物 | `.cursor/skills/34-tietu-workflow/references/theme-c-cream-editorial.md` | `examples/gold-c-workshop-editorial/` |
 
 索引：`.cursor/skills/34-tietu-workflow/references/theme-index.md`
 
@@ -23,14 +24,19 @@ alwaysApply: true
 > 要做成 **3:4 贴图套图**（1080×1440），请选主题：
 > - **A 深色玻璃** — 夜间/科技感
 > - **B 亮色高级** — 日间/刊物感
+> - **C 奶油刊物** — 信息图/陶土鼠尾草（可选）
 >
-> 回复 A 或 B；两套都要则回复「A+B」。
+> 回复 A、B 或 C；两套都要则回复「A+B」。
 
 ## 铁律
 
 - 出卡前读 `examples/_card-registry.yaml`，已登记 slug 不重复出
 - 尺寸默认 **3:4 · 1080×1440**，非用户明确要求不改比例
 - 主题规范优先于 design-system 旧字体方案
+- **三套共用文字**：正文霞鹜文楷 `.wenkai`，大标题/卡片标题思源宋体 `.ui-title`，数字/页码/水印 HarmonyOS `.ui-bold`；每段 1–3 个重点词 `.mark` / `.mark-sage`。全文见 `.cursor/skills/34-tietu-workflow/references/type-shared.md`
+- **三套共用骨架**：方标页眉 + 英文小标 + 巨号水印页码 + `.c-foot` + 六种版式节奏（封面大圆 / 对比 / 分层 / 网格 / 清单 / 结尾收口）。A 用玻璃、B 用 Mesh 氛围、C 用奶油白卡，**禁止**退回「胶囊页眉 + 等宽三列」。见 `references/layout-shared.md`
+- 页眉中文必须是读者能看懂的栏目名；**禁止**写「封面钩子 / 分镜 / CTA / slug」等内部词
+- 成片按套图文件夹名输出（`{文件夹}.mp4` / `（带封面）` / `（轮播）` / `（轮播带封面）`），禁止每套都叫 `showcase.mp4`
 - 橱窗砸入成片同样锁定 **3:4 · 1080×1440**，禁止做成 9:16 / 1080×1920
 - 竖向铺满：禁止内容全部顶在上半截、底下空一大块米色；用 `.board` + `space-between` 把最后一块贴到水印上沿（**禁止 flex-1**）
 - 橱窗静持默认 **5 秒**/张，禁止 10 秒

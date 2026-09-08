@@ -2,86 +2,68 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>P5：PQ四步 · 亮色高级刊</title>
+  <title>P5：黄金四步-亮色</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.2.5/chinese-simplified-700.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.2.5/chinese-simplified-900.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Bold/Bold.css"/>
-  <style>
-    html,body{margin:0;padding:0;background:#faf8f5;overflow:hidden}
-    .ui-bold{font-family:'HarmonyOS_Sans_SC_Bold','HarmonyOS Sans SC',sans-serif;font-weight:700}
-    .wenkai{font-family:'LXGW WenKai','霞鹜文楷',serif}
-    .card-premium{
-      background:#fff;border-radius:16px;border:1px solid transparent;background-clip:padding-box;position:relative;
-      box-shadow:0 1px 2px rgba(13,37,61,.04),0 8px 24px rgba(14,165,233,.1),0 24px 48px rgba(14,165,233,.05);
-    }
-    .card-premium::before{
-      content:'';position:absolute;inset:0;border-radius:16px;padding:1px;
-      background:linear-gradient(135deg,#BAE6FD,#0EA5E9 40%,#FF7700 80%,#BAE6FD);
-      -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
-      mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
-      -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;
-    }
-    .card-featured{
-      background:linear-gradient(135deg,#fff 0%,#FFF4E6 100%);border-radius:16px;
-      box-shadow:0 1px 2px rgba(255,119,0,.08),0 8px 32px rgba(255,119,0,.15),0 0 60px rgba(255,119,0,.08);
-      border:1px solid rgba(255,119,0,.2);border-top:2px solid rgba(255,255,255,.9);
-    }
-    .step-num{background:linear-gradient(135deg,#0EA5E9,#0284C7);border-radius:9999px}
-    .badge{background:#E0F2FE;color:#0284C7;border:1px solid #BAE6FD;border-radius:9999px}
-  </style>
+  <link rel="stylesheet" href="theme-b.css"/>
 </head>
 <body>
-<div class="w-[1080px] h-[1440px] bg-[#faf8f5] flex flex-col relative box-border overflow-hidden wenkai px-10 py-9">
-  <div class="flex justify-between items-center mb-6">
-    <span class="badge px-7 py-3 text-[26px] ui-bold"># 黄金组合四步</span>
-    <span class="text-[#1C1917] text-[28px] ui-bold">05 / 08</span>
+<div class="w-[1080px] h-[1440px] bg-[#faf8f5] relative box-border overflow-hidden wenkai pt-9 pb-20 px-10">
+  <div class="board">
+    <div class="relative">
+      <div class="wm-num ui-title">05</div>
+      <div class="flex items-center gap-4 relative z-10">
+        <div class="idx-sq terra ui-bold">05</div>
+        <div>
+          <div class="c-en ui-bold">FLOW</div>
+          <div class="c-cn">黄金四步</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h1 class="text-[50px] text-[#1C1917] leading-[1.12] ui-title">PQ → PP → CUBE<br/><span class="text-[#0EA5E9]">陪跑课固定四步</span></h1>
+      <p class="text-[26px] text-[#6B6560] mt-3">不要跳步。先<span class="mark">对象+粒度+口径</span>，再写度量。</p>
+    </div>
+    <div class="card-paper p-6 flex items-center gap-5">
+      <div class="dot-n terra ui-bold">1</div>
+      <div>
+        <div class="text-[30px] text-[#1C1917] ui-title">需求 · 脑图/Word</div>
+        <p class="text-[24px] text-[#6B6560] mt-1">老板要看哪 3 类问题 → <span class="mark">对象+粒度+口径</span></p>
+      </div>
+    </div>
+    <div class="card-paper p-6 flex items-center gap-5">
+      <div class="dot-n sage ui-bold">2</div>
+      <div>
+        <div class="text-[30px] text-[#1C1917] ui-title">架构 · 纸笔</div>
+        <p class="text-[24px] text-[#6B6560] mt-1">定 Fact + Dim，画星型 → <span class="mark-sage">模型图 1 张</span></p>
+      </div>
+    </div>
+    <div class="card-paper p-6 flex items-center gap-5">
+      <div class="dot-n ochre ui-bold">3</div>
+      <div>
+        <div class="text-[30px] text-[#1C1917] ui-title">清洗 · Power Query</div>
+        <p class="text-[24px] text-[#6B6560] mt-1">金蝶导出合并、逆透视、对编码 → <span class="mark-sage">干净表进 PP</span></p>
+      </div>
+    </div>
+    <div class="card-paper p-6 flex items-center gap-5">
+      <div class="dot-n terra ui-bold">4</div>
+      <div>
+        <div class="text-[30px] text-[#1C1917] ui-title">呈现 · PP + CUBE</div>
+        <p class="text-[24px] text-[#6B6560] mt-1">建关系、写度量值、CEO 视图 → <span class="mark">可刷新看板</span></p>
+      </div>
+    </div>
+    <div class="card-principle px-6 py-5">
+      <p class="text-[26px] text-[#1C1917] leading-relaxed"><span class="mark ui-title">原则：</span>PQ 解决「每次导入格式不一样」；ERP 缺字段要回到<span class="mark">主数据治理</span>。</p>
+    </div>
+    <div class="c-foot ui-bold">
+      <div><span class="c-foot-sq"></span>老汪洞察 · 信息图</div>
+      <div>05 / 08 · 四步</div>
+    </div>
   </div>
-
-  <h1 class="text-[54px] text-[#1C1917] leading-[1.12] ui-bold mb-7">PQ → PP → CUBE<br/><span class="text-[#0284C7]">老汪陪跑课固定四步</span></h1>
-
-  <div class="flex flex-col gap-5 flex-1">
-    <div class="card-premium p-6 flex items-center gap-6 relative">
-      <div class="step-num w-[76px] h-[76px] flex items-center justify-center text-white text-[36px] ui-bold flex-shrink-0">01</div>
-      <div>
-        <div class="text-[#1C1917] text-[32px] ui-bold">需求 <span class="text-[#0284C7] text-[26px]">脑图/Word</span></div>
-        <div class="text-[#1C1917] text-[26px] mt-2">老板要看哪 3 类问题 → <span class="text-[#0284C7] ui-bold">对象+粒度+口径</span></div>
-      </div>
-    </div>
-    <div class="card-premium p-6 flex items-center gap-6 relative">
-      <div class="step-num w-[76px] h-[76px] flex items-center justify-center text-white text-[36px] ui-bold flex-shrink-0">02</div>
-      <div>
-        <div class="text-[#1C1917] text-[32px] ui-bold">架构 <span class="text-[#0284C7] text-[26px]">纸笔</span></div>
-        <div class="text-[#1C1917] text-[26px] mt-2">定 Fact + Dim，画星型 → <span class="text-[#0284C7] ui-bold">模型图 1 张</span></div>
-      </div>
-    </div>
-    <div class="card-premium p-6 flex items-center gap-6 relative">
-      <div class="step-num w-[76px] h-[76px] flex items-center justify-center text-white text-[36px] ui-bold flex-shrink-0">03</div>
-      <div>
-        <div class="text-[#1C1917] text-[32px] ui-bold">清洗 <span class="text-[#0284C7] text-[26px]">Power Query</span></div>
-        <div class="text-[#1C1917] text-[26px] mt-2">金蝶导出合并、逆透视、对编码 → <span class="text-[#0284C7] ui-bold">干净表进 PP</span></div>
-      </div>
-    </div>
-    <div class="card-featured p-6 flex items-center gap-6">
-      <div class="step-num w-[76px] h-[76px] flex items-center justify-center text-white text-[36px] ui-bold flex-shrink-0">04</div>
-      <div>
-        <div class="text-[#1C1917] text-[32px] ui-bold">建模呈现 <span class="text-[#FF7700] text-[26px]">PP + CUBE</span></div>
-        <div class="text-[#1C1917] text-[26px] mt-2">建关系、写度量值、CEO视图 → <span class="text-[#FF7700] ui-bold">可刷新看板</span></div>
-      </div>
-    </div>
-
-    <div class="card-premium p-6 relative bg-[#faf8f5]">
-      <div class="text-[#0284C7] text-[26px] ui-bold mb-3">度量值示例（先3个就够开分析会）</div>
-      <div class="text-[#1C1917] text-[24px] leading-relaxed">毛利 := SUM(收入) − SUM(成本) ｜ 毛利率 := DIVIDE(毛利, 收入) ｜ 收入同比 := SAMEPERIODLASTYEAR</div>
-    </div>
-  </div>
-
-  <div class="mt-5 rounded-2xl p-[2px] bg-gradient-to-r from-[#0EA5E9] via-[#0284C7] to-[#FF7700]">
-    <div class="bg-[#E0F2FE] rounded-[14px] px-8 py-6">
-      <p class="text-[26px] text-[#1C1917]"><span class="text-[#0284C7] ui-bold">老汪提醒：</span>PQ 解决「每次导入格式不一样」；ERP 缺字段要回到<span class="ui-bold">主数据治理</span>。</p>
-    </div>
-  </div>
-
-  <div class="absolute bottom-6 left-0 w-full text-center text-[#1C1917]/40 text-[22px] ui-bold tracking-widest whitespace-nowrap z-50 pointer-events-none select-none">@小微之家会计服务 &nbsp;|&nbsp; @老汪洞察 &nbsp;|&nbsp; @汪斌带你开公司</div>
+  <div class="absolute bottom-6 left-0 w-full text-center text-[#1C1917]/40 text-[20px] ui-bold tracking-widest whitespace-nowrap z-50 pointer-events-none">@小微之家会计服务 &nbsp;|&nbsp; @老汪洞察 &nbsp;|&nbsp; @汪斌带你开公司</div>
 </div>
 </body>
 </html>

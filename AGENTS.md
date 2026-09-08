@@ -6,9 +6,9 @@
 
 `.cursor/skills/34-tietu-workflow/SKILL.md`
 
-并遵守 `.cursor/rules/34-tietu-workflow.mdc`（主题必问）与 `34-tietu-watermark-safe-zone.mdc`（水印与防裁切）。
+并遵守 `.cursor/rules/34-tietu-workflow.mdc`（主题必问 + 三套共用文字与骨架）与 `34-tietu-watermark-safe-zone.mdc`（水印与防裁切）。文字见 `references/type-shared.md`，版式见 `references/layout-shared.md`。
 
-金标准：`examples/gold-a-ceo-star-dark/`、`examples/gold-b-ceo-star-light/`。
+金标准：`examples/gold-a-ceo-star-dark/`、`examples/gold-b-ceo-star-light/`、`examples/gold-c-workshop-editorial/`。
 成型样例：`examples/sample-gm-variance-dark/`。
 新产出：`workspace/HTMLcards/`。
 

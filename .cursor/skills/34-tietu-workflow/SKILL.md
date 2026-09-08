@@ -1,6 +1,6 @@
 ---
 name: 34-tietu-workflow
-description: 3:4贴图制作工作流。把文档/大纲/文案一键做成 1080×1440（3:4）贴图套图，用于小红书图文、微信贴图、知识卡等。触发词：3:4贴图、贴图制作、贴图套图、小红书贴图、微信贴图、HTML卡片、知识卡、一键出贴图。先问用户选主题（A深色玻璃/B亮色高级），再自动完成：文案拆分 → HTML → 高清截图 → 配套发布文案 → 5秒/张翻页 MP4（BGM） → 3:4 封面。
+description: 3:4贴图制作工作流。把文档/大纲/文案一键做成 1080×1440（3:4）贴图套图，用于小红书图文、微信贴图、知识卡等。触发词：3:4贴图、贴图制作、贴图套图、小红书贴图、微信贴图、HTML卡片、知识卡、一键出贴图。先问用户选主题（A深色玻璃/B亮色高级/C奶油刊物），再自动完成：文案拆分 → HTML → 高清截图 → 配套发布文案 → 5秒/张翻页 MP4（BGM） → 3:4 封面。
 license: MIT
 ---
 
@@ -16,7 +16,7 @@ license: MIT
 
 除非用户明确要求其它比例，**一律 3:4**。不要用 16:9 或横版替代。
 
-版式与拆图全自动，**但主题必须先问**。用户发来文档时，写 HTML 之前**必须先确认主题**（见「主题选择」）；用户已明确指定 A/B 的除外。
+版式与拆图全自动，**但主题必须先问**。用户发来文档时，写 HTML 之前**必须先确认主题**（见「主题选择」）；用户已明确指定 A/B/C 的除外。
 
 其余可停下来问用户的情况：
 
@@ -38,17 +38,19 @@ license: MIT
 > 要做成 **3:4 贴图套图**（1080×1440），请选主题：
 > - **A 深色玻璃** — 夜间/科技感（玻璃模糊 + 光晕 + 噪点）
 > - **B 亮色高级** — 日间/刊物感（Mesh 渐变 + 渐变边框 + 三层阴影）
+> - **C 奶油刊物** — 信息图感（奶油底 + 陶土橙 + 鼠尾草绿）
 >
-> 回复 A 或 B；若要两套各做一份，回复「A+B」。
+> 回复 A、B 或 C；若要两套各做一份，回复「A+B」。
 
-**不必再问**：用户已说「深色」「亮色」「A」「B」「跟 055/056 一样」。
+**不必再问**：用户已说「深色」「亮色」「A」「B」「C」「奶油刊物」「信息图那套」「跟 055/056 一样」。
 
 | 选择 | 必读规范 | 金标准样例 |
 |---|---|---|
 | A | `references/theme-a-dark-glass.md` | `examples/gold-a-ceo-star-dark/` |
 | B | `references/theme-b-light-premium.md` | `examples/gold-b-ceo-star-light/` |
+| C | `references/theme-c-cream-editorial.md` | `examples/gold-c-workshop-editorial/` |
 
-文件夹名建议加后缀：`（深色）` / `（浅色）`。
+文件夹名建议加后缀：`（深色）` / `（浅色）` / `（刊物）`。
 
 ## 防重复登记（第 0.5 步）
 
@@ -61,11 +63,13 @@ license: MIT
 ## 总流程
 
 ```text
-0. 问主题 → A / B（已指定则跳过）
+0. 问主题 → A / B / C（已指定则跳过）
 1. 读文档 → 主题、语气、读者
 2. 拆贴图 → 分镜表（封面 + 内容 + 结尾），内部决定不等确认
 2.5 读反塑料感 → references/anti-plastic-design.md（三张旋钮 + 版式手法 + 禁用项）
-3. 写 HTML → design-system.md + 所选主题（3:4 竖版 1080×1440）；套图版式要有节奏变化
+2.6 读共用文字 → references/type-shared.md（楷体正文 + 宋体标题 + 重点词 + 禁内部词）
+2.7 读共用骨架 → references/layout-shared.md（方标页眉 + 巨号水印 + 六种版式）
+3. 写 HTML → design-system.md + type-shared.md + layout-shared.md + 所选主题（3:4 竖版 1080×1440）；套图版式要有节奏变化
 3.5 出图前 QA → anti-plastic-design.md 第七节 + **design-system 水印安全区 & 画布防裁切 & 竖向铺满**（见 `.cursor/rules/34-tietu-watermark-safe-zone.mdc` B/C/D 节；**截图前不可跳过**）
 4. 截图 → scripts/render.mjs → 成品图/*.png
 4.5 PNG 铺满自检 → `qa_tietu.py pngs`（底 25% 不能只剩水印）
@@ -112,12 +116,14 @@ py -3 ".cursor/skills/34-tietu-workflow/scripts/prepend_cover_frame.py" --cover 
 新套图默认写到仓库根目录 `workspace/HTMLcards/`：
 
 ```text
-workspace/HTMLcards/0XX、选题标题（深色/浅色）/
+workspace/HTMLcards/0XX、选题标题（深色/浅色/刊物）/
   文案.txt
   1.html ~ N.html
   成品图/1.png ~ N.png    ← 3:4 贴图成品（1080×1440 @3x）
-  成品视频/carousel.mp4              ← 每张 5 秒 + 翻页动画 + BGM
-  成品视频/carousel_with_cover.mp4   ← 封面第一帧 + 轮播
+  成品视频/<套图文件夹名>.mp4              ← 橱窗砸入（主交付）
+  成品视频/<套图文件夹名>（带封面）.mp4     ← 封面第一帧 + 橱窗
+  成品视频/<套图文件夹名>（轮播）.mp4       ← 每张 5 秒 + 翻页 + BGM
+  成品视频/<套图文件夹名>（轮播带封面）.mp4
   封面/cover-3x4.png (.jpg)          ← 3:4 封面
   配套文案与关键词.md
 ```
@@ -135,10 +141,13 @@ workspace/HTMLcards/0XX、选题标题（深色/浅色）/
 - `examples/_card-registry.yaml` — 产出登记 + 防重复
 - `examples/gold-a-ceo-star-dark/` — 主题 A 金标准
 - `examples/gold-b-ceo-star-light/` — 主题 B 金标准
+- `examples/gold-c-workshop-editorial/` — 主题 C 金标准
 - `examples/sample-gm-variance-dark/` — 完整样例（HTML + 封面 + 成片 MP4）
 - `references/anti-plastic-design.md` — 反塑料感审美纪律（写卡前 + 出图前 QA）
+- `references/type-shared.md` — 三套共用文字铁律（宋体标题 / 楷体正文 / 重点词 / 禁内部词）
+- `references/layout-shared.md` — 三套共用信息图骨架（页眉 DNA / 六种版式 / 语义组件）
 - `references/theme-index.md` — 主题索引
-- `references/theme-a-dark-glass.md` / `theme-b-light-premium.md`
+- `references/theme-a-dark-glass.md` / `theme-b-light-premium.md` / `theme-c-cream-editorial.md`
 - `references/design-system.md` — 3:4 尺寸、水印、截图结构
 - `awesome-design-md` — 可选；风格发飘时对照 stripe / linear.app DESIGN.md（本包不强制附带）
 - `references/content-split-rules.md` — 文案拆分
@@ -153,7 +162,7 @@ workspace/HTMLcards/0XX、选题标题（深色/浅色）/
 
 ## 独立模式：橱窗砸入（不改上面的默认轮播）
 
-用户要「顶部目录跟着切卡滑过去 + 空镜 + 砸入」时，走独立 skill `34-tietu-showcase`。只写 `成品视频/showcase.mp4`，**不覆盖** `carousel.mp4`。画布锁定 **3:4 · 1080×1440**（禁止 9:16）。默认每张可读 **5 秒**（禁止 10 秒；8 张约 48 秒）。音效只在淡出/砸入，**静持和空镜必须静音**。出片走 `finish_cards_showcase.py`（内置 PNG 铺满 + 音频自检，不过不准交付）。
+用户要「顶部目录跟着切卡滑过去 + 空镜 + 砸入」时，走独立 skill `34-tietu-showcase`。只写 `成品视频/<套图文件夹名>.mp4`，**不覆盖**轮播成片。画布锁定 **3:4 · 1080×1440**（禁止 9:16）。默认每张可读 **5 秒**（禁止 10 秒；8 张约 48 秒）。音效只在淡出/砸入，**静持和空镜必须静音**。出片走 `finish_cards_showcase.py`（内置 PNG 铺满 + 音频自检，不过不准交付）。
 
 ```powershell
 py -3 ".cursor/skills/34-tietu-workflow/scripts/finish_cards_showcase.py" "<贴图文件夹>" --title "大标题"

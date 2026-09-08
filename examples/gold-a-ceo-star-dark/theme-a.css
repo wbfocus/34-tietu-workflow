@@ -1,0 +1,98 @@
+html,body{margin:0;padding:0;background:#0a0f1a;overflow:hidden}
+.ui-bold{font-family:'HarmonyOS_Sans_SC_Bold','HarmonyOS Sans SC','Microsoft YaHei',sans-serif;font-weight:700}
+.ui-title{font-family:'Noto Serif SC','Source Han Serif SC','Noto Serif CJK SC','Songti SC','SimSun',serif;font-weight:900}
+.wenkai{font-family:'LXGW WenKai','霞鹜文楷','Microsoft YaHei',serif}
+.mark{color:#FF7700}
+.mark-sage{color:#7dd3fc}
+.noise{opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.idx-sq{
+  width:72px;height:72px;border-radius:18px;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:30px;flex-shrink:0;
+}
+.idx-sq.terra{background:#FF7700}
+.idx-sq.sage{background:#0EA5E9}
+.idx-sq.ochre{background:#0284C7}
+.wm-num{
+  position:absolute;right:-8px;top:-36px;z-index:0;
+  font-size:240px;line-height:.85;color:#0EA5E9;opacity:.14;
+  pointer-events:none;letter-spacing:-0.06em;
+}
+.card-paper{
+  background:rgba(15,23,42,.62);backdrop-filter:blur(24px);
+  border:1px solid rgba(148,163,184,.22);border-top:1px solid rgba(255,255,255,.14);
+  box-shadow:0 12px 40px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.08);
+  border-radius:20px;position:relative;
+}
+.card-callout{background:rgba(14,165,233,.14);border-radius:20px;border:1px solid rgba(14,165,233,.28)}
+.card-blush{background:rgba(255,119,0,.12);border-radius:20px;border:1px solid rgba(255,119,0,.28)}
+.card-sage{background:rgba(14,165,233,.12);border-radius:20px;border:1px solid rgba(14,165,233,.25)}
+.card-principle{
+  background:rgba(255,119,0,.1);border-radius:18px;
+  border:1.5px dashed #FF7700;
+}
+.hl-bar{
+  background:rgba(14,165,233,.12);border-radius:20px;
+  border-left:8px solid #0EA5E9;
+}
+.dot-n{
+  width:48px;height:48px;border-radius:9999px;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;flex-shrink:0;font-size:22px;
+}
+.dot-n.terra{background:#FF7700}
+.dot-n.sage{background:#0EA5E9}
+.dot-n.ochre{background:#0284C7}
+.x-mark,.ok-mark{
+  width:36px;height:36px;border-radius:9999px;
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:18px;flex-shrink:0;
+}
+.x-mark{background:#FF7700}
+.ok-mark{background:#0EA5E9}
+.pill-dark{
+  background:#0f172a;color:#fff;border-radius:9999px;
+  border:1px solid rgba(14,165,233,.35);
+}
+.hero-orb{
+  width:188px;height:188px;border-radius:9999px;
+  background:linear-gradient(135deg,#FF7700,#fb923c);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;position:relative;flex-shrink:0;
+  box-shadow:0 0 50px rgba(255,119,0,.4);
+}
+.hero-orb::after{
+  content:'';position:absolute;inset:-12px;border-radius:9999px;
+  border:2px dashed rgba(14,165,233,.45);
+}
+.tier{
+  display:flex;align-items:stretch;
+  background:rgba(15,23,42,.62);backdrop-filter:blur(24px);
+  border:1px solid rgba(148,163,184,.22);border-top:1px solid rgba(255,255,255,.14);
+  border-radius:18px;overflow:hidden;
+}
+.tier-lab{
+  color:#fff;display:flex;flex-direction:column;justify-content:center;
+  padding:0 22px;min-width:168px;font-size:24px;line-height:1.2;
+}
+.tier-lab.terra{background:#FF7700}
+.tier-lab.sage{background:#0EA5E9}
+.tier-lab.ochre{background:#0284C7}
+.fix-bg{background:rgba(14,165,233,.16)}
+.c-en{font-size:18px;letter-spacing:.28em;color:#FF7700}
+.c-en.sage{color:#7dd3fc}
+.c-cn{font-size:22px;color:#94a3b8;margin-top:2px;font-family:'LXGW WenKai','霞鹜文楷',serif}
+.c-foot{
+  display:flex;justify-content:space-between;align-items:center;
+  padding-top:14px;border-top:1px solid rgba(148,163,184,.22);
+  color:#64748b;font-size:20px;
+}
+.c-foot-sq{
+  width:14px;height:14px;border-radius:4px;background:#FF7700;
+  display:inline-block;margin-right:10px;vertical-align:middle;
+}
+.glow-num{text-shadow:0 0 50px rgba(255,119,0,.6),0 0 100px rgba(255,119,0,.3)}
+.board,.board-cover{
+  display:flex;flex-direction:column;justify-content:space-between;
+  height:1310px;position:relative;z-index:1;
+}

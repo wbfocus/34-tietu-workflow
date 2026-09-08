@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""橱窗砸入出片入口：成品图 → showcase.mp4（不写 carousel.mp4）。
+"""橱窗砸入出片入口：成品图 →「套图文件夹名.mp4」（不写轮播成片）。
 
 Usage:
   py -3 finish_cards_showcase.py "<贴图文件夹>" --title "毛利率掉了别只会说成本升了"
@@ -23,7 +23,7 @@ from cards_to_showcase import (  # noqa: E402
     cards_to_showcase,
 )
 from qa_tietu import qa_png_fill  # noqa: E402
-from finish_cards_media import resolve_card_dir  # noqa: E402
+from finish_cards_media import resolve_card_dir, video_paths  # noqa: E402
 from prepend_cover_frame import prepend_cover  # noqa: E402
 from showcase_chrome import (  # noqa: E402
     default_tabs,
@@ -72,8 +72,9 @@ def main() -> int:
         tabs = parse_tabs_from_wenan(wenan)
     tabs = fit_tabs(tabs or default_tabs(len(pngs)), len(pngs))
 
-    video_dir = card_dir / "成品视频"
-    out = video_dir / "showcase.mp4"
+    paths = video_paths(card_dir)
+    video_dir = paths["dir"]
+    out = paths["showcase"]
     cards_to_showcase(
         pngs,
         out,
@@ -91,7 +92,7 @@ def main() -> int:
     print("OK", out)
     cover_png = card_dir / "封面" / "cover-3x4.png"
     if cover_png.is_file():
-        out_with = video_dir / "showcase_with_cover.mp4"
+        out_with = paths["showcase_cover"]
         prepend_cover(cover_png, out, out_with, width=1080, height=1440)
         print("OK", out_with)
     return 0

@@ -670,7 +670,7 @@ def main() -> int:
         description="3:4 cards → 3:4 showcase MP4 (TOC capsule + empty + smash)"
     )
     p.add_argument("images_dir", type=Path, help="成品图 folder")
-    p.add_argument("--out", type=Path, help="default 成品视频/showcase.mp4")
+    p.add_argument("--out", type=Path, help="default 成品视频/<套图文件夹名>.mp4")
     p.add_argument("--hold", type=float, default=DEFAULT_HOLD)
     p.add_argument("--fade", type=float, default=DEFAULT_FADE)
     p.add_argument("--empty", type=float, default=DEFAULT_EMPTY)
@@ -695,7 +695,7 @@ def main() -> int:
         print("no png in", folder, file=sys.stderr)
         return 1
     title, tabs = _resolve_tabs_title(folder, len(pngs), args.tabs, args.title)
-    out = args.out or (folder.parent / "成品视频" / "showcase.mp4")
+    out = args.out or (folder.parent / "成品视频" / f"{folder.parent.name}.mp4")
     try:
         cards_to_showcase(
             pngs,
