@@ -48,7 +48,8 @@ license: MIT
 2. 填 HTML（比喻 → 竖向流程 → 坑修 → 积木 → 原则框）
    每个要弹出的块保留 data-eli5-reveal
 3. py -3 finish_eli5_scroll.py "<文件夹>"
-4. 交付：成品图/long.png + cover-3x4.png + 成品视频/<文件夹>（上滑）.mp4
+   （封面文案可加 --title "第一行|第二行" --sub "副标" --pill "经营分析小卡片" --style 4）
+4. 交付：成品图/long.png + 封面/cover-3x4.png + 成品视频/<文件夹>（上滑）.mp4 + （上滑带封面）.mp4
 ```
 
 ### 出片命令（仓库根目录）
@@ -62,7 +63,10 @@ py -3 ".cursor/skills/34-tietu-workflow/scripts/finish_eli5_scroll.py" ".\worksp
 ```powershell
 node ".cursor/skills/34-tietu-workflow/scripts/harvest_eli5_scroll.mjs" ".\workspace\HTMLcards\eli5-你的标题（刊物）"
 py -3 ".cursor/skills/34-tietu-workflow/scripts/eli5_scroll_video.py" ".\workspace\HTMLcards\eli5-你的标题（刊物）"
+py -3 ".cursor/skills/34-tietu-workflow/scripts/finish_eli5_scroll.py" ".\workspace\HTMLcards\eli5-你的标题（刊物）" --cover-only --title "第一行|第二行" --sub "副标" --style 4
 ```
+
+封面走贴图同一套 `covers-3x4/`（居中大字、最多两行，每行尽量 ≤6 字），写入 `封面/cover-3x4.png`，再拼成片 **第 0 帧仅 1 帧** → `<文件夹>（上滑带封面）.mp4`。不要把长图头顶裁成封面。
 
 ## HTML 铁律
 
@@ -92,8 +96,10 @@ workspace/HTMLcards/eli5-短标题（刊物）/
   layout-long.css
   theme-c-long.css
   成品图/long.png
-  成品图/cover-3x4.png
+  封面/cover.html
+  封面/cover-3x4.png
   成品视频/<文件夹>（上滑）.mp4
+  成品视频/<文件夹>（上滑带封面）.mp4
   harvest/plate.png
   harvest/sprites/
   harvest/timeline.json
@@ -101,4 +107,4 @@ workspace/HTMLcards/eli5-短标题（刊物）/
 
 ## 完成后汇报
 
-> 已生成 ELI5 长图（1080 宽）和 **3:4 上滑视频**（1080×1440，N 个对象弹出 + 气泡音，无 BGM / 无口播）。成品在 `…/成品图` 与 `…/成品视频`。
+> 已生成 ELI5 长图（1080 宽）和 **3:4 上滑视频**（1080×1440，N 个对象弹出 + 气泡音，无 BGM / 无口播）；3:4 封面在 `封面\cover-3x4.png`，带封面成片为 `（上滑带封面）.mp4`。

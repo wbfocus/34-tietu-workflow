@@ -7,6 +7,7 @@ __pycache__/
 Thumbs.db
 .DS_Store
 covers-3x4/_work/
+.cursor/skills/34-tietu-workflow/covers-3x4/_work/
 workspace/HTMLcards/*
 !workspace/HTMLcards/.gitkeep
 !workspace/HTMLcards/_card-registry.yaml

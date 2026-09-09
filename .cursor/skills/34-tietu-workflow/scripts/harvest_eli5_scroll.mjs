@@ -2,7 +2,6 @@
 /**
  * Harvest an ELI5 390px long HTML into:
  *   成品图/long.png          full long image (WeChat)
- *   成品图/cover-3x4.png     top 1080×1440 crop
  *   harvest/plate.png        same page with reveal nodes hidden
  *   harvest/sprites/NN.png   each reveal sprite
  *   harvest/timeline.json    boxes in output pixels
@@ -188,10 +187,6 @@ async function main() {
     });
   }
 
-  const coverPath = path.join(outDir, 'cover-3x4.png');
-  await page.evaluate(() => window.scrollTo(0, 0));
-  await page.screenshot({ path: coverPath, animations: 'disabled' });
-
   const timeline = {
     html: path.basename(htmlFile),
     css_width: metrics.cssW,
@@ -201,14 +196,12 @@ async function main() {
     frame_h: FRAME_H,
     plate: 'plate.png',
     longshot: path.relative(harvestDir, longPath).replaceAll('\\', '/'),
-    cover: path.relative(harvestDir, coverPath).replaceAll('\\', '/'),
     reveals,
   };
   const tlPath = path.join(harvestDir, 'timeline.json');
   fs.writeFileSync(tlPath, JSON.stringify(timeline, null, 2), 'utf8');
 
   console.log(`long:   ${longPath}`);
-  console.log(`cover:  ${coverPath}`);
   console.log(`plate:  ${platePath}`);
   console.log(`reveals:${reveals.length}`);
   console.log(`css:    ${Math.round(metrics.cssW)}×${Math.round(metrics.cssH)} @${SCALE.toFixed(3)}x`);

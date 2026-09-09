@@ -8,6 +8,8 @@ from __future__ import annotations
 import argparse
 import json
 import random
+import re
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -16,6 +18,18 @@ ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "covers-3x4" / "style-catalog.json"
 DEFAULT_HOLD = 0.034  # 1 frame @ 30fps（A 区锁定：成片第一帧仅 1 帧）
 W, H = 1080, 1440
+
+
+def ffmpeg_bin() -> str:
+    exe = shutil.which("ffmpeg")
+    if exe:
+        return exe
+    try:
+        import imageio_ffmpeg
+
+        return imageio_ffmpeg.get_ffmpeg_exe()
+    except Exception:
+        raise SystemExit("未找到 ffmpeg。请安装并加入 PATH，或 pip install imageio-ffmpeg")
 
 
 def load_catalog() -> dict:
@@ -30,20 +44,16 @@ def pick_style(seed: str | None = None) -> dict:
 
 
 def ffprobe_has_audio(path: Path) -> bool:
-    cmd = [
-        "ffprobe",
-        "-v",
-        "error",
-        "-select_streams",
-        "a",
-        "-show_entries",
-        "stream=index",
-        "-of",
-        "csv=p=0",
-        str(path),
-    ]
-    out = subprocess.check_output(cmd, text=True, encoding="utf-8", errors="replace")
-    return bool(out.strip())
+    ff = ffmpeg_bin()
+    proc = subprocess.run(
+        [ff, "-hide_banner", "-i", str(path)],
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+    )
+    blob = (proc.stderr or "") + (proc.stdout or "")
+    return bool(re.search(r"Audio:\s", blob))
 
 
 def prepend_cover(
@@ -61,6 +71,7 @@ def prepend_cover(
         f"scale={width}:{height}:force_original_aspect_ratio=decrease,"
         f"pad={width}:{height}:(ow-iw)/2:(oh-ih)/2:color={pad_color},setsar=1,fps=30,format=yuv420p"
     )
+    ff = ffmpeg_bin()
     if has_a:
         fc = (
             f"[0:v]{pad},trim=duration={hold},setpts=PTS-STARTPTS[v0];"
@@ -71,7 +82,7 @@ def prepend_cover(
             f"[a0][a1]concat=n=2:v=0:a=1[aout]"
         )
         cmd = [
-            "ffmpeg", "-y",
+            ff, "-y",
             "-loop", "1", "-t", str(hold), "-i", str(cover),
             "-i", str(video),
             "-filter_complex", fc,
@@ -88,7 +99,7 @@ def prepend_cover(
             f"[v0][v1]concat=n=2:v=1:a=0[vout]"
         )
         cmd = [
-            "ffmpeg", "-y",
+            ff, "-y",
             "-loop", "1", "-t", str(hold), "-i", str(cover),
             "-i", str(video),
             "-filter_complex", fc,

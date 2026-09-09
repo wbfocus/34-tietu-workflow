@@ -166,16 +166,6 @@ def harvest(job_or_html: Path) -> Path:
                 }
             )
 
-        cover_path = out_dir / "cover-3x4.png"
-        try:
-            from PIL import Image
-
-            with Image.open(long_path) as im:
-                im.crop((0, 0, min(im.width, FRAME_W), min(im.height, FRAME_H))).save(cover_path)
-        except Exception:
-            page.evaluate("() => window.scrollTo(0, 0)")
-            page.screenshot(path=str(cover_path), animations="disabled")
-
         timeline = {
             "html": html.name,
             "css_width": metrics["cssW"],
@@ -185,7 +175,6 @@ def harvest(job_or_html: Path) -> Path:
             "frame_h": FRAME_H,
             "plate": "plate.png",
             "longshot": "../成品图/long.png",
-            "cover": "../成品图/cover-3x4.png",
             "reveals": reveals,
         }
         tl_path = harvest_dir / "timeline.json"
@@ -193,7 +182,6 @@ def harvest(job_or_html: Path) -> Path:
         browser.close()
 
     print(f"long:    {long_path}")
-    print(f"cover:   {cover_path}")
     print(f"plate:   {plate_path}")
     print(f"reveals: {len(reveals)}")
     print(f"timeline:{tl_path}")

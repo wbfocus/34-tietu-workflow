@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -20,12 +21,21 @@ def render_cover(html: Path, out_png: Path) -> Path:
         page.screenshot(path=str(out_png), clip={"x": 0, "y": 0, "width": 1080, "height": 1440})
         browser.close()
     jpg = out_png.with_suffix(".jpg")
-    subprocess.run(
-        ["ffmpeg", "-y", "-i", str(out_png), "-q:v", "2", str(jpg)],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
-        check=False,
-    )
+    ff = shutil.which("ffmpeg")
+    if not ff:
+        try:
+            import imageio_ffmpeg
+
+            ff = imageio_ffmpeg.get_ffmpeg_exe()
+        except Exception:
+            ff = None
+    if ff:
+        subprocess.run(
+            [ff, "-y", "-i", str(out_png), "-q:v", "2", str(jpg)],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            check=False,
+        )
     print("OK", jpg if jpg.exists() else out_png)
     return out_png
 

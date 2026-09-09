@@ -77,7 +77,7 @@ py -3 .cursor/skills/34-tietu-workflow/scripts/finish_cards_showcase.py ".\works
 py -3 .cursor/skills/34-tietu-workflow/scripts/finish_eli5_scroll.py ".\examples\eli5-scroll-sample-c"
 ```
 
-产出 `成品图/long.png` 与 `成品视频/<文件夹>（上滑）.mp4`。规范见 `.cursor/skills/34-eli5-scroll/SKILL.md`。
+产出 `成品图/long.png`、`封面/cover-3x4.png`（与贴图同一套 covers-3x4）、`成品视频/<文件夹>（上滑）.mp4` 与 `（上滑带封面）.mp4`。规范见 `.cursor/skills/34-eli5-scroll/SKILL.md`。
 
 ## 推到你的 GitHub
 
