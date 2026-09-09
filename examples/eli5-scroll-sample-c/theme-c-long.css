@@ -1,0 +1,39 @@
+/* C 奶油刊物 · 390px 长卷 */
+html, body, .phone { background: #FDF8F2; color: #2A2724; }
+.mark { color: #D16C4F; }
+.mark-sage { color: #6F8A6A; }
+.mark-ochre { color: #B8873A; }
+.wm {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='188' viewBox='0 0 300 188'%3E%3Ctext x='150' y='94' text-anchor='middle' dominant-baseline='middle' fill='rgba(55,48,40,0.12)' font-size='13' font-family='Microsoft YaHei,sans-serif' font-weight='600' transform='rotate(-30 150 94)'%3E%E8%80%81%E6%B1%AA%E6%B4%9E%E5%AF%9F%20%7C%20%E5%B0%8F%E5%BE%AE%E4%B9%8B%E5%AE%B6%3C/text%3E%3C/svg%3E");
+}
+.wm-num { color: #D16C4F; opacity: .1; }
+.idx-sq.terra, .dot-n.terra, .x-mark, .tier-lab.terra { background: #D16C4F; }
+.idx-sq.sage, .dot-n.sage, .ok-mark, .tier-lab.sage { background: #6F8A6A; }
+.idx-sq.ochre, .dot-n.ochre, .tier-lab.ochre { background: #C4A46A; }
+.c-en { color: #D16C4F; }
+.c-en.sage { color: #6F8A6A; }
+.c-cn, .tagline, .muted, .box .sub, .arrow, .credit .copy { color: #6B6560; }
+h1.ui-title, h2, .big, .brick .name { color: #2A2724; }
+.card-paper {
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(42,39,36,.04), 0 10px 24px rgba(209,108,79,.07);
+}
+.card-callout { background: #F5EAD4; }
+.card-blush { background: #FCE6E0; }
+.card-sage { background: #E8F0E4; }
+.card-principle { background: #F5EAD4; border-color: #D16C4F; }
+.hl-bar { background: #E8F0E4; border-left-color: #6F8A6A; }
+.pill { background: #E8F0E4; color: #4A5E46; }
+.box { border-color: #6F8A6A; background: #E8F0E4; }
+.box.gray { background: #f5f5f4; border-color: #a8a29e; }
+.box.orange { background: #FCE6E0; border-color: #D16C4F; }
+.brick .item { background: #fff; border: 1px solid #E8E2D9; }
+.brick .desc { color: #44403c; }
+.tier { background: #fff; box-shadow: 0 10px 24px rgba(209,108,79,.07); }
+.hero-orb { background: #D16C4F; }
+.hero-orb::after { border-color: rgba(209,108,79,.38); }
+.pill-dark { background: #2E2E2E; color: #fff; }
+.takeaways li::before { background: #E8F0E4; color: #6F8A6A; }
+.c-foot { border-top: 1px solid rgba(42,39,36,.08); color: #9A938C; }
+.c-foot-sq { background: #D16C4F; }
+.credit { border-top: 1px solid #E8E2D9; color: #57534e; }

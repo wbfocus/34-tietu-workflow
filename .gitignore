@@ -9,5 +9,23 @@ Thumbs.db
 covers-3x4/_work/
 workspace/HTMLcards/*
 !workspace/HTMLcards/.gitkeep
+!workspace/HTMLcards/_card-registry.yaml
+!workspace/HTMLcards/eli5-产品出库成本（深色）/
+!workspace/HTMLcards/eli5-产品出库成本（深色）/**
+
 examples/**/成品图/
+examples/**/harvest/
+!examples/eli5-scroll-sample-c/成品图/
+!examples/eli5-scroll-sample-c/成品图/**
+!examples/eli5-scroll-sample-c/harvest/
+!examples/eli5-scroll-sample-c/harvest/timeline.json
+!examples/eli5-scroll-sample-c/harvest/compose.json
+!examples/eli5-scroll-sample-c/harvest/filter.txt
+
+# regenerable harvest cache (sprites / debug frames)
+**/harvest/sprites/
+**/harvest/plate.png
+**/harvest/_chk*
+**/harvest/_wm*
+**/harvest/frame-*
 *.log

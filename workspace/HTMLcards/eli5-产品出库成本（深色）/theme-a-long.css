@@ -1,0 +1,62 @@
+/* A 深色玻璃 · 390px 长卷 */
+html, body, .phone { background: #0a0f1a; color: #e2e8f0; }
+.wenkai { color: #cbd5e1; }
+.mark { color: #FF7700; }
+.mark-sage { color: #7dd3fc; }
+.atm {
+  background:
+    radial-gradient(ellipse 80% 40% at 20% -10%, rgba(255,119,0,.28) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 36% at 90% 8%, rgba(14,165,233,.22) 0%, transparent 50%);
+}
+.noise {
+  opacity: .05; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.wm {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='390' height='760' viewBox='0 0 390 760'%3E%3Ctext x='195' y='380' text-anchor='middle' dominant-baseline='middle' fill='rgba(186,230,253,0.035)' font-size='13' font-family='Microsoft YaHei,sans-serif' font-weight='600' transform='rotate(-28 195 380)'%3E%E8%80%81%E6%B1%AA%E6%B4%9E%E5%AF%9F%20%7C%20%E5%B0%8F%E5%BE%AE%E4%B9%8B%E5%AE%B6%3C/text%3E%3C/svg%3E");
+}
+.wm-num { color: #0EA5E9; opacity: .16; }
+.idx-sq.terra, .dot-n.terra, .x-mark, .tier-lab.terra { background: #FF7700; }
+.idx-sq.sage, .dot-n.sage, .ok-mark, .tier-lab.sage { background: #0EA5E9; }
+.idx-sq.ochre, .dot-n.ochre, .tier-lab.ochre { background: #0284C7; }
+.c-en { color: #FF7700; }
+.c-en.sage { color: #7dd3fc; }
+.c-cn { color: #94a3b8; }
+.tagline, .muted, .box .sub, .arrow, .credit, .credit .copy, .c-foot { color: #94a3b8; }
+h1.ui-title, h2, .big, .brick .name { color: #f8fafc; }
+.card-paper {
+  background: rgba(15,23,42,.62); backdrop-filter: blur(18px);
+  border: 1px solid rgba(148,163,184,.22); border-top: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 10px 28px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.08);
+}
+.card-callout { background: rgba(14,165,233,.14); border: 1px solid rgba(14,165,233,.28); }
+.card-blush { background: rgba(255,119,0,.12); border: 1px solid rgba(255,119,0,.28); }
+.card-sage { background: rgba(14,165,233,.12); border: 1px solid rgba(14,165,233,.25); }
+.card-principle { background: rgba(255,119,0,.1); border-color: #FF7700; }
+.hl-bar { background: rgba(14,165,233,.12); border-left-color: #0EA5E9; }
+.pill { background: rgba(14,165,233,.16); color: #7dd3fc; }
+.box { border-color: #0EA5E9; background: rgba(14,165,233,.12); color: #e2e8f0; }
+.box.gray { background: rgba(15,23,42,.5); border-color: #64748b; }
+.box.orange { background: rgba(255,119,0,.14); border-color: #FF7700; }
+.brick .item {
+  background: rgba(15,23,42,.5);
+  border: 1px solid rgba(148,163,184,.2);
+}
+.brick .desc { color: #cbd5e1; }
+.tier {
+  background: rgba(15,23,42,.62); backdrop-filter: blur(18px);
+  border: 1px solid rgba(148,163,184,.22);
+}
+.hero-orb {
+  background: linear-gradient(135deg,#FF7700,#fb923c);
+  box-shadow: 0 0 36px rgba(255,119,0,.4);
+}
+.hero-orb::after { border-color: rgba(14,165,233,.45); }
+.pill-dark {
+  background: #0f172a; color: #e2e8f0;
+  border: 1px solid rgba(14,165,233,.35);
+}
+.takeaways li::before { background: rgba(14,165,233,.2); color: #7dd3fc; }
+.c-foot { border-top: 1px solid rgba(148,163,184,.22); }
+.c-foot-sq { background: #FF7700; }
+.credit { border-top: 1px solid rgba(148,163,184,.22); color: #94a3b8; }

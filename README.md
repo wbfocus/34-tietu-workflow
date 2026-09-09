@@ -44,6 +44,8 @@ chmod +x bootstrap.sh && ./bootstrap.sh
 | `examples/gold-a-ceo-star-dark/` | 主题 A 金标准 HTML（原 055） |
 | `examples/gold-b-ceo-star-light/` | 主题 B 金标准 HTML（原 056） |
 | `examples/sample-gm-variance-dark/` | 成型样例：毛利率差异拆解 HTML + 封面 + 成片 MP4 |
+| `.cursor/skills/34-eli5-scroll/` | ELI5 长图上滑：390px HTML + 三套主题 + 弹出成片 |
+| `examples/eli5-scroll-sample-c/` | ELI5 上滑样例（奶油主题） |
 | `examples/_card-registry.yaml` | 防重复登记 |
 | `workspace/HTMLcards/` | 你的新产出（gitignore） |
 
@@ -68,6 +70,14 @@ py -3 .cursor/skills/34-tietu-workflow/scripts/finish_cards_showcase.py ".\works
 ```
 
 产出 `成品视频/showcase.mp4`（**1080×1440 · 3:4**，不是 9:16）。
+
+另有独立 **ELI5 长图上滑**（大图少字长卷，不是多页贴图）：选 A/B/C 主题 → 390px HTML → 高清长图 PNG → 3:4 从下往上滑，卡片依次弹出 + 气泡音（**无 BGM、无口播字幕**）。
+
+```powershell
+py -3 .cursor/skills/34-tietu-workflow/scripts/finish_eli5_scroll.py ".\examples\eli5-scroll-sample-c"
+```
+
+产出 `成品图/long.png` 与 `成品视频/<文件夹>（上滑）.mp4`。规范见 `.cursor/skills/34-eli5-scroll/SKILL.md`。
 
 ## 推到你的 GitHub
 

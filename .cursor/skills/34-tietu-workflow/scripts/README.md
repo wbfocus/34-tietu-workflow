@@ -36,6 +36,16 @@ py -3 qa_tietu.py pngs "<贴图文件夹>/成品图"
 py -3 qa_tietu.py showcase "<贴图文件夹>/成品视频/showcase.mp4" --n 8 --hold 5
 ```
 
+## ELI5 长图上滑 MP4（独立，无 BGM）
+
+```bash
+py -3 finish_eli5_scroll.py "<ELI5文件夹>"
+# 产出 成品图/long.png + 成品视频/<文件夹>（上滑）.mp4
+# 1080×1440 · 对象依次弹出 + 气泡音
+```
+
+规范：`.cursor/skills/34-eli5-scroll/SKILL.md`
+
 ## 原理
 
 1. Playwright 无头 Chromium，按贴图写死的宽高加载 HTML。
