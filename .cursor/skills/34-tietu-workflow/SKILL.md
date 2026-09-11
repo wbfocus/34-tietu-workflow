@@ -91,10 +91,10 @@ node ".cursor/skills/34-tietu-workflow/scripts/render.mjs" "<贴图文件夹绝�
 
 能力已打进本 skill（`covers-3x4/` + `scripts/cards_to_mp4.py` + `scripts/prepend_cover_frame.py`），不依赖外部视频仓库。
 
-封面文案从本套卡提炼：**系列标、最多两行大标题、一句副标**。痛点钩子用 style `4`，否则随机或按主题选 `1`/`2`/`3`。
+封面文案从本套卡提炼：**系列标、最多两行大标题、一句副标**。封面样式从 `covers-3x4` 池加权抽签（`1/1b/2/3/5/6` 优先，`4` 痛点红字降权）；**禁止每次默认 `--style 4`**。仅当标题是明确痛点问句钩子时才指定 `4`。
 
 ```bash
-py -3 ".cursor/skills/34-tietu-workflow/scripts/finish_cards_media.py" "<贴图文件夹绝对路径>" --title "第一行|第二行" --sub "副标" --pill "系列标" --style 4
+py -3 ".cursor/skills/34-tietu-workflow/scripts/finish_cards_media.py" "<贴图文件夹绝对路径>" --title "第一行|第二行" --sub "副标" --pill "系列标"
 ```
 
 也可拆开跑：

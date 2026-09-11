@@ -54,3 +54,12 @@ articles:
         status: done
         note: 橱窗砸入 3:4 · 主题 A
 
+  - slug: business-finance-two-versions-one-fact
+    title: 业财两张皮 · 谁的数是真的
+    sets:
+      - folder: workspace/HTMLcards/长图-业财两张皮（浅色）
+        theme: B
+        format: upscroll
+        status: done
+        note: 90 秒上滑 · 43 个弹出对象 · 无 BGM / 无口播
+

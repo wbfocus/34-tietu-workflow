@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=390, initial-scale=1, maximum-scale=1">
+<title>业财两张皮</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.2.5/chinese-simplified-900.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Bold/Bold.css"/>
+<link rel="stylesheet" href="layout-long.css"/>
+<link rel="stylesheet" href="theme-b-long.css"/>
+<style>
+  .metric { font-size: 22px; line-height: 1; margin: 4px 0 6px; }
+  .mini { font-size: 12.5px; line-height: 1.45; color: #6B6560; }
+  .flow .box { text-align: left; display: flex; align-items: center; gap: 10px; }
+  .flow .step {
+    width: 24px; height: 24px; border-radius: 50%; flex: 0 0 auto;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: #0284C7; color: #fff; font-size: 11px;
+  }
+  .flow .box.orange .step { background: #FF7700; }
+  .flow .copy { min-width: 0; flex: 1; }
+  .voice { font-size: 13px; line-height: 1.45; margin-top: 5px; }
+  .equation {
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    font-size: 13px; margin-top: 8px; color: #6B6560;
+  }
+  .equation b { color: #1C1917; font-size: 15px; }
+</style>
+</head>
+<body>
+<div class="phone" id="capture">
+  <div class="mesh" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"></div>
+  <div class="content wenkai">
+
+    <header class="eli5-head" data-eli5-reveal>
+      <div class="wm-num ui-title">01</div>
+      <div class="head-row">
+        <div class="idx-sq terra ui-bold">01</div>
+        <div>
+          <div class="c-en ui-bold">ONE FACT</div>
+          <div class="c-cn">业财两张皮</div>
+        </div>
+      </div>
+      <h1 class="ui-title">车间说<span class="mark">赚钱</span>，<br/>财务却说<span class="mark-sage">亏钱</span>？</h1>
+      <p class="tagline">先别急着争谁算错。很多时候，双方看的不是<span class="mark">同一对象、同一时间、同一口径</span>。</p>
+      <div class="pill-dark" data-eli5-reveal style="margin-top:10px">
+        <span class="pill" style="background:#FF7700;color:#fff;margin:0">判断</span>
+        <span>两个数字都可能对，但回答了两个问题</span>
+      </div>
+      <div class="hero-row" data-eli5-reveal>
+        <div class="hero-orb ui-title">4</div>
+        <div>
+          <div class="big ui-title" style="margin:0">四种错位</div>
+          <p class="muted" style="margin-top:4px">对象、时间、口径、数据源，任一不齐就会“两张皮”。</p>
+        </div>
+      </div>
+      <div class="chip-row" data-eli5-reveal>
+        <span class="chip"><span class="dot" style="background:#FF7700"></span>订单</span>
+        <span class="chip"><span class="dot" style="background:#0284C7"></span>工单</span>
+        <span class="chip"><span class="dot" style="background:#0EA5E9"></span>利润</span>
+        <span class="chip"><span class="dot" style="background:#fb923c"></span>现金</span>
+      </div>
+    </header>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num terra ui-bold">1</span> 先记住一个比喻</h2>
+      <div class="card-paper story" data-eli5-reveal>
+        <div class="emoji">🍜</div>
+        <div class="body">
+          <div class="big ui-title">前厅爆满，后厨未必赚钱</div>
+          <p class="muted">前厅看见坐满、订单多；后厨看见加班、浪费、返工；老板还在等顾客付款。大家都在说这家店，却各看了<span class="mark">不同的一截</span>。</p>
+        </div>
+      </div>
+      <div class="hl-bar" data-eli5-reveal>
+        <div class="big ui-title">业财融合不是让业务学会计</div>
+        <p class="muted">而是让订单怎么干、成本怎么进、钱什么时候回来，能沿着<span class="mark-sage">同一条事实链</span>说清楚。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num sage ui-bold">2</span> 同一张订单，四种说法</h2>
+      <div class="grid-2">
+        <div class="cell" data-eli5-reveal>
+          <div class="k ui-bold">业务</div>
+          <div class="v ui-title">合同签了</div>
+          <p class="voice">“这单100万，已经拿下。”</p>
+        </div>
+        <div class="cell" data-eli5-reveal>
+          <div class="k ui-bold">车间</div>
+          <div class="v ui-title">产品做了</div>
+          <p class="voice">“已经完工八成，产量不错。”</p>
+        </div>
+        <div class="cell" data-eli5-reveal>
+          <div class="k ui-bold">财务</div>
+          <div class="v ui-title">收入确认了</div>
+          <p class="voice">“满足确认条件的只有80万。”</p>
+        </div>
+        <div class="cell" data-eli5-reveal>
+          <div class="k ui-bold">资金</div>
+          <div class="v ui-title">现金到账了</div>
+          <p class="voice">“账期还没到，现在回款是0。”</p>
+        </div>
+      </div>
+      <div class="card-callout" data-eli5-reveal>
+        <div class="big ui-title">谁在撒谎？可能谁都没有</div>
+        <p class="muted">签约额、完工量、确认收入、回款额，本来就是<span class="mark">四个不同指标</span>。把名字省掉，争吵就开始了。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num ochre ui-bold">3</span> 两张皮从哪裂开</h2>
+      <div class="tier" data-eli5-reveal>
+        <div class="tier-lab terra ui-bold">对象</div>
+        <div class="tier-body">
+          <div class="big ui-title">业务按订单，财务按科目</div>
+          <p class="muted">客户、产品、工单没映射，费用就找不到主人。</p>
+        </div>
+      </div>
+      <div class="tier w96" data-eli5-reveal>
+        <div class="tier-lab sage ui-bold">时间</div>
+        <div class="tier-body">
+          <div class="big ui-title">签约、发货、确收、回款不同步</div>
+          <p class="muted">拿不同日期切报表，数字天然不同。</p>
+        </div>
+      </div>
+      <div class="tier w92" data-eli5-reveal>
+        <div class="tier-lab ochre ui-bold">口径</div>
+        <div class="tier-body">
+          <div class="big ui-title">毛利到底扣什么</div>
+          <p class="muted">运费、返工、折扣、售后，有人扣有人不扣。</p>
+        </div>
+      </div>
+      <div class="tier w96" data-eli5-reveal>
+        <div class="tier-lab terra ui-bold">来源</div>
+        <div class="tier-body">
+          <div class="big ui-title">ERP、MES、Excel各存一段</div>
+          <p class="muted">不能追回业务单据，会议只能比谁声音大。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num terra ui-bold">4</span> 把一条事实链串起来</h2>
+      <div class="flow">
+        <div class="box gray" data-eli5-reveal>
+          <span class="step ui-bold">1</span>
+          <span class="copy">销售订单<span class="sub">客户、产品、数量、价格、账期</span></span>
+        </div>
+        <div class="arrow">↓ 同一个订单号</div>
+        <div class="box" data-eli5-reveal>
+          <span class="step ui-bold">2</span>
+          <span class="copy">生产工单<span class="sub">领料、工时、完工、报废返修</span></span>
+        </div>
+        <div class="arrow">↓ 同一个产品 / 批次</div>
+        <div class="box" data-eli5-reveal>
+          <span class="step ui-bold">3</span>
+          <span class="copy">发货与收入<span class="sub">交付数量、确认时点、折扣</span></span>
+        </div>
+        <div class="arrow">↓ 同一个客户 / 合同</div>
+        <div class="box" data-eli5-reveal>
+          <span class="step ui-bold">4</span>
+          <span class="copy">成本结转<span class="sub">材料、人工、制造费用进入销售成本</span></span>
+        </div>
+        <div class="arrow">↓ 同一个回款责任</div>
+        <div class="box orange" data-eli5-reveal>
+          <span class="step ui-bold">5</span>
+          <span class="copy">开票与回款<span class="sub">到期日、实收、逾期、资金占用</span></span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num sage ui-bold">5</span> 一个100万订单的示意</h2>
+      <div class="grid-2">
+        <div class="cell" data-eli5-reveal>
+          <div class="k ui-bold">签约额</div>
+          <div class="metric ui-title mark">100万</div>
+          <p class="mini">业务看“拿到多少”</p>
+        </div>
+        <div class="cell" data-eli5-reveal>
+          <div class="k ui-bold">确认收入</div>
+          <div class="metric ui-title mark-sage">80万</div>
+          <p class="mini">按本期满足条件部分</p>
+        </div>
+        <div class="cell" data-eli5-reveal>
+          <div class="k ui-bold">对应成本</div>
+          <div class="metric ui-title">65万</div>
+          <p class="mini">只配本期确认部分</p>
+        </div>
+        <div class="cell" data-eli5-reveal>
+          <div class="k ui-bold">本期回款</div>
+          <div class="metric ui-title">0万</div>
+          <p class="mini">有利润不等于有现金</p>
+        </div>
+      </div>
+      <div class="card-paper" data-eli5-reveal>
+        <div class="big ui-title">四个数放回名字里，就不打架了</div>
+        <div class="equation"><b>80</b><span>确认收入</span>−<b>65</b><span>对应成本</span>=<b class="mark">15</b><span>本期毛利</span></div>
+        <p class="mini" style="margin-top:8px">数字仅作结构示意，具体确认与归集按合同、准则及企业制度执行。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num ochre ui-bold">6</span> 常见坑 → 修法</h2>
+      <div class="card-blush pair-row" data-eli5-reveal>
+        <div class="x-mark ui-bold">×</div>
+        <div>
+          <div class="big ui-title">开会直接对总数</div>
+          <p class="muted">一个说签约，一个说确收；一个含运费，一个不含。总数越对，火气越大。</p>
+        </div>
+      </div>
+      <div class="card-sage pair-row" data-eli5-reveal>
+        <div class="ok-mark ui-bold">✓</div>
+        <div>
+          <div class="big ui-title">先写四行再看数</div>
+          <p class="muted"><span class="mark-sage">对象、期间、口径、来源</span>写在报表标题下；差异才能落到单据和责任人。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num terra ui-bold">7</span> 财务BP下一步动作</h2>
+      <div class="list-row" data-eli5-reveal>
+        <div class="dot-n terra ui-bold">1</div>
+        <div class="body">
+          <div class="big ui-title">先选共同对象</div>
+          <p class="muted">至少统一到客户、订单、产品、工单中的一个。</p>
+        </div>
+      </div>
+      <div class="list-row" data-eli5-reveal>
+        <div class="dot-n sage ui-bold">2</div>
+        <div class="body">
+          <div class="big ui-title">给指标写身份证</div>
+          <p class="muted">定义、公式、期间、数据源、负责人缺一不可。</p>
+        </div>
+      </div>
+      <div class="list-row" data-eli5-reveal>
+        <div class="dot-n ochre ui-bold">3</div>
+        <div class="body">
+          <div class="big ui-title">报表能点回单据</div>
+          <p class="muted">从毛利点回订单、发货、工单和成本结转。</p>
+        </div>
+      </div>
+      <div class="list-row" data-eli5-reveal>
+        <div class="dot-n terra ui-bold">4</div>
+        <div class="body">
+          <div class="big ui-title">差异必须带动作</div>
+          <p class="muted">谁改、改什么、何时完成，下次会议复查。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num sage ui-bold">8</span> 今天带走这些</h2>
+      <div class="brick">
+        <div class="item" data-eli5-reveal>
+          <div class="name ui-title">数字不同，不等于有人错</div>
+          <p class="desc">先确认大家是否在回答同一个问题。</p>
+        </div>
+        <div class="item" data-eli5-reveal>
+          <div class="name ui-title">口径统一，不等于业财融合</div>
+          <p class="desc">还要串起订单、工单、交付、成本和回款。</p>
+        </div>
+        <div class="item shift" data-eli5-reveal>
+          <div class="name ui-title">最终要落到经营动作</div>
+          <p class="desc">不是把两张报表调成一样，而是让同一事实有人负责。</p>
+        </div>
+      </div>
+      <div class="card-principle" data-eli5-reveal>
+        <div class="big ui-title">原则</div>
+        <p class="muted">业财融合的起点不是大屏，而是<span class="mark">同一业务对象</span>、同一事实链、同一责任人。</p>
+      </div>
+      <div class="pill-dark" data-eli5-reveal style="margin-top:8px">
+        <span>下次有人说“你的数不对”，先问：对象、期间、口径、来源分别是什么？</span>
+      </div>
+    </section>
+
+    <footer class="credit ui-bold" data-eli5-reveal>
+      @小微之家会计服务 &nbsp;|&nbsp; @老汪洞察 &nbsp;|&nbsp; @汪斌带你开公司
+      <div class="copy">仅供学习对照 · 具体处理以企业制度为准</div>
+    </footer>
+    <div class="c-foot ui-bold" data-eli5-reveal>
+      <div><span class="c-foot-sq"></span>老汪洞察 · 信息图</div>
+      <div>长图 · 业财同源</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

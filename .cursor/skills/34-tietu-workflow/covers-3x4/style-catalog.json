@@ -2,7 +2,8 @@
   "zone": "A",
   "aspect_ratio": "3:4",
   "export_px": [1080, 1440],
-  "selection": "random_from_pool",
+  "selection": "weighted_random_by_folder",
+  "selection_note": "默认按文件夹名稳定抽签；style 4（白字红强调）降权；禁止 Agent 每次手写 --style 4",
   "layout_lock": {
     "locked_at": "2026-08-01",
     "align": "center",
@@ -17,7 +18,8 @@
       "edge_to_edge_title",
       "title_3plus_lines",
       "left_column_tiny_type",
-      "heavy_border_pill_series_label"
+      "heavy_border_pill_series_label",
+      "always_style_4_white_red"
     ]
   },
   "pool": [
@@ -25,31 +27,50 @@
       "id": "1",
       "name": "dark-cyan-type",
       "label": "暗底 + 青系列标 + 居中大白字",
-      "html": "templates/01-dark-cyan.html"
+      "html": "templates/01-dark-cyan.html",
+      "weight": 2
     },
     {
       "id": "1b",
       "name": "dark-cyan-type-alt",
       "label": "同上模板换题",
-      "html": "templates/01b-dark-cyan-alt.html"
+      "html": "templates/01b-dark-cyan-alt.html",
+      "weight": 2
     },
     {
       "id": "2",
       "name": "dark-orange-type",
       "label": "暗底 + 橙系列标 + 居中大字",
-      "html": "templates/02-dark-orange.html"
+      "html": "templates/02-dark-orange.html",
+      "weight": 2
     },
     {
       "id": "3",
       "name": "type-plus-chart",
       "label": "居中大字 + 底部轻图表剪影",
-      "html": "templates/03-type-chart.html"
+      "html": "templates/03-type-chart.html",
+      "weight": 2
     },
     {
       "id": "4",
       "name": "contrast-hook",
-      "label": "痛点问句钩子（大标题仍最多两行）",
-      "html": "templates/04-contrast-hook.html"
+      "label": "痛点问句钩子（白字+红强调，勿每次默认）",
+      "html": "templates/04-contrast-hook.html",
+      "weight": 1
+    },
+    {
+      "id": "5",
+      "name": "light-cream",
+      "label": "奶油浅底 + 深墨大字 + 陶土系列标",
+      "html": "templates/05-light-cream.html",
+      "weight": 2
+    },
+    {
+      "id": "6",
+      "name": "light-mesh",
+      "label": "亮色 Mesh 浅底 + 深墨大字 + 橙系列标",
+      "html": "templates/06-light-mesh.html",
+      "weight": 2
     }
   ],
   "first_frame": {

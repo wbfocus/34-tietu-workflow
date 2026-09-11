@@ -24,7 +24,7 @@ license: MIT
 
 与贴图同一套昨天优化过的 UI：
 
-> 要做成 **ELI5 长图上滑**（先 390px 长图，再 3:4 上滑视频），请选主题：
+> 要做成 **长图上滑**（先 390px 长图，再 3:4 上滑视频），请选主题：
 > - **A 深色玻璃** — 夜间/科技感
 > - **B 亮色高级** — 日间/Mesh 刊物感
 > - **C 奶油刊物** — 奶油底 + 陶土橙 + 鼠尾草绿
@@ -44,26 +44,26 @@ license: MIT
 ```text
 0. 问主题 A / B / C
 1. 复制对应模板 + layout-long.css + theme-X-long.css
-   → workspace/HTMLcards/eli5-短标题（深色|浅色|刊物）/
+   → workspace/HTMLcards/长图-短标题（深色|浅色|刊物）/
 2. 填 HTML（比喻 → 竖向流程 → 坑修 → 积木 → 原则框）
    每个要弹出的块保留 data-eli5-reveal
 3. py -3 finish_eli5_scroll.py "<文件夹>"
-   （封面文案可加 --title "第一行|第二行" --sub "副标" --pill "经营分析小卡片" --style 4）
+   （封面文案可加 --title "第一行|第二行" --sub "副标" --pill "经营分析小卡片"；**不要默认 --style 4**，空则自动换封面样式）
 4. 交付：成品图/long.png + 封面/cover-3x4.png + 成品视频/<文件夹>（上滑）.mp4 + （上滑带封面）.mp4
 ```
 
 ### 出片命令（仓库根目录）
 
 ```powershell
-py -3 ".cursor/skills/34-tietu-workflow/scripts/finish_eli5_scroll.py" ".\workspace\HTMLcards\eli5-你的标题（刊物）"
+py -3 ".cursor/skills/34-tietu-workflow/scripts/finish_eli5_scroll.py" ".\workspace\HTMLcards\长图-你的标题（刊物）"
 ```
 
 也可拆开：
 
 ```powershell
-node ".cursor/skills/34-tietu-workflow/scripts/harvest_eli5_scroll.mjs" ".\workspace\HTMLcards\eli5-你的标题（刊物）"
-py -3 ".cursor/skills/34-tietu-workflow/scripts/eli5_scroll_video.py" ".\workspace\HTMLcards\eli5-你的标题（刊物）"
-py -3 ".cursor/skills/34-tietu-workflow/scripts/finish_eli5_scroll.py" ".\workspace\HTMLcards\eli5-你的标题（刊物）" --cover-only --title "第一行|第二行" --sub "副标" --style 4
+node ".cursor/skills/34-tietu-workflow/scripts/harvest_eli5_scroll.mjs" ".\workspace\HTMLcards\长图-你的标题（刊物）"
+py -3 ".cursor/skills/34-tietu-workflow/scripts/eli5_scroll_video.py" ".\workspace\HTMLcards\长图-你的标题（刊物）"
+py -3 ".cursor/skills/34-tietu-workflow/scripts/finish_eli5_scroll.py" ".\workspace\HTMLcards\长图-你的标题（刊物）" --cover-only --title "第一行|第二行" --sub "副标"
 ```
 
 封面走贴图同一套 `covers-3x4/`（居中大字、最多两行，每行尽量 ≤6 字），写入 `封面/cover-3x4.png`，再拼成片 **第 0 帧仅 1 帧** → `<文件夹>（上滑带封面）.mp4`。不要把长图头顶裁成封面。
@@ -75,7 +75,38 @@ py -3 ".cursor/skills/34-tietu-workflow/scripts/finish_eli5_scroll.py" ".\worksp
 - 主题 CSS 用相对路径：`layout-long.css` + `theme-a|b|c-long.css`（脚本会缺则拷进文件夹）。
 - 要弹出的对象加 `data-eli5-reveal`（整张卡、步骤块、原则框各一块；不要把整页包成一个 reveal）。
 - 水印 `.wm`、氛围 `.atm` / `.mesh` / `.noise` **不要**加 reveal。
-- 全页至少 3 种区块骨架；原则框全页 ≤1。
+- 原则框全页 ≤1。
+
+### 成品禁词（铁律）
+
+**作品画面与交付文件名禁止出现 `ELI5` / `eli5` 字样**（含页眉英文小标、页脚、封面、`<title>`、成片文件名）。  
+「ELI5」只作内部 skill / 脚本名；读者侧统一说「上滑 / 长图」。
+
+| 位置 | 禁止 | 改用 |
+|---|---|---|
+| `.c-en` | `ELI5` | 选题英文词，如 `BOOK` / `COST` / `STOCK` |
+| `.c-foot` 右侧 | `ELI5 长卷` | `长图信息` 或短主题名 |
+| 文件夹 | `eli5-标题…` | `长图-标题（深色\|浅色\|刊物）` |
+| 成片名 | 带 `eli5` | 跟文件夹名走，自然无 eli5 |
+
+### 多样式铁律（默认必做，用户不必再提醒）
+
+上滑长图 **必须** 复用贴图/橱窗同一套版式组件（见 `34-tietu-workflow/references/layout-shared.md` + `references/card-ui-from-34.md`），**禁止**只堆「比喻卡 + 竖流程 + 坑修 + 积木」四段流水账。
+
+一套长卷至少覆盖下面 **≥5 种**（可按内容删减，但不得少于 5）：
+
+| 节奏 | 组件 | 说明 |
+|---|---|---|
+| 封面开场 | `.hero-orb` + `.pill-dark` + 标签行 | 大圆数字 / 判断句 / chip |
+| 比喻 | `.card-paper.story` + `.hl-bar` / `.card-callout` | 生活类比 + 一句定义 |
+| 竖向流程 | `.flow` + `.box` | 怎么转起来 |
+| 分层 | `.tier` + `.tier-lab`（可错位 `w96`/`w92`） | 递进看穿 |
+| 网格 | 2×2 `.grid-2` / `.cell` | 场景或类型 |
+| 对比 | `.card-blush`× + `.card-sage`✓ | 坑 → 修 |
+| 清单 | `.list-row` + `.dot-n` | 抓法 / 步骤 |
+| 收口 | `.brick` + `.card-principle` + `.pill-dark` | 带走 + 原则 + 转发 |
+
+写之前读 `layout-shared.md`「版式节奏」；对照金标准多页卡的组件类名，不要发明另一套 UI。
 
 ## 成片规格
 
@@ -91,7 +122,7 @@ py -3 ".cursor/skills/34-tietu-workflow/scripts/finish_eli5_scroll.py" ".\worksp
 ## 产出目录
 
 ```text
-workspace/HTMLcards/eli5-短标题（刊物）/
+workspace/HTMLcards/长图-短标题（刊物）/
   长图.html
   layout-long.css
   theme-c-long.css
@@ -107,4 +138,4 @@ workspace/HTMLcards/eli5-短标题（刊物）/
 
 ## 完成后汇报
 
-> 已生成 ELI5 长图（1080 宽）和 **3:4 上滑视频**（1080×1440，N 个对象弹出 + 气泡音，无 BGM / 无口播）；3:4 封面在 `封面\cover-3x4.png`，带封面成片为 `（上滑带封面）.mp4`。
+> 已生成长图（1080 宽）和 **3:4 上滑视频**（1080×1440，N 个对象弹出 + 气泡音，无 BGM / 无口播）；3:4 封面在 `封面\cover-3x4.png`，带封面成片为 `（上滑带封面）.mp4`。

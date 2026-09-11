@@ -3,13 +3,12 @@
 
 Usage:
   py -3 finish_eli5_scroll.py "<套图文件夹>"
-  py -3 finish_eli5_scroll.py "<套图文件夹>" --title "第一行|第二行" --sub "副标" --style 4
+  py -3 finish_eli5_scroll.py "<套图文件夹>" --title "第一行|第二行" --sub "副标"
   py -3 finish_eli5_scroll.py "<套图文件夹>" --cover-only
 """
 from __future__ import annotations
 
 import argparse
-import random
 import re
 import shutil
 import subprocess
@@ -23,7 +22,7 @@ REF = ELI5 / "references"
 COVERS = SKILL / "covers-3x4"
 sys.path.insert(0, str(SCRIPTS))
 
-from finish_cards_media import BRAND_DEFAULT, CATALOG, make_official_cover  # noqa: E402
+from finish_cards_media import BRAND_DEFAULT, CATALOG, make_official_cover, pick_cover_style  # noqa: E402
 from prepend_cover_frame import prepend_cover  # noqa: E402
 
 PILL_DEFAULT = "经营分析小卡片"
@@ -131,7 +130,11 @@ def main() -> int:
     ap.add_argument("--sub", default="")
     ap.add_argument("--pill", default=PILL_DEFAULT)
     ap.add_argument("--brand", default=BRAND_DEFAULT)
-    ap.add_argument("--style", default="4", help="1 / 1b / 2 / 3 / 4；默认痛点钩子 4")
+    ap.add_argument(
+        "--style",
+        default="",
+        help="1 / 1b / 2 / 3 / 4 / 5 / 6；空则按文件夹加权抽签（勿每次默认 4）",
+    )
     ap.add_argument("--seed", default=None)
     ap.add_argument("--skip-cover", action="store_true")
     ap.add_argument("--cover-only", action="store_true", help="已有上滑 MP4 时只出封面并拼第一帧")
@@ -144,10 +147,7 @@ def main() -> int:
     inferred_title, inferred_sub = infer_cover_copy(job)
     title = args.title.strip() or inferred_title
     sub = args.sub.strip() or inferred_sub
-    style_id = args.style.strip()
-    if not style_id:
-        style_id = random.Random(args.seed).choice([x["id"] for x in CATALOG["pool"]])
-        print("picked style", style_id)
+    style_id = pick_cover_style(args.style, seed=args.seed, job=job)
 
     if not args.cover_only:
         copy_theme_css(job)

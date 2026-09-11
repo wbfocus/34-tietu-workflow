@@ -39,7 +39,7 @@ py -3 qa_tietu.py showcase "<贴图文件夹>/成品视频/showcase.mp4" --n 8 -
 ## ELI5 长图上滑 MP4（独立，无 BGM）
 
 ```bash
-py -3 finish_eli5_scroll.py "<ELI5文件夹>" --title "第一行|第二行" --sub "副标" --style 4
+py -3 finish_eli5_scroll.py "<长图文件夹>" --title "第一行|第二行" --sub "副标"
 # 产出 成品图/long.png
 #      封面/cover-3x4.png（covers-3x4 官方 DNA，不是长图裁切）
 #      成品视频/<文件夹>（上滑）.mp4

@@ -28,6 +28,40 @@ CATALOG = json.loads((COVERS / "style-catalog.json").read_text(encoding="utf-8")
 BRAND_DEFAULT = "汪斌带你开公司"
 
 
+def pick_cover_style(
+    explicit: str = "",
+    *,
+    seed: str | int | None = None,
+    job: Path | None = None,
+) -> str:
+    """Pick cover style. Empty explicit → weighted random (style 4 down-weighted).
+
+    Prefer folder-name seed so re-runs are stable but different jobs get variety.
+    Do not default to style 4 (white + rose hook) every time.
+    """
+    pool = CATALOG.get("pool") or []
+    ids = {x["id"] for x in pool}
+    chosen = (explicit or "").strip()
+    if chosen:
+        if chosen not in ids:
+            raise SystemExit(f"unknown cover style {chosen}; pool={[x['id'] for x in pool]}")
+        return chosen
+    weighted: list[str] = []
+    for item in pool:
+        w = int(item.get("weight", 2))
+        if item["id"] == "4":
+            w = min(w, 1)
+        weighted.extend([item["id"]] * max(1, w))
+    if not weighted:
+        raise SystemExit("cover style pool empty")
+    rng_seed: str | int | None = seed
+    if rng_seed is None and job is not None:
+        rng_seed = job.name
+    pick = random.Random(rng_seed).choice(weighted)
+    print("picked cover style", pick)
+    return pick
+
+
 def title_class(lines: list[str]) -> str:
     n = max((len(s) for s in lines), default=0)
     if n >= 6:
@@ -176,7 +210,11 @@ def main() -> int:
     p.add_argument("--sub", default="")
     p.add_argument("--pill", default="经营分析小卡片")
     p.add_argument("--brand", default=BRAND_DEFAULT)
-    p.add_argument("--style", default="", help="1 / 1b / 2 / 3 / 4；空则随机")
+    p.add_argument(
+        "--style",
+        default="",
+        help="1 / 1b / 2 / 3 / 4 / 5 / 6；空则按文件夹加权抽签（4 降权，禁止每次默认 4）",
+    )
     p.add_argument("--seed", default=None)
     p.add_argument("--skip-cover", action="store_true")
     args = p.parse_args()
@@ -204,10 +242,7 @@ def main() -> int:
     if args.skip_cover:
         return 0
 
-    style_id = args.style
-    if not style_id:
-        style_id = random.Random(args.seed).choice([x["id"] for x in CATALOG["pool"]])
-        print("picked style", style_id)
+    style_id = pick_cover_style(args.style, seed=args.seed, job=card_dir)
 
     title = args.title
     if not title:

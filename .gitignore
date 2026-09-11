@@ -13,6 +13,16 @@ workspace/HTMLcards/*
 !workspace/HTMLcards/_card-registry.yaml
 !workspace/HTMLcards/eli5-产品出库成本（深色）/
 !workspace/HTMLcards/eli5-产品出库成本（深色）/**
+!workspace/HTMLcards/长图-业财两张皮（浅色）/
+!workspace/HTMLcards/长图-业财两张皮（浅色）/**
+!workspace/HTMLcards/长图-假退假领（浅色）/
+!workspace/HTMLcards/长图-假退假领（浅色）/**
+
+# local temp / probe folders (do not push)
+workspace/_1mp4_frames/
+workspace/_chrome_render_profile/
+workspace/_showcase_smoke/
+workspace/_smash_probe/
 
 examples/**/成品图/
 examples/**/harvest/

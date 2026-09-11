@@ -171,3 +171,39 @@ html, body { margin: 0; background: #000; }
   text-align: center;
   letter-spacing: 0.04em;
 }
+
+/* 浅色封面：奶油 / Mesh，拉开与暗底白红钩子的差异 */
+.cover.light-cream {
+  --text: #1C1917;
+  --mute: #6B6560;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 100%, rgba(209, 108, 79, 0.18), transparent 55%),
+    linear-gradient(180deg, #FDF8F2 0%, #F5EDE3 55%, #EFE6DA 100%);
+}
+.cover.light-cream .pill { color: var(--accent, #D16C4F); }
+.cover.light-cream .title { text-shadow: none; }
+.cover.light-cream .title .em.accent { color: var(--accent, #D16C4F); }
+.cover.light-cream .sub { color: var(--mute); }
+.cover.light-cream .brand { color: rgba(28, 25, 23, 0.72); }
+.cover.light-cream .brand::before { background: var(--accent, #D16C4F); }
+
+.cover.light-mesh {
+  --text: #1C1917;
+  --mute: #6B6560;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse 90% 70% at 10% 0%, rgba(245, 233, 212, 0.95) 0%, transparent 50%),
+    radial-gradient(ellipse 70% 60% at 50% 8%, rgba(186, 230, 253, 0.75) 0%, transparent 45%),
+    radial-gradient(ellipse 60% 50% at 88% 12%, rgba(255, 119, 0, 0.12) 0%, transparent 50%),
+    linear-gradient(180deg, #f0f9ff 0%, #faf8f5 42%, #faf8f5 100%);
+}
+.cover.light-mesh .pill { color: var(--accent, #0284C7); }
+.cover.light-mesh .title { text-shadow: none; }
+.cover.light-mesh .title .em.accent { color: var(--accent, #FF7700); }
+.cover.light-mesh .sub { color: var(--mute); }
+.cover.light-mesh .brand { color: rgba(28, 25, 23, 0.72); }
+.cover.light-mesh .brand::before { background: var(--accent, #FF7700); }
+.cover.light-mesh .chart span {
+  background: linear-gradient(180deg, rgba(2, 132, 199, 0.45), rgba(2, 132, 199, 0.05));
+}
