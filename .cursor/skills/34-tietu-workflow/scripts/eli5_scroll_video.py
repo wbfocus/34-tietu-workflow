@@ -226,6 +226,10 @@ def compose(job_dir: Path, out_mp4: Path | None = None) -> Path:
             str(FPS),
             "-c:v",
             "libx264",
+            "-profile:v",
+            "high",
+            "-level",
+            "4.0",
             "-pix_fmt",
             "yuv420p",
             "-crf",
@@ -235,7 +239,7 @@ def compose(job_dir: Path, out_mp4: Path | None = None) -> Path:
         ]
     )
     if timed:
-        cmd.extend(["-map", "[aout]", "-c:a", "aac", "-b:a", "160k"])
+        cmd.extend(["-map", "[aout]", "-c:a", "aac", "-b:a", "160k", "-ar", "48000"])
     else:
         cmd.extend(["-an"])
     cmd.append(str(out_mp4))

@@ -196,6 +196,10 @@ def cards_to_mp4(
         [
             "-c:v",
             "libx264",
+            "-profile:v",
+            "high",
+            "-level",
+            "4.0",
             "-crf",
             "18",
             "-preset",
