@@ -250,7 +250,13 @@ def main() -> int:
     if not pngs:
         print("no png in", folder, file=sys.stderr)
         return 1
-    out = args.out or (folder.parent / "成品视频" / f"{folder.parent.name}（轮播）.mp4")
+    if args.out:
+        out = args.out
+    else:
+        from delivery_names import MODE_CAROUSEL, delivery_mp4
+
+        job = folder.parent
+        out = delivery_mp4(job / "成品视频", MODE_CAROUSEL, job.name)
     cards_to_mp4(
         pngs,
         out,

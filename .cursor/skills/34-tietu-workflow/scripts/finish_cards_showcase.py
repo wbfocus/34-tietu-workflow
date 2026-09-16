@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""橱窗砸入出片入口：成品图 →「套图文件夹名.mp4」（不写轮播成片）。
+"""橱窗砸入出片入口：成品图 →「橱窗_日期_标题（主题）.mp4」（不写轮播成片）。
 
 Usage:
   py -3 finish_cards_showcase.py "<贴图文件夹>" --title "毛利率掉了别只会说成本升了"
@@ -46,6 +46,7 @@ def main() -> int:
     p.add_argument("--bgm", type=Path, default=None)
     p.add_argument("--no-sfx", action="store_true")
     p.add_argument("--no-toc", action="store_true")
+    p.add_argument("--date", default="", help="成片日期 YYYY-MM-DD，默认今天")
     args = p.parse_args()
 
     card_dir = resolve_card_dir(args.card_dir.resolve())
@@ -72,7 +73,7 @@ def main() -> int:
         tabs = parse_tabs_from_wenan(wenan)
     tabs = fit_tabs(tabs or default_tabs(len(pngs)), len(pngs))
 
-    paths = video_paths(card_dir)
+    paths = video_paths(card_dir, day=args.date or None)
     video_dir = paths["dir"]
     out = paths["showcase"]
     cards_to_showcase(

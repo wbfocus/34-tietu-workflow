@@ -178,7 +178,7 @@ def run_ffmpeg(cmd: list[str]) -> None:
         raise SystemExit(f"ffmpeg failed ({proc.returncode}):\n{err}")
 
 
-def compose(job_dir: Path, out_mp4: Path | None = None) -> Path:
+def compose(job_dir: Path, out_mp4: Path | None = None, day: str | None = None) -> Path:
     harvest = job_dir / "harvest"
     tl_path = harvest / "timeline.json"
     if not tl_path.exists():
@@ -198,7 +198,9 @@ def compose(job_dir: Path, out_mp4: Path | None = None) -> Path:
     video_dir = job_dir / "成品视频"
     video_dir.mkdir(parents=True, exist_ok=True)
     if out_mp4 is None:
-        out_mp4 = video_dir / f"{job_dir.name}（上滑）.mp4"
+        from delivery_names import MODE_SCROLL, delivery_mp4
+
+        out_mp4 = delivery_mp4(video_dir, MODE_SCROLL, job_dir.name, day=day)
 
     ff = ffmpeg_bin()
     cmd: list[str] = [ff, "-y", "-loop", "1", "-t", str(dur), "-i", str(plate)]

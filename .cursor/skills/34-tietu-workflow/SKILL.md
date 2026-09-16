@@ -116,21 +116,21 @@ py -3 ".cursor/skills/34-tietu-workflow/scripts/prepend_cover_frame.py" --cover 
 新套图默认写到仓库根目录 `workspace/HTMLcards/`：
 
 ```text
-workspace/HTMLcards/0XX、选题标题（深色/浅色/刊物）/
+workspace/HTMLcards/轮播_YYYY-MM-DD_选题标题（深色）/
   文案.txt
   1.html ~ N.html
   成品图/1.png ~ N.png    ← 3:4 贴图成品（1080×1440 @3x）
-  成品视频/<套图文件夹名>.mp4              ← 橱窗砸入（主交付）
-  成品视频/<套图文件夹名>（带封面）.mp4     ← 封面第一帧 + 橱窗
-  成品视频/<套图文件夹名>（轮播）.mp4       ← 每张 5 秒 + 翻页 + BGM
-  成品视频/<套图文件夹名>（轮播带封面）.mp4
+  成品视频/橱窗_YYYY-MM-DD_选题标题（深色）.mp4
+  成品视频/橱窗_YYYY-MM-DD_选题标题（深色）（带封面）.mp4
+  成品视频/轮播_YYYY-MM-DD_选题标题（深色）.mp4
+  成品视频/轮播_YYYY-MM-DD_选题标题（深色）（带封面）.mp4
   封面/cover-3x4.png (.jpg)          ← 3:4 封面
   配套文案与关键词.md
 ```
 
 ## 完成后汇报
 
-> 已生成 N 张 **3:4 贴图**（1080×1440），成品在 `workspace/HTMLcards\0XX、…\成品图\`；轮播 MP4 在 `成品视频\`（N×5 秒）；3:4 封面在 `封面\cover-3x4.png`。
+> 已生成 N 张 **3:4 贴图**（1080×1440），成品在 `workspace/HTMLcards\轮播_日期_标题（主题）\成品图\`；轮播 MP4 在 `成品视频\`（N×5 秒）；3:4 封面在 `封面\cover-3x4.png`。
 
 ## 返修
 
@@ -162,7 +162,7 @@ workspace/HTMLcards/0XX、选题标题（深色/浅色/刊物）/
 
 ## 独立模式：橱窗砸入（不改上面的默认轮播）
 
-用户要「顶部目录跟着切卡滑过去 + 空镜 + 砸入」时，走独立 skill `34-tietu-showcase`。只写 `成品视频/<套图文件夹名>.mp4`，**不覆盖**轮播成片。画布锁定 **3:4 · 1080×1440**（禁止 9:16）。默认每张可读 **5 秒**（禁止 10 秒；8 张约 48 秒）。音效只在淡出/砸入，**静持和空镜必须静音**。出片走 `finish_cards_showcase.py`（内置 PNG 铺满 + 音频自检，不过不准交付）。
+用户要「顶部目录跟着切卡滑过去 + 空镜 + 砸入」时，走独立 skill `34-tietu-showcase`。只写 `橱窗_YYYY-MM-DD_标题（主题）.mp4`，**不覆盖**轮播成片。画布锁定 **3:4 · 1080×1440**（禁止 9:16）。默认每张可读 **5 秒**（禁止 10 秒；8 张约 48 秒）。音效只在淡出/砸入，**静持和空镜必须静音**。出片走 `finish_cards_showcase.py`（内置 PNG 铺满 + 音频自检，不过不准交付）。
 
 ```powershell
 py -3 ".cursor/skills/34-tietu-workflow/scripts/finish_cards_showcase.py" "<贴图文件夹>" --title "大标题"

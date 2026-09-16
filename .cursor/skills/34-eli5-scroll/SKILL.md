@@ -44,29 +44,29 @@ license: MIT
 ```text
 0. 问主题 A / B / C
 1. 复制对应模板 + layout-long.css + theme-X-long.css
-   → workspace/HTMLcards/长图-短标题（深色|浅色|刊物）/
+   → workspace/HTMLcards/上滑_YYYY-MM-DD_短标题（深色|浅色|刊物）/
 2. 填 HTML（比喻 → 竖向流程 → 坑修 → 积木 → 原则框）
    每个要弹出的块保留 data-eli5-reveal
 3. py -3 finish_eli5_scroll.py "<文件夹>"
    （封面文案可加 --title "第一行|第二行" --sub "副标" --pill "经营分析小卡片"；**不要默认 --style 4**，空则自动换封面样式）
-4. 交付：成品图/long.png + 封面/cover-3x4.png + 成品视频/<文件夹>（上滑）.mp4 + （上滑带封面）.mp4
+4. 交付：成品图/long.png + 封面/cover-3x4.png + 成品视频/`上滑_YYYY-MM-DD_标题（深色|浅色|刊物）.mp4` + 同名`（带封面）`
 ```
 
 ### 出片命令（仓库根目录）
 
 ```powershell
-py -3 ".cursor/skills/34-tietu-workflow/scripts/finish_eli5_scroll.py" ".\workspace\HTMLcards\长图-你的标题（刊物）"
+py -3 ".cursor/skills/34-tietu-workflow/scripts/finish_eli5_scroll.py" ".\workspace\HTMLcards\上滑_YYYY-MM-DD_你的标题（刊物）"
 ```
 
 也可拆开：
 
 ```powershell
-node ".cursor/skills/34-tietu-workflow/scripts/harvest_eli5_scroll.mjs" ".\workspace\HTMLcards\长图-你的标题（刊物）"
-py -3 ".cursor/skills/34-tietu-workflow/scripts/eli5_scroll_video.py" ".\workspace\HTMLcards\长图-你的标题（刊物）"
-py -3 ".cursor/skills/34-tietu-workflow/scripts/finish_eli5_scroll.py" ".\workspace\HTMLcards\长图-你的标题（刊物）" --cover-only --title "第一行|第二行" --sub "副标"
+node ".cursor/skills/34-tietu-workflow/scripts/harvest_eli5_scroll.mjs" ".\workspace\HTMLcards\上滑_YYYY-MM-DD_你的标题（刊物）"
+py -3 ".cursor/skills/34-tietu-workflow/scripts/eli5_scroll_video.py" ".\workspace\HTMLcards\上滑_YYYY-MM-DD_你的标题（刊物）"
+py -3 ".cursor/skills/34-tietu-workflow/scripts/finish_eli5_scroll.py" ".\workspace\HTMLcards\上滑_YYYY-MM-DD_你的标题（刊物）" --cover-only --title "第一行|第二行" --sub "副标"
 ```
 
-封面走贴图同一套 `covers-3x4/`（居中大字、最多两行，每行尽量 ≤6 字），写入 `封面/cover-3x4.png`，再拼成片 **第 0 帧仅 1 帧** → `<文件夹>（上滑带封面）.mp4`。不要把长图头顶裁成封面。
+封面走贴图同一套 `covers-3x4/`（居中大字、最多两行，每行尽量 ≤6 字），写入 `封面/cover-3x4.png`，再拼成片 **第 0 帧仅 1 帧** → `上滑_YYYY-MM-DD_标题（主题）（带封面）.mp4`。不要把长图头顶裁成封面。
 
 ## HTML 铁律
 
@@ -86,8 +86,8 @@ py -3 ".cursor/skills/34-tietu-workflow/scripts/finish_eli5_scroll.py" ".\worksp
 |---|---|---|
 | `.c-en` | `ELI5` | 选题英文词，如 `BOOK` / `COST` / `STOCK` |
 | `.c-foot` 右侧 | `ELI5 长卷` | `长图信息` 或短主题名 |
-| 文件夹 | `eli5-标题…` | `长图-标题（深色\|浅色\|刊物）` |
-| 成片名 | 带 `eli5` | 跟文件夹名走，自然无 eli5 |
+| 文件夹 | `eli5-标题…` / `长图-标题` | `上滑_YYYY-MM-DD_标题（深色\|浅色\|刊物）` |
+| 成片名 | 带 `eli5` | `上滑_YYYY-MM-DD_标题（深色\|浅色\|刊物）.mp4` |
 
 ### 多样式铁律（默认必做，用户不必再提醒）
 
@@ -122,15 +122,15 @@ py -3 ".cursor/skills/34-tietu-workflow/scripts/finish_eli5_scroll.py" ".\worksp
 ## 产出目录
 
 ```text
-workspace/HTMLcards/长图-短标题（刊物）/
+workspace/HTMLcards/上滑_YYYY-MM-DD_短标题（刊物）/
   长图.html
   layout-long.css
   theme-c-long.css
   成品图/long.png
   封面/cover.html
   封面/cover-3x4.png
-  成品视频/<文件夹>（上滑）.mp4
-  成品视频/<文件夹>（上滑带封面）.mp4
+  成品视频/上滑_YYYY-MM-DD_短标题（刊物）.mp4
+  成品视频/上滑_YYYY-MM-DD_短标题（刊物）（带封面）.mp4
   harvest/plate.png
   harvest/sprites/
   harvest/timeline.json
@@ -138,4 +138,4 @@ workspace/HTMLcards/长图-短标题（刊物）/
 
 ## 完成后汇报
 
-> 已生成长图（1080 宽）和 **3:4 上滑视频**（1080×1440，N 个对象弹出 + 气泡音，无 BGM / 无口播）；3:4 封面在 `封面\cover-3x4.png`，带封面成片为 `（上滑带封面）.mp4`。
+> 已生成长图（1080 宽）和 **3:4 上滑视频**（1080×1440，N 个对象弹出 + 气泡音，无 BGM / 无口播）；3:4 封面在 `封面\cover-3x4.png`，成片为 `上滑_YYYY-MM-DD_标题（主题）.mp4`，带封面为同名加 `（带封面）`。

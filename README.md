@@ -69,7 +69,7 @@ py -3 .cursor/skills/34-tietu-workflow/scripts/finish_cards_media.py ".\workspac
 py -3 .cursor/skills/34-tietu-workflow/scripts/finish_cards_showcase.py ".\workspace\HTMLcards\你的套图文件夹" --title "大标题"
 ```
 
-产出 `成品视频/showcase.mp4`（**1080×1440 · 3:4**，不是 9:16）。
+产出 `成品视频/橱窗_YYYY-MM-DD_标题（主题）.mp4`（**1080×1440 · 3:4**，不是 9:16）。
 
 另有独立 **长图上滑**（大图少字长卷，不是多页贴图）：选 A/B/C 主题 → 390px HTML → 高清长图 PNG → 3:4 从下往上滑，卡片依次弹出 + 气泡音（**无 BGM、无口播字幕**）。成品画面与文件名禁止出现 `ELI5`。
 
@@ -77,7 +77,7 @@ py -3 .cursor/skills/34-tietu-workflow/scripts/finish_cards_showcase.py ".\works
 py -3 .cursor/skills/34-tietu-workflow/scripts/finish_eli5_scroll.py ".\examples\eli5-scroll-sample-c"
 ```
 
-产出 `成品图/long.png`、`封面/cover-3x4.png`（与贴图同一套 covers-3x4）、`成品视频/<文件夹>（上滑）.mp4` 与 `（上滑带封面）.mp4`。规范见 `.cursor/skills/34-eli5-scroll/SKILL.md`。
+产出 `成品图/long.png`、`封面/cover-3x4.png`（与贴图同一套 covers-3x4）、`成品视频/上滑_YYYY-MM-DD_标题（主题）.mp4` 与同名 `（带封面）`。规范见 `.cursor/skills/34-eli5-scroll/SKILL.md`。
 
 ## 推到你的 GitHub
 

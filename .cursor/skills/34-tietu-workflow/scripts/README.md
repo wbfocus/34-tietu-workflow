@@ -25,7 +25,7 @@ node .cursor/skills/34-tietu-workflow/scripts/render.mjs ".\workspace\HTMLcards\
 
 ```bash
 py -3 finish_cards_showcase.py "<贴图文件夹>" --title "大标题"
-# 产出 成品视频/showcase.mp4（1080×1440 · 3:4 · 每张静持 5 秒）
+# 产出 成品视频/橱窗_YYYY-MM-DD_标题（主题）.mp4（1080×1440 · 3:4 · 每张静持 5 秒）
 # 内置自检：PNG 竖向铺满 + 静持/空镜不得有音效
 ```
 
@@ -42,8 +42,8 @@ py -3 qa_tietu.py showcase "<贴图文件夹>/成品视频/showcase.mp4" --n 8 -
 py -3 finish_eli5_scroll.py "<长图文件夹>" --title "第一行|第二行" --sub "副标"
 # 产出 成品图/long.png
 #      封面/cover-3x4.png（covers-3x4 官方 DNA，不是长图裁切）
-#      成品视频/<文件夹>（上滑）.mp4
-#      成品视频/<文件夹>（上滑带封面）.mp4
+#      成品视频/上滑_YYYY-MM-DD_标题（主题）.mp4
+#      成品视频/上滑_YYYY-MM-DD_标题（主题）（带封面）.mp4
 # 1080×1440 · 对象依次弹出 + 气泡音；封面只占成片第 0 帧
 ```
 

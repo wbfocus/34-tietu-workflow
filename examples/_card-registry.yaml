@@ -18,7 +18,7 @@ articles:
         cards: 8
         status: done
         role: gold-standard
-      - folder: workspace/HTMLcards/059、经营分析落不到车间（刊物）
+      - folder: workspace/HTMLcards/橱窗_2026-09-08_经营分析落不到车间（刊物）
         theme: C
         cards: 8
         status: done
@@ -41,7 +41,7 @@ articles:
   - slug: cogs-vs-cogm-cost-flow
     title: 完工成本和销货成本怎么分 · 从零售商到制造商
     sets:
-      - folder: workspace/HTMLcards/060、COGS和COGM怎么分（深色）
+      - folder: workspace/HTMLcards/橱窗_2026-09-08_COGS和COGM怎么分（深色）
         theme: A
         cards: 8
         status: done
@@ -50,7 +50,7 @@ articles:
   - slug: fbp-gm-analysis-root-action
     title: 财务BP毛利率分析 · 分完之后往哪走
     sets:
-      - folder: workspace/HTMLcards/061、财务BP毛利率分析（浅色）
+      - folder: workspace/HTMLcards/橱窗_2026-09-08_财务BP毛利率分析（浅色）
         theme: B
         cards: 8
         status: done
@@ -59,9 +59,18 @@ articles:
   - slug: mfg-oh-collect-allocate-verify
     title: 制造费用三步拆解 · 归集分配验证
     sets:
-      - folder: workspace/HTMLcards/062、制造费用三步拆解（深色）
+      - folder: workspace/HTMLcards/橱窗_2026-09-09_制造费用三步拆解（深色）
         theme: A
         cards: 8
         status: done
         note: 橱窗砸入 3:4 · 主题 A
+
+  - slug: meeting-abbrev-six-kinds
+    title: 会上全是缩写，你听懂几句？
+    sets:
+      - folder: workspace/HTMLcards/橱窗_2026-09-16_会上全是缩写（刊物）
+        theme: C
+        cards: 12
+        status: done
+        note: 橱窗砸入 3:4 · 主题 C · 华为系业财日常简称
 

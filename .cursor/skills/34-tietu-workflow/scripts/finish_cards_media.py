@@ -177,16 +177,18 @@ def fill_cover_html(
     )
 
 
-def video_paths(card_dir: Path) -> dict[str, Path]:
-    """成品视频按套图文件夹名命名，避免每套都叫 showcase.mp4。"""
-    stem = card_dir.name.strip()
+def video_paths(card_dir: Path, day: str | None = None) -> dict[str, Path]:
+    """成品：模式_日期_标题（主题）.mp4，禁止每套都叫 showcase.mp4。"""
+    from delivery_names import MODE_CAROUSEL, MODE_SHOWCASE, delivery_mp4
+
     vd = card_dir / "成品视频"
+    name = card_dir.name
     return {
         "dir": vd,
-        "showcase": vd / f"{stem}.mp4",
-        "showcase_cover": vd / f"{stem}（带封面）.mp4",
-        "carousel": vd / f"{stem}（轮播）.mp4",
-        "carousel_cover": vd / f"{stem}（轮播带封面）.mp4",
+        "showcase": delivery_mp4(vd, MODE_SHOWCASE, name, day=day),
+        "showcase_cover": delivery_mp4(vd, MODE_SHOWCASE, name, cover=True, day=day),
+        "carousel": delivery_mp4(vd, MODE_CAROUSEL, name, day=day),
+        "carousel_cover": delivery_mp4(vd, MODE_CAROUSEL, name, cover=True, day=day),
     }
 
 
@@ -216,6 +218,7 @@ def main() -> int:
         help="1 / 1b / 2 / 3 / 4 / 5 / 6；空则按文件夹加权抽签（4 降权，禁止每次默认 4）",
     )
     p.add_argument("--seed", default=None)
+    p.add_argument("--date", default="", help="成片日期 YYYY-MM-DD，默认今天")
     p.add_argument("--skip-cover", action="store_true")
     args = p.parse_args()
 
@@ -226,7 +229,7 @@ def main() -> int:
         print("no png in", img_dir, file=sys.stderr)
         return 1
 
-    paths = video_paths(card_dir)
+    paths = video_paths(card_dir, day=args.date or None)
     video_dir = paths["dir"]
     carousel = paths["carousel"]
     cards_to_mp4(

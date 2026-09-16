@@ -11,10 +11,12 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import math
 import subprocess
 import sys
 import tempfile
 import wave
+from array import array
 from pathlib import Path
 
 from cards_to_mp4 import DEFAULT_WHOOSH, collect_pngs
@@ -295,6 +297,25 @@ def _wav_dur(path: Path) -> float:
         return wav.getnframes() / float(rate)
 
 
+def _wav_attack_start(path: Path, thresh: float = 800.0) -> float:
+    """跳过音效开头的空响，让峰值贴上切页第一帧。"""
+    with wave.open(str(path), "rb") as wav:
+        sr = wav.getframerate() or 1
+        ch = wav.getnchannels() or 1
+        raw = wav.readframes(wav.getnframes())
+    samples = array("h")
+    samples.frombytes(raw)
+    hop = max(1, int(sr * 0.001)) * ch
+    for i in range(0, len(samples), hop):
+        chunk = samples[i : i + hop]
+        if not chunk:
+            break
+        rms = math.sqrt(sum(int(x) * int(x) for x in chunk) / len(chunk))
+        if rms > thresh:
+            return max(0.0, (i / ch) / float(sr) - 0.004)
+    return 0.0
+
+
 def _wav_set_nframes(path: Path, nframes: int, sr: int = 48000, ch: int = 2) -> None:
     with wave.open(str(path), "rb") as src:
         sw = src.getsampwidth()
@@ -523,8 +544,8 @@ def cards_to_showcase(
         slide_path = fallback
     if not smash_path:
         smash_path = fallback
-    slide_start = WHOOSH_BODY_START if slide_path == fallback else 0.0
-    smash_start = WHOOSH_BODY_START if smash_path == fallback else 0.0
+    slide_start = WHOOSH_BODY_START if slide_path == fallback else _wav_attack_start(slide_path)
+    smash_start = WHOOSH_BODY_START if smash_path == fallback else _wav_attack_start(smash_path)
 
     def _seg_audio(kind: str, video: Path, wav: Path) -> None:
         d = _probe_dur(video)

@@ -92,12 +92,16 @@ def infer_cover_copy(job: Path) -> tuple[str, str]:
     return title, sub
 
 
-def scroll_mp4_path(job: Path) -> Path:
-    return job / "成品视频" / f"{job.name}（上滑）.mp4"
+def scroll_mp4_path(job: Path, day: str | None = None) -> Path:
+    from delivery_names import MODE_SCROLL, delivery_mp4
+
+    return delivery_mp4(job / "成品视频", MODE_SCROLL, job.name, day=day)
 
 
-def scroll_cover_mp4_path(job: Path) -> Path:
-    return job / "成品视频" / f"{job.name}（上滑带封面）.mp4"
+def scroll_cover_mp4_path(job: Path, day: str | None = None) -> Path:
+    from delivery_names import MODE_SCROLL, delivery_mp4
+
+    return delivery_mp4(job / "成品视频", MODE_SCROLL, job.name, cover=True, day=day)
 
 
 def attach_cover(
@@ -107,12 +111,13 @@ def attach_cover(
     pill: str,
     brand: str,
     style_id: str,
+    day: str | None = None,
 ) -> Path:
     cover_png = make_official_cover(job, title, sub, pill, brand, style_id)
-    video = scroll_mp4_path(job)
+    video = scroll_mp4_path(job, day=day)
     if not video.is_file():
         raise SystemExit(f"缺少上滑成片: {video}")
-    out_with = scroll_cover_mp4_path(job)
+    out_with = scroll_cover_mp4_path(job, day=day)
     hold = float(CATALOG.get("first_frame", {}).get("hold_seconds", 0.034))
     prepend_cover(cover_png, video, out_with, hold=hold)
     fake = job / "成品图" / "cover-3x4.png"
@@ -136,6 +141,7 @@ def main() -> int:
         help="1 / 1b / 2 / 3 / 4 / 5 / 6；空则按文件夹加权抽签（勿每次默认 4）",
     )
     ap.add_argument("--seed", default=None)
+    ap.add_argument("--date", default="", help="成片日期 YYYY-MM-DD，默认今天")
     ap.add_argument("--skip-cover", action="store_true")
     ap.add_argument("--cover-only", action="store_true", help="已有上滑 MP4 时只出封面并拼第一帧")
     args = ap.parse_args()
@@ -163,7 +169,7 @@ def main() -> int:
             harvest_py(job)
         from eli5_scroll_video import compose
 
-        compose(job)
+        compose(job, day=args.date or None)
 
     if args.skip_cover:
         print("done (no cover)")
@@ -171,7 +177,7 @@ def main() -> int:
 
     print(f"cover title: {title}")
     print(f"cover sub:   {sub}")
-    attach_cover(job, title, sub, args.pill, args.brand, style_id)
+    attach_cover(job, title, sub, args.pill, args.brand, style_id, day=args.date or None)
     print("done")
     return 0
 
