@@ -2,9 +2,9 @@
 
 本仓库是 **3:4 贴图工作流** 的完整可携带包。
 
-换机、pull 之后、或继续未完成系列：先 Read `workspace/chats/CURRENT.md`。Cursor 聊天列表不会从 GitHub 恢复，以仓库文件为准。
+跨电脑进度写在 `.cursor/rules/handoff-current.mdc`（alwaysApply）。Agent 按那条继续，不要让用户去翻聊天或打开交接文件。
 
-开始任何出卡任务前，再 Read：
+开始任何出卡任务前，Read：
 
 `.cursor/skills/34-tietu-workflow/SKILL.md`
 
@@ -42,5 +42,5 @@
 
 ## 推云端必带聊天记录
 
-用户要 `git push` / 推云端时：先把本会话 transcript 拷到 `workspace/chats/`，更新该目录 README **和** `CURRENT.md`，再和代码一起提交推送。  
-规则见 `.cursor/rules/push-with-chats.mdc`。换机先读 `CURRENT.md`，不要只靠本机 Cursor 历史。
+用户要 `git push` / 推云端时：先把本会话 transcript 拷到 `workspace/chats/`，更新 `handoff-current.mdc` 与 `CURRENT.md` 里的「当前状态」，再和代码一起提交推送。  
+规则见 `.cursor/rules/push-with-chats.mdc`。

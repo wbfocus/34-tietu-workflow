@@ -18,8 +18,8 @@ alwaysApply: true
 2. 复制到本仓：`workspace/chats/YYYY-MM-DD-<uuid前8位>-简短主题.jsonl`  
    主题用人话，例如：`命名规则与业财扫盲`。  
    同一会话继续聊：覆盖更新已有那份 jsonl（文件名里的日期是开聊日，不必每天新建）。
-3. 更新 `workspace/chats/README.md` 表格；**必须改** `workspace/chats/CURRENT.md`（今天日期、做到哪、下一期、对照哪份 jsonl）。
-4. `git add` 本次代码改动 **以及** 上述聊天文件、README、CURRENT.md。
+3. 改 `.cursor/rules/handoff-current.mdc` 的「当前状态」（这是换机后 Agent 自动读到的交接）。同步 `workspace/chats/CURRENT.md` 与 README。
+4. `git add` 本次代码改动 **以及** 聊天 jsonl、handoff 规则、CURRENT.md、README。
 5. 提交说明里写明带了哪份聊天备份。
 6. 再 `git push`。
 
@@ -28,4 +28,4 @@ alwaysApply: true
 - **禁止**「先推代码、聊天下次再说」。
 - 本会话没有新对话可归档时，在回复里写明「本次无新聊天可备份」，再推代码。
 - 聊天里若含客户真名、驻地、工资路径等敏感信息，归档前先脱敏，或改存 `_private`（默认不要把敏感原文推进公开远程）。
-- 另一台电脑 pull 之后，**先打开 `workspace/chats/CURRENT.md`**，再按需打开 jsonl。不要在 Cursor 聊天列表里找旧对话。
+- 换机后靠 `handoff-current.mdc`（alwaysApply）让 Agent 自己接上。不要让用户打开 jsonl 或 CURRENT.md。

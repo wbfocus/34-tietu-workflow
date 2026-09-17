@@ -2,7 +2,7 @@
 
 本目录保存本仓库相关 Cursor 对话记录（从本机 `agent-transcripts` 复制），便于换机对照。
 
-**换机先打开 `CURRENT.md`。** 文件名里的日期是开聊那天，不是最后一次改的那天。
+换机交接给 Agent 读：`.cursor/rules/handoff-current.mdc`（alwaysApply）。本目录 jsonl 只作备份，文件名日期是开聊日。
 
 **铁律**：每次 `git push` 推云端前，必须把当前会话备份到这里，并改 `CURRENT.md`，一起提交。见 `.cursor/rules/push-with-chats.mdc`。
 
