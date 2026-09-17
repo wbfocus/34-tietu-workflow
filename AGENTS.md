@@ -8,7 +8,7 @@
 
 `.cursor/skills/34-tietu-workflow/SKILL.md`
 
-并遵守 `.cursor/rules/34-tietu-workflow.mdc`（主题必问 + 三套共用文字与骨架）、`34-tietu-watermark-safe-zone.mdc`（水印与防裁切）、`plain-speech.mdc`（跟人说话、写标题都用会上能说出口的人话）、`push-with-chats.mdc`（推云端必带本会话聊天备份）、`handoff-current.mdc`（换机先读进度指针）。文字见 `references/type-shared.md`，版式见 `references/layout-shared.md`。
+并遵守 `.cursor/rules/34-tietu-workflow.mdc`（主题必问 + 三套共用文字与骨架）、`34-tietu-watermark-safe-zone.mdc`（水印与防裁切）、`plain-speech.mdc`（跟人说话、写标题都用会上能说出口的人话）、`push-with-chats.mdc`（推云端必带本会话聊天备份）、`handoff-current.mdc`（跨电脑工作记忆，Agent 自动带上）。文字见 `references/type-shared.md`，版式见 `references/layout-shared.md`。
 
 金标准：`examples/gold-a-ceo-star-dark/`、`examples/gold-b-ceo-star-light/`、`examples/gold-c-workshop-editorial/`。
 成型样例：`examples/sample-gm-variance-dark/`。
