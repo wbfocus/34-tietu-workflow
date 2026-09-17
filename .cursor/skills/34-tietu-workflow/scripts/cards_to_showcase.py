@@ -20,6 +20,7 @@ from array import array
 from pathlib import Path
 
 from cards_to_mp4 import DEFAULT_WHOOSH, collect_pngs
+from mp4_compat import assert_mp4_compat
 from showcase_chrome import (
     HEADER_H,
     default_tabs,
@@ -113,6 +114,10 @@ def _x264(dst: Path) -> list[str]:
         "yuv420p",
         "-r",
         str(FPS),
+        "-video_track_timescale",
+        "15360",
+        "-x264-params",
+        "level=4.0",
         "-an",
         str(dst),
     ]
@@ -485,6 +490,10 @@ def mux_video_audio(
             "yuv420p",
             "-r",
             str(FPS),
+            "-video_track_timescale",
+            "15360",
+            "-x264-params",
+            "level=4.0",
             "-c:a",
             "aac",
             "-b:a",
@@ -664,6 +673,10 @@ def cards_to_showcase(
             "yuv420p",
             "-r",
             str(FPS),
+            "-video_track_timescale",
+            "15360",
+            "-x264-params",
+            "level=4.0",
             "-an",
             str(silent),
         )
@@ -677,6 +690,7 @@ def cards_to_showcase(
         qa_errs = qa_showcase_audio(out, n, hold, fade, empty, smash, end_pad)
         if qa_errs:
             raise SystemExit("showcase SFX QA FAIL:\n" + "\n".join(f" - {e}" for e in qa_errs))
+        assert_mp4_compat(out)
         print("QA showcase audio OK (hold/empty silent)", flush=True)
 
     print(

@@ -272,8 +272,7 @@ def main() -> int:
     )
 
     out_with = paths["carousel_cover"]
-    hold = float(CATALOG.get("first_frame", {}).get("hold_seconds", 0.034))
-    prepend_cover(cover_png, carousel, out_with, hold=hold)
+    prepend_cover(cover_png, carousel, out_with)
     print("OK", out_with)
     return 0
 

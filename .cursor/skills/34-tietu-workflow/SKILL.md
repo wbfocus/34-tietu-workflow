@@ -107,7 +107,8 @@ py -3 ".cursor/skills/34-tietu-workflow/scripts/prepend_cover_frame.py" --cover 
 
 - 轮播：1080×1440 · 30fps · 每张可读 5 秒 · **每次一种丝滑转场（约 1 秒）**（叠在交界，总时长仍是 N×5）· 轻 chill BGM + 轻 whoosh
 - 封面：布局 DNA 见 `covers-3x4/README.md`（居中、两边留空、标题最多两行）
-- 成片第一帧：封面仅 **1 帧**（约 0.034s），随后进入卡片轮播
+- 成片第一帧：封面仅 **正好 1 帧（1/30 秒）**。禁止写 0.034 秒（会变成 30.01fps + 1000k tbn，钉钉拒收）
+- 编码锁死：H.264 High 4.0、yuv420p、整 30fps、15360 tbn、AAC 48kHz。出片后必须 `qa_tietu.py mp4`
 
 转场默认 `mix`：fade → smoothleft → distance → smoothup → hblur → smoothright → radial… 相邻不同。不用 3D 卷页、硬 wipe。`--transition none` 可关动画。
 

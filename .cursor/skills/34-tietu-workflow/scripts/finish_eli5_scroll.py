@@ -118,8 +118,7 @@ def attach_cover(
     if not video.is_file():
         raise SystemExit(f"缺少上滑成片: {video}")
     out_with = scroll_cover_mp4_path(job, day=day)
-    hold = float(CATALOG.get("first_frame", {}).get("hold_seconds", 0.034))
-    prepend_cover(cover_png, video, out_with, hold=hold)
+    prepend_cover(cover_png, video, out_with)
     fake = job / "成品图" / "cover-3x4.png"
     if fake.is_file():
         fake.unlink()

@@ -47,3 +47,4 @@ alwaysApply: true
 - **成品禁词 ELI5**：上滑作品的 HTML / PNG / 封面 / 成片文件名 **不得出现 `ELI5`/`eli5`**（页眉 `.c-en`、页脚、标题栏均禁止）。对内可叫 skill 名，对外只说「上滑 / 长图」
 - **上滑多样式默认开**：与贴图/橱窗共用 `layout-shared.md` 组件（`.hero-orb` / `.pill-dark` / `.tier` / 2×2 网格 / `.list-row`+`.dot-n` / 坑修 / `.brick` / `.card-principle`）。一套长卷 **≥5 种**节奏；**禁止**只写「比喻+流程+坑修+积木」流水账。用户说「上滑」即执行，不必等提醒「样式丰富」。详见 `34-eli5-scroll/references/card-ui-from-34.md`
 - **封面常换**：`covers-3x4` 池含暗底 1/1b/2/3、痛点钩子 4、浅色 5/6；出片时 `--style` 默认留空做加权抽签（4 降权）。**禁止**每套作品都 `--style 4`（白字红强调）。仅痛点问句钩子才显式指定 4
+- **成片编码**：H.264 High 4.0、yuv420p、**整 30fps**、**15360 tbn**、AAC 48kHz。封面第 0 帧必须正好 1/30 秒。**禁止 0.034 秒 / 30.01fps / 1000k tbn**（钉钉拒收）。出片后 `qa_tietu.py mp4`，不过检不准交付。见 `34-mp4-dingtalk.mdc`

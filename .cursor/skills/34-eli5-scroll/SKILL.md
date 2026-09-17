@@ -113,11 +113,13 @@ py -3 ".cursor/skills/34-tietu-workflow/scripts/finish_eli5_scroll.py" ".\worksp
 | 项 | 值 |
 |---|---|
 | 长图 | 宽 1080（390×2.769），高度随内容 |
-| 视频 | **1080×1440 · 30fps · 约 18–90 秒** |
+| 视频 | **1080×1440 · 整 30fps · 15360 tbn · H.264 High 4.0 · 约 18–90 秒** |
 | 运动 | 内容上滑（窗口下移） |
 | 入画 | 块进入画面后淡入 + 上移约 22px / 0.42s |
-| 声音 | 仅 `assets/sfx/bubble-pop.wav`，跟弹出走 |
-| 禁止 | BGM、口播、字幕、9:16 |
+| 声音 | 仅 `assets/sfx/bubble-pop.wav`，跟弹出走；AAC 48kHz |
+| 禁止 | BGM、口播、字幕、9:16、**30.01fps、1000k tbn、封面停 0.034 秒** |
+
+出片后必须：`py -3 ".cursor/skills/34-tietu-workflow/scripts/qa_tietu.py" mp4 "<带封面.mp4>"`。不过检不准交付。
 
 ## 产出目录
 

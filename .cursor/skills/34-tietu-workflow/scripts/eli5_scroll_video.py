@@ -14,6 +14,7 @@ import sys
 from pathlib import Path
 
 from make_bubble_sfx import DEFAULT_OUT as BUBBLE_WAV, write_bubble
+from mp4_compat import assert_mp4_compat
 
 W, H, FPS = 1080, 1440, 30
 HOLD_START = 0.85
@@ -172,13 +173,31 @@ def build_filter(timed: list[dict], harvest: Path, plan: dict[str, float | int])
 
 
 def run_ffmpeg(cmd: list[str]) -> None:
-    proc = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace")
+    proc = subprocess.run(cmd)
     if proc.returncode != 0:
-        err = (proc.stderr or proc.stdout or "")[-4000:]
-        raise SystemExit(f"ffmpeg failed ({proc.returncode}):\n{err}")
+        raise SystemExit(f"ffmpeg failed ({proc.returncode})")
+
+
+def bubble_audio_filter(timed: list[dict], dur: float) -> str:
+    n = len(timed)
+    splits = "".join(f"[b{j}]" for j in range(n))
+    parts = [f"[1:a]asplit={n}{splits}"]
+    mixed: list[str] = []
+    for j, r in enumerate(timed):
+        ms = max(0, int(round(float(r["t"]) * 1000)))
+        parts.append(f"[b{j}]adelay={ms}|{ms},volume={BUBBLE_VOL}[pop{j}]")
+        mixed.append(f"[pop{j}]")
+    parts.append(
+        f"{''.join(mixed)}amix=inputs={n}:duration=longest:dropout_transition=0:normalize=0,"
+        f"apad=whole_dur={dur},alimiter=limit=0.95,aformat=sample_fmts=fltp:channel_layouts=stereo[aout]"
+    )
+    return ";\n".join(parts)
 
 
 def compose(job_dir: Path, out_mp4: Path | None = None, day: str | None = None) -> Path:
+    """Scroll + pop via PIL frames. FFmpeg 34-overlay graphs stall for hours on this box."""
+    from PIL import Image
+
     harvest = job_dir / "harvest"
     tl_path = harvest / "timeline.json"
     if not tl_path.exists():
@@ -191,6 +210,7 @@ def compose(job_dir: Path, out_mp4: Path | None = None, day: str | None = None) 
     plan = plan_duration(img_h)
     timed = assign_pops(tl.get("reveals") or [], int(plan["travel"]), float(plan["duration"]))
     dur = float(plan["duration"])
+    travel = int(plan["travel"])
 
     if not BUBBLE_WAV.exists():
         write_bubble(BUBBLE_WAV)
@@ -202,58 +222,86 @@ def compose(job_dir: Path, out_mp4: Path | None = None, day: str | None = None) 
 
         out_mp4 = delivery_mp4(video_dir, MODE_SCROLL, job_dir.name, day=day)
 
-    ff = ffmpeg_bin()
-    cmd: list[str] = [ff, "-y", "-loop", "1", "-t", str(dur), "-i", str(plate)]
+    plate_im = Image.open(plate).convert("RGBA")
+    sprites: list[tuple[Image.Image, dict]] = []
     for r in timed:
-        cmd.extend(["-loop", "1", "-t", str(dur), "-i", str(harvest / r["file"])])
-    if timed:
-        cmd.extend(["-i", str(BUBBLE_WAV)])
+        im = Image.open(harvest / r["file"]).convert("RGBA")
+        tw, th = int(r["w"]), int(r["h"])
+        if im.size != (tw, th):
+            im = im.resize((tw, th), Image.Resampling.LANCZOS)
+        sprites.append((im, r))
 
-    graph = build_filter(timed, harvest, plan)
+    nframes = int(round(dur * FPS))
+    ff = ffmpeg_bin()
+    cmd: list[str] = [
+        ff, "-y",
+        "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS),
+        "-i", "pipe:0",
+    ]
     if timed:
-        a_idx = 1 + len(timed)
-        graph = graph.replace("[bubbles]", f"[{a_idx}:a]")
-    script = harvest / "filter.txt"
-    script.write_text(graph, encoding="utf-8")
-
+        af = bubble_audio_filter(timed, dur)
+        (harvest / "filter.txt").write_text(af, encoding="utf-8")
+        cmd.extend(["-i", str(BUBBLE_WAV), "-filter_complex", af, "-map", "0:v", "-map", "[aout]"])
+    else:
+        cmd.extend(["-an"])
     cmd.extend(
         [
-            "-/filter_complex",
-            str(script),
-            "-map",
-            "[vout]",
-            "-t",
-            str(dur),
-            "-r",
-            str(FPS),
-            "-c:v",
-            "libx264",
-            "-profile:v",
-            "high",
-            "-level",
-            "4.0",
-            "-pix_fmt",
-            "yuv420p",
-            "-crf",
-            "20",
-            "-movflags",
-            "+faststart",
+            "-t", str(dur),
+            "-c:v", "libx264", "-profile:v", "high", "-level", "4.0",
+            "-x264-params", "level=4.0",
+            "-r", str(FPS), "-video_track_timescale", "15360",
+            "-pix_fmt", "yuv420p", "-preset", "veryfast", "-crf", "20",
+            "-movflags", "+faststart",
         ]
     )
     if timed:
-        cmd.extend(["-map", "[aout]", "-c:a", "aac", "-b:a", "160k", "-ar", "48000"])
-    else:
-        cmd.extend(["-an"])
+        cmd.extend(["-c:a", "aac", "-b:a", "160k", "-ar", "48000", "-ac", "2"])
     cmd.append(str(out_mp4))
-    run_ffmpeg(cmd)
+
+    print(f"compose PIL {nframes} frames, {len(timed)} pops -> {out_mp4.name}", flush=True)
+    proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
+    assert proc.stdin is not None
+    try:
+        for i in range(nframes):
+            t = i / FPS
+            y0 = even(int(scroll_y_at(t, travel, dur)))
+            y0 = max(0, min(y0, max(0, plate_im.height - H)))
+            frame = plate_im.crop((0, y0, W, y0 + H)).copy()
+            for im, r in sprites:
+                t0 = float(r["t"])
+                if t < t0:
+                    continue
+                fade = min(1.0, (t - t0) / POP_DUR)
+                oy = int(r["y"] - y0 + POP_PX * (1.0 - fade))
+                ox = int(r["x"])
+                layer = im
+                if fade < 1.0:
+                    layer = im.copy()
+                    alpha = layer.getchannel("A").point(lambda p, f=fade: int(p * f))
+                    layer.putalpha(alpha)
+                frame.paste(layer, (ox, oy), layer)
+            proc.stdin.write(frame.convert("RGB").tobytes())
+            if i % 90 == 0:
+                print(f"  frame {i}/{nframes} t={t:.1f}s", flush=True)
+        proc.stdin.close()
+    except Exception:
+        proc.kill()
+        raise
+    if proc.wait() != 0:
+        raise SystemExit(f"ffmpeg failed ({proc.returncode})")
 
     meta = harvest / "compose.json"
     meta.write_text(
-        json.dumps({"output": str(out_mp4), "plan": plan, "pops": [{"id": r["id"], "t": r["t"]} for r in timed]}, ensure_ascii=False, indent=2),
+        json.dumps(
+            {"output": str(out_mp4), "plan": plan, "engine": "pil", "pops": [{"id": r["id"], "t": r["t"]} for r in timed]},
+            ensure_ascii=False,
+            indent=2,
+        ),
         encoding="utf-8",
     )
     print(f"mp4: {out_mp4}")
     print(f"duration: {dur}s  travel: {plan['travel']}px  pops: {len(timed)}")
+    assert_mp4_compat(out_mp4)
     return out_mp4
 
 

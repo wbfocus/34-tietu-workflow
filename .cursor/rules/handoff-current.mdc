@@ -9,12 +9,12 @@ alwaysApply: true
 
 ## 当前状态 · 2026-09-17
 
-- **已完成 A**：业财融合 / 角色与组织。夹 `workspace/HTMLcards/长图-业财角色扫盲（浅色）`（旧名保留）。封面两行已改；成片 H.264 High 4.0。
-- **下一期 B**：系统与数据（ERP / MES / WMS / PLM / CRM / SRM / BI / OMS）。主题 B。平实专业，不要机器腔。新夹 `上滑_YYYY-MM-DD_系统与数据（浅色）`。
-- **禁止**把下一期做成「流程与数据」。A–I 以 `workspace/plans/业财人话A到I.md` 为准。
-- 用户说继续 / 下一期 / 做上滑且未改题 → **直接做 B**，不必再问 A–I 是什么。
+- **已完成 A**：业财融合 / 角色与组织。夹 `workspace/HTMLcards/长图-业财角色扫盲（浅色）`。
+- **已完成 B**：业财融合 / 系统与数据。夹 `workspace/HTMLcards/上滑_2026-09-17_系统与数据（浅色）`。封面副标「数据走哪套系统，账就从哪套来」。成片 90 秒、34 弹出、H.264 High 4.0、30fps、15360 tbn。带封面禁止再走 0.034s/1000k tbn。
+- **下一期 C**：业财融合总纲。主题 B。平实专业。新夹 `上滑_YYYY-MM-DD_业财融合总纲（浅色）`。
+- 用户说继续 / 下一期 / 做上滑且未改题 → **直接做 C**。
 
-出 B 前 Read：`.cursor/skills/34-eli5-scroll/SKILL.md` 与 `workspace/plans/业财人话A到I.md`。
+出 C 前 Read：`.cursor/skills/34-eli5-scroll/SKILL.md` 与 `workspace/plans/业财人话A到I.md`。
 
 ## 状态变了就改这里
 

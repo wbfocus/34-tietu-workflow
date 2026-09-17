@@ -9,27 +9,24 @@ import argparse
 import json
 import random
 import re
-import shutil
 import subprocess
 import sys
 from pathlib import Path
 
+from mp4_compat import (  # noqa: E402
+    COVER_HOLD,
+    FPS,
+    H,
+    W,
+    aac_compat,
+    assert_mp4_compat,
+    ffmpeg_bin,
+    x264_compat,
+)
+
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "covers-3x4" / "style-catalog.json"
-DEFAULT_HOLD = 0.034  # 1 frame @ 30fps（A 区锁定：成片第一帧仅 1 帧）
-W, H = 1080, 1440
-
-
-def ffmpeg_bin() -> str:
-    exe = shutil.which("ffmpeg")
-    if exe:
-        return exe
-    try:
-        import imageio_ffmpeg
-
-        return imageio_ffmpeg.get_ffmpeg_exe()
-    except Exception:
-        raise SystemExit("未找到 ffmpeg。请安装并加入 PATH，或 pip install imageio-ffmpeg")
+DEFAULT_HOLD = COVER_HOLD  # 正好 1 帧；禁止 0.034
 
 
 def load_catalog() -> dict:
@@ -66,53 +63,59 @@ def prepend_cover(
     pad_color: str = "0x000000",
 ) -> None:
     out.parent.mkdir(parents=True, exist_ok=True)
+    if abs(hold - COVER_HOLD) > 0.0005:
+        print(
+            f"WARN cover hold {hold}s ignored; forcing {COVER_HOLD:.6f}s (1 frame). "
+            "0.034s → 30.01fps/1000k tbn, 钉钉拒收",
+            file=sys.stderr,
+        )
+    hold = COVER_HOLD
     has_a = ffprobe_has_audio(video)
     pad = (
         f"scale={width}:{height}:force_original_aspect_ratio=decrease,"
-        f"pad={width}:{height}:(ow-iw)/2:(oh-ih)/2:color={pad_color},setsar=1,fps=30,format=yuv420p"
+        f"pad={width}:{height}:(ow-iw)/2:(oh-ih)/2:color={pad_color},"
+        f"setsar=1,fps={FPS},format=yuv420p"
     )
     ff = ffmpeg_bin()
+    x264 = x264_compat(crf=18, preset="medium")
     if has_a:
         fc = (
-            f"[0:v]{pad},trim=duration={hold},setpts=PTS-STARTPTS[v0];"
+            f"[0:v]{pad},trim=end_frame=1,setpts=PTS-STARTPTS[v0];"
             f"[1:v]{pad},setpts=PTS-STARTPTS[v1];"
-            f"[v0][v1]concat=n=2:v=1:a=0[vout];"
-            f"aevalsrc=0:d={hold}:channel_layout=stereo:sample_rate=48000[a0];"
-            f"[1:a]aformat=sample_rates=48000:channel_layouts=stereo[a1];"
+            f"[v0][v1]concat=n=2:v=1:a=0,fps={FPS},format=yuv420p[vout];"
+            f"aevalsrc=0:d={1.0/FPS}:channel_layout=stereo:sample_rate=48000[a0];"
+            f"[1:a]aformat=sample_rates=48000:channel_layouts=stereo,aresample=48000[a1];"
             f"[a0][a1]concat=n=2:v=0:a=1[aout]"
         )
         cmd = [
             ff, "-y",
-            "-loop", "1", "-t", str(hold), "-i", str(cover),
+            "-loop", "1", "-framerate", str(FPS), "-t", f"{1.0/FPS:.6f}", "-i", str(cover),
             "-i", str(video),
             "-filter_complex", fc,
             "-map", "[vout]", "-map", "[aout]",
-            "-c:v", "libx264", "-profile:v", "high", "-level", "4.0",
-            "-crf", "18", "-preset", "medium", "-pix_fmt", "yuv420p",
-            "-c:a", "aac", "-b:a", "192k", "-ar", "48000",
-            "-movflags", "+faststart",
+            *x264,
+            *aac_compat("128k"),
             str(out),
         ]
     else:
         fc = (
-            f"[0:v]{pad},trim=duration={hold},setpts=PTS-STARTPTS[v0];"
+            f"[0:v]{pad},trim=end_frame=1,setpts=PTS-STARTPTS[v0];"
             f"[1:v]{pad},setpts=PTS-STARTPTS[v1];"
-            f"[v0][v1]concat=n=2:v=1:a=0[vout]"
+            f"[v0][v1]concat=n=2:v=1:a=0,fps={FPS},format=yuv420p[vout]"
         )
         cmd = [
             ff, "-y",
-            "-loop", "1", "-t", str(hold), "-i", str(cover),
+            "-loop", "1", "-framerate", str(FPS), "-t", f"{1.0/FPS:.6f}", "-i", str(cover),
             "-i", str(video),
             "-filter_complex", fc,
             "-map", "[vout]",
-            "-c:v", "libx264", "-profile:v", "high", "-level", "4.0",
-            "-crf", "18", "-preset", "medium", "-pix_fmt", "yuv420p",
+            *x264,
             "-an",
-            "-movflags", "+faststart",
             str(out),
         ]
     print("RUN", " ".join(cmd[:8]), "...")
     subprocess.check_call(cmd)
+    assert_mp4_compat(out)
 
 
 def main() -> int:

@@ -75,7 +75,7 @@
   ],
   "first_frame": {
     "required": true,
-    "hold_seconds": 0.034,
-    "note": "封面必须拼进成片第 0 帧；仅 1 帧（约 0.034s）"
+    "hold_seconds": 0.033333,
+    "note": "封面必须拼进成片第 0 帧；正好 1 帧=1/30秒。禁止 0.034：会变成 30.01fps+1000k tbn，钉钉拒收"
   }
 }

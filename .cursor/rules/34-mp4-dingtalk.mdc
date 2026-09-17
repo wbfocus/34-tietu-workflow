@@ -1,0 +1,30 @@
+---
+description: 成片 MP4 必须钉钉/微信能播。只贴 High 4.0 标签不够；时间基错了照样拒收。
+alwaysApply: true
+---
+
+# 成片编码 · 钉钉/微信能播
+
+凡写出 **MP4**（轮播 / 橱窗 / 上滑 / 带封面），必须是钉钉、微信能直接播的规格。**禁止**只改标签交差。
+
+## 锁死规格
+
+| 项 | 必须 | 禁止（钉钉会说识别不了） |
+|---|---|---|
+| 尺寸 | 1080×1440 | 9:16 / 1080×1920 |
+| 视频 | H.264 **High Level 4.0**、yuv420p | High 6.2、只写 High 不写 level |
+| 帧率 | **整 30 fps** | **30.01 fps** |
+| 时间基 | **15360 tbn**（`-video_track_timescale 15360`） | **1000k tbn**（muxer 默认） |
+| 音频 | AAC、**48kHz** | 44.1kHz |
+| 封装 | `+faststart` | 无 moov / 编码中途当成品 |
+
+封面拼进成片：第 0 帧必须 **正好 1 帧 = 1/30 秒**。  
+**禁止 0.034 秒**：ffmpeg 会把整段写成 30.01 fps + 1000k tbn，标签再写 High 4.0 钉钉也拒收。
+
+## 出片后必检
+
+```bash
+py -3 ".cursor/skills/34-tietu-workflow/scripts/qa_tietu.py" mp4 "<成品.mp4>"
+```
+
+不过检（30.01 / 1000k tbn / 非 High / 非 48kHz）**不准交付、不准说能发钉钉**。脚本：`scripts/mp4_compat.py`。

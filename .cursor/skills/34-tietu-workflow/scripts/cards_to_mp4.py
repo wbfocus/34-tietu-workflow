@@ -15,6 +15,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from mp4_compat import assert_mp4_compat
+
 W, H, FPS = 1080, 1440, 30
 DEFAULT_HOLD = 5.0
 DEFAULT_XFADE = 1.0
@@ -189,7 +191,7 @@ def cards_to_mp4(
     cmd.extend(["-filter_complex", fc, "-map", vmap])
     has_audio = bool(a_parts)
     if has_audio:
-        cmd.extend(["-map", "[aout]", "-c:a", "aac", "-b:a", "192k"])
+        cmd.extend(["-map", "[aout]", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2"])
     else:
         cmd.append("-an")
     cmd.extend(
@@ -208,6 +210,10 @@ def cards_to_mp4(
             "yuv420p",
             "-r",
             str(FPS),
+            "-video_track_timescale",
+            "15360",
+            "-x264-params",
+            "level=4.0",
             "-t",
             f"{dur:.3f}",
             "-movflags",
@@ -221,6 +227,7 @@ def cards_to_mp4(
     )
     subprocess.check_call(cmd)
     print("OK", out)
+    assert_mp4_compat(out)
     return out
 
 

@@ -8,7 +8,7 @@
 
 `.cursor/skills/34-tietu-workflow/SKILL.md`
 
-并遵守 `.cursor/rules/34-tietu-workflow.mdc`（主题必问 + 三套共用文字与骨架）、`34-tietu-watermark-safe-zone.mdc`（水印与防裁切）、`plain-speech.mdc`（跟人说话、写标题都用会上能说出口的人话）、`push-with-chats.mdc`（推云端必带本会话聊天备份）、`handoff-current.mdc`（跨电脑工作记忆，Agent 自动带上）。文字见 `references/type-shared.md`，版式见 `references/layout-shared.md`。
+并遵守 `.cursor/rules/34-tietu-workflow.mdc`（主题必问 + 三套共用文字与骨架）、`34-tietu-watermark-safe-zone.mdc`（水印与防裁切）、`34-mp4-dingtalk.mdc`（成片必须钉钉/微信能播）、`plain-speech.mdc`（跟人说话、写标题都用会上能说出口的人话）、`push-with-chats.mdc`（推云端必带本会话聊天备份）、`handoff-current.mdc`（跨电脑工作记忆，Agent 自动带上）。文字见 `references/type-shared.md`，版式见 `references/layout-shared.md`。
 
 金标准：`examples/gold-a-ceo-star-dark/`、`examples/gold-b-ceo-star-light/`、`examples/gold-c-workshop-editorial/`。
 成型样例：`examples/sample-gm-variance-dark/`。
@@ -32,7 +32,7 @@
 
 长图上滑（390px 长卷 → 高清 PNG → 3:4 上滑弹出视频，气泡音、无 BGM / 无口播）见 `.cursor/skills/34-eli5-scroll/SKILL.md`。
 
-出图后必须自检：竖向铺满（底不能空一大块）+ 橱窗音效只在切页（静持/空镜不得乱响）。脚本：`.cursor/skills/34-tietu-workflow/scripts/qa_tietu.py`。
+出图后必须自检：竖向铺满（底不能空一大块）+ 橱窗音效只在切页（静持/空镜不得乱响）+ **成片编码**（整 30fps、15360 tbn、High 4.0，钉钉/微信能播）。脚本：`.cursor/skills/34-tietu-workflow/scripts/qa_tietu.py`。
 
 ## 成片与文件夹命名
 

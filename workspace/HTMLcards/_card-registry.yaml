@@ -105,3 +105,12 @@ articles:
         format: upscroll
         status: done
         note: A–I 上滑系列 A 类 · 封面「业财融合 / 角色与组织」· 旧夹名暂留
+
+  - slug: finance-ops-systems-data
+    title: 业财融合 · 系统与数据
+    sets:
+      - folder: workspace/HTMLcards/上滑_2026-09-17_系统与数据（浅色）
+        theme: B
+        format: upscroll
+        status: done
+        note: A–I 上滑系列 B 类 · 封面「业财融合 / 系统与数据」

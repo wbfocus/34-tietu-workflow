@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=390, initial-scale=1, maximum-scale=1">
+<title>业财系统扫盲</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.2.5/chinese-simplified-900.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Bold/Bold.css"/>
+<link rel="stylesheet" href="layout-long.css"/>
+<link rel="stylesheet" href="theme-b-long.css"/>
+<style>
+  .sys-tag {
+    display: inline-block; padding: 2px 8px; border-radius: 6px;
+    font-size: 11px; font-weight: 700; margin-bottom: 4px;
+  }
+  .sys-tag.erp { background: #FFF4E6; color: #FF7700; }
+  .sys-tag.mes { background: #E0F2FE; color: #0284C7; }
+  .sys-tag.wms { background: #ECFDF5; color: #047857; }
+  .sys-tag.plm { background: #f5f5f4; color: #57534e; }
+  .full { font-size: 11.5px; color: #9A938C; margin-top: 2px; }
+</style>
+</head>
+<body>
+<div class="phone" id="capture">
+  <div class="mesh" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"></div>
+  <div class="content wenkai">
+
+    <header class="eli5-head" data-eli5-reveal>
+      <div class="wm-num ui-title">B</div>
+      <div class="head-row">
+        <div class="idx-sq terra ui-bold">B</div>
+        <div>
+          <div class="c-en ui-bold">WHICH SYSTEM</div>
+          <div class="c-cn">业财系统扫盲</div>
+        </div>
+      </div>
+      <h1 class="ui-title">ERP、MES、WMS，<br/>数到底<span class="mark">记在哪</span>？</h1>
+      <p class="tagline">这些简称不是软件牌子。它们回答的是同一件事：<span class="mark">原始记录在哪个本子上</span>。</p>
+      <div class="pill-dark" data-eli5-reveal style="margin-top:10px">
+        <span class="pill" style="background:#FF7700;color:#fff;margin:0">一句话</span>
+        <span>数据走哪套系统，账就从哪套来</span>
+      </div>
+      <div class="hero-row" data-eli5-reveal>
+        <div class="hero-orb ui-title">4</div>
+        <div>
+          <div class="big ui-title" style="margin:0">四本本子</div>
+          <p class="muted" style="margin-top:4px">源头记、现场记、总账收、看板看。本子对不上，不是算错。</p>
+        </div>
+      </div>
+      <div class="chip-row" data-eli5-reveal>
+        <span class="chip"><span class="dot" style="background:#FF7700"></span>ERP</span>
+        <span class="chip"><span class="dot" style="background:#0284C7"></span>MES</span>
+        <span class="chip"><span class="dot" style="background:#047857"></span>WMS</span>
+        <span class="chip"><span class="dot" style="background:#fb923c"></span>PLM</span>
+        <span class="chip"><span class="dot" style="background:#0EA5E9"></span>CRM</span>
+      </div>
+    </header>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num terra ui-bold">1</span> 先记住一个比喻</h2>
+      <div class="card-paper story" data-eli5-reveal>
+        <div class="emoji">📒</div>
+        <div class="body">
+          <div class="big ui-title">公司不是一本账</div>
+          <p class="muted">车间有记工的本，仓库有存货的本，设计有配方的本，财务有总账。<span class="mark">ERP 是总账房</span>，别的系统是各屋自己的本子。本子不交上去，月底对不上很正常。</p>
+        </div>
+      </div>
+      <div class="hl-bar" data-eli5-reveal>
+        <div class="big ui-title">简称问的是「记在哪」</div>
+        <p class="muted">听到 ERP / MES / WMS，先问<span class="mark-sage">这件事的原始记录在哪个本子</span>，不要先问用的哪家软件。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num sage ui-bold">2</span> 一单货怎么走完</h2>
+      <div class="flow">
+        <div class="box gray" data-eli5-reveal>接单<span class="sub">CRM / OMS：客户、合同、订单从这里进</span></div>
+        <div class="arrow">↓ 图纸和用料定了</div>
+        <div class="box" data-eli5-reveal>定配方<span class="sub">PLM：BOM、图纸、变更从这里出</span></div>
+        <div class="arrow">↓ 车间做、仓库动</div>
+        <div class="box" data-eli5-reveal>做出来 · 放进去<span class="sub">MES 管怎么做；WMS 管货放哪、怎么拣</span></div>
+        <div class="arrow">↓ 总账房收齐</div>
+        <div class="box orange" data-eli5-reveal>入账 · 看板<span class="sub">ERP 入总账；BI 只把数摊开看，自己不产生数</span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num ochre ui-bold">3</span> 四个最常听到的</h2>
+      <div class="grid-2">
+        <div class="cell" data-eli5-reveal>
+          <div class="sys-tag erp ui-bold">ERP</div>
+          <div class="v ui-title">总账房</div>
+          <p class="mini">总账、进销存、生产和财务收在一处。别的系统做完，数最终要汇到这里。</p>
+          <div class="full">Enterprise Resource Planning</div>
+        </div>
+        <div class="cell" data-eli5-reveal>
+          <div class="sys-tag mes ui-bold">MES</div>
+          <div class="v ui-title">车间怎么做出来的</div>
+          <p class="mini">工单、报工、设备、质量。管货怎么做出来，把实际工时和用料喂给 ERP。</p>
+          <div class="full">Manufacturing Execution System</div>
+        </div>
+        <div class="cell" data-eli5-reveal>
+          <div class="sys-tag wms ui-bold">WMS</div>
+          <div class="v ui-title">货放哪、怎么动</div>
+          <p class="mini">库位、批次、拣货、盘点。和 ERP 的库存模块常叠在一起，先问以谁为准。</p>
+          <div class="full">Warehouse Management System</div>
+        </div>
+        <div class="cell" data-eli5-reveal>
+          <div class="sys-tag plm ui-bold">PLM</div>
+          <div class="v ui-title">这件货该吃什么料</div>
+          <p class="mini">产品从设计到退市的数据。BOM 和工程变更的源头在这里，不在财务表里。</p>
+          <div class="full">Product Lifecycle Management</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num terra ui-bold">4</span> 四层：从源头看到看板</h2>
+      <div class="tier" data-eli5-reveal>
+        <div class="tier-lab terra ui-bold">源头</div>
+        <div class="tier-body">
+          <div class="big ui-title">订单、图纸、采购从哪进</div>
+          <p class="muted"><span class="mark">CRM / OMS</span> 管客户和订单；<span class="mark">PLM</span> 管 BOM；<span class="mark">SRM</span> 管供应商和采购。</p>
+        </div>
+      </div>
+      <div class="tier w96" data-eli5-reveal>
+        <div class="tier-lab sage ui-bold">现场</div>
+        <div class="tier-body">
+          <div class="big ui-title">货怎么做、货怎么放</div>
+          <p class="muted"><span class="mark-sage">MES</span> 管车间执行，<span class="mark-sage">WMS</span> 管仓库。这两本不交，总账就是空的。</p>
+        </div>
+      </div>
+      <div class="tier w92" data-eli5-reveal>
+        <div class="tier-lab ochre ui-bold">总账</div>
+        <div class="tier-body">
+          <div class="big ui-title">ERP 把各本收齐</div>
+          <p class="muted">钱、货、成本入账在这里。对不上，先查哪本没交上来，不要先改报表。</p>
+        </div>
+      </div>
+      <div class="tier w92" data-eli5-reveal>
+        <div class="tier-lab sage ui-bold">看板</div>
+        <div class="tier-body">
+          <div class="big ui-title">BI 只看，不记账</div>
+          <p class="muted">把各系统的数拉出来摊开。看板错了，错在源头本子，不在看板本身。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num sage ui-bold">5</span> 常见坑 → 修法</h2>
+      <div class="card-blush pair-row" data-eli5-reveal>
+        <div class="x-mark ui-bold">×</div>
+        <div>
+          <div class="big ui-title">各记一份库存</div>
+          <p class="muted">车间一本、仓库一本、财务再记一本。月底三套数对不上，每个人都说自己的是对的。</p>
+        </div>
+      </div>
+      <div class="card-sage pair-row" data-eli5-reveal>
+        <div class="ok-mark ui-bold">✓</div>
+        <div>
+          <div class="big ui-title">认一个源头，别的跟它走</div>
+          <p class="muted">货在仓库，以 <span class="mark-sage">WMS</span> 为准喂给 ERP；用料以 <span class="mark-sage">PLM 的 BOM</span> 为准。不要三边各改各的。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num ochre ui-bold">6</span> 开会时怎么对上号</h2>
+      <div class="list-row" data-eli5-reveal>
+        <div class="dot-n terra ui-bold">1</div>
+        <div class="body">
+          <div class="big ui-title">听到 ERP，问总账收齐了没有</div>
+          <p class="muted">MES、WMS 的数进没进总账。没进，对账对的是空本。</p>
+        </div>
+      </div>
+      <div class="list-row" data-eli5-reveal>
+        <div class="dot-n sage ui-bold">2</div>
+        <div class="body">
+          <div class="big ui-title">听到 MES / WMS，问跟工单对得上吗</div>
+          <p class="muted">报工、领料、出入库能不能点回同一张工单。对不上，成本就是估的。</p>
+        </div>
+      </div>
+      <div class="list-row" data-eli5-reveal>
+        <div class="dot-n ochre ui-bold">3</div>
+        <div class="body">
+          <div class="big ui-title">听到 BI，记住它不产生数</div>
+          <p class="muted">看板只是把别人的数摊开。数不对，回源头本子查，别先改图表。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num terra ui-bold">7</span> 今天带走这些</h2>
+      <div class="brick">
+        <div class="item" data-eli5-reveal>
+          <div class="name ui-title">ERP 是总账房</div>
+          <p class="desc">不是车间系统。现场的数要喂进来，总账才有东西可对。</p>
+        </div>
+        <div class="item" data-eli5-reveal>
+          <div class="name ui-title">MES / WMS 管货怎么动</div>
+          <p class="desc">一个管怎么做出来，一个管货放哪。两本不交，财务只能估。</p>
+        </div>
+        <div class="item shift" data-eli5-reveal>
+          <div class="name ui-title">看板对不上，先查本子</div>
+          <p class="desc">BI 不记账。错在源头，不在报表皮肤。</p>
+        </div>
+      </div>
+      <div class="card-principle" data-eli5-reveal>
+        <div class="big ui-title">原则</div>
+        <p class="muted">数从哪来，就要能<span class="mark">点回哪去</span>。对不上，先问记在几本本子上，再谈谁算错了。</p>
+      </div>
+      <div class="pill-dark" data-eli5-reveal style="margin-top:8px">
+        <span>下次听到一串系统简称，先问：这件事的原始记录，在哪个本子上？</span>
+      </div>
+    </section>
+
+    <footer class="credit ui-bold" data-eli5-reveal>
+      @小微之家会计服务 &nbsp;|&nbsp; @老汪洞察 &nbsp;|&nbsp; @汪斌带你开公司
+      <div class="copy">仅供学习对照 · 各公司系统切分略有差异</div>
+    </footer>
+    <div class="c-foot ui-bold" data-eli5-reveal>
+      <div><span class="c-foot-sq"></span>老汪洞察 · 信息图</div>
+      <div>长图 · 系统扫盲</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

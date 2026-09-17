@@ -29,7 +29,7 @@ chmod +x bootstrap.sh && ./bootstrap.sh
 打开本仓库后，Agent 会读到：
 
 - Skill：`.cursor/skills/34-tietu-workflow/SKILL.md`
-- 规则：`.cursor/rules/34-tietu-workflow.mdc`、`34-tietu-watermark-safe-zone.mdc`
+- 规则：`.cursor/rules/34-tietu-workflow.mdc`、`34-tietu-watermark-safe-zone.mdc`、`34-mp4-dingtalk.mdc`（成片必须钉钉/微信能播）
 
 对 Agent 说「做一套 3:4 贴图」即可。主题必须先问 A 深色玻璃 / B 亮色高级。
 

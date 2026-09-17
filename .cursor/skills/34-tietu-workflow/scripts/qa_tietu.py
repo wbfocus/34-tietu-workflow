@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
-"""出片自检：竖向铺满 + 橱窗音效只能出现在切页。
+"""出片自检：竖向铺满 + 橱窗音效只能出现在切页 + 钉钉/微信编码。
 
 Usage:
   py -3 qa_tietu.py pngs "<成品图文件夹>"
+  py -3 qa_tietu.py mp4 "<成品.mp4>"
   py -3 qa_tietu.py showcase "<showcase.mp4>" --n 8 --hold 5 --fade 0.35 --empty 0.50 --smash 0.25
 """
 from __future__ import annotations
@@ -17,6 +18,7 @@ from array import array
 from pathlib import Path
 
 from cards_to_mp4 import collect_pngs
+from mp4_compat import ffmpeg_bin, qa_mp4_compat
 
 CSS_H = 1440
 WM_TOP = 1360  # 水印安全区上沿（css px）
@@ -82,7 +84,7 @@ def _decode_mono_wav(mp4: Path) -> tuple[int, array]:
     wav_path = Path(tempfile.gettempdir()) / f"qa_{mp4.stem}.wav"
     subprocess.check_call(
         [
-            "ffmpeg",
+            ffmpeg_bin(),
             "-y",
             "-hide_banner",
             "-loglevel",
@@ -192,6 +194,8 @@ def main() -> int:
     sub = p.add_subparsers(dest="cmd", required=True)
     p_png = sub.add_parser("pngs")
     p_png.add_argument("folder", type=Path)
+    p_mp4 = sub.add_parser("mp4")
+    p_mp4.add_argument("mp4", type=Path)
     p_sh = sub.add_parser("showcase")
     p_sh.add_argument("mp4", type=Path)
     p_sh.add_argument("--n", type=int, required=True)
@@ -203,15 +207,20 @@ def main() -> int:
     args = p.parse_args()
     if args.cmd == "pngs":
         errs = qa_png_fill(args.folder)
+    elif args.cmd == "mp4":
+        errs = qa_mp4_compat(args.mp4)
     else:
-        errs = qa_showcase_audio(
-            args.mp4,
-            args.n,
-            args.hold,
-            args.fade,
-            args.empty,
-            args.smash,
-            args.end_pad,
+        errs = qa_mp4_compat(args.mp4)
+        errs.extend(
+            qa_showcase_audio(
+                args.mp4,
+                args.n,
+                args.hold,
+                args.fade,
+                args.empty,
+                args.smash,
+                args.end_pad,
+            )
         )
     if errs:
         print("QA FAIL", file=sys.stderr)
