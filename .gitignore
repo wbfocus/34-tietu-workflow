@@ -20,6 +20,9 @@ workspace/HTMLcards/*
 !workspace/HTMLcards/长图-业财角色扫盲（浅色）/
 !workspace/HTMLcards/长图-业财角色扫盲（浅色）/**
 
+_prev_cover.png
+workspace/_extract_ai.txt
+
 # local temp / probe folders (do not push)
 workspace/_1mp4_frames/
 workspace/_chrome_render_profile/

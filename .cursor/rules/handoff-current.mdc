@@ -1,0 +1,18 @@
+---
+description: 换机或继续未完成系列前，先读仓库里的进度指针，不要只靠本机 Cursor 聊天列表
+alwaysApply: true
+---
+
+# 换机衔接
+
+Cursor 左侧会话**不会**随 `git pull` 出现。跨电脑只认仓库文件。
+
+## 开口前
+
+1. 先 Read `workspace/chats/CURRENT.md`（做到哪、下一期是什么、对照哪份 jsonl）。
+2. 做 A–I 扫盲系列时，再 Read `workspace/plans/业财人话A到I.md`。
+3. 需要原话再打开 CURRENT.md 点名的 `workspace/chats/*.jsonl`。
+
+## 推云端时
+
+按 `.cursor/rules/push-with-chats.mdc`：备份本会话 jsonl，**同时改 CURRENT.md**（日期、做到哪、下一期）。禁止只推代码。

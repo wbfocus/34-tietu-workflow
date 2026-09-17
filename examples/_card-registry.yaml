@@ -74,3 +74,12 @@ articles:
         status: done
         note: 橱窗砸入 3:4 · 主题 C · 华为系业财日常简称
 
+  - slug: finance-ops-roles-org
+    title: 业财融合 · 角色与组织
+    sets:
+      - folder: workspace/HTMLcards/长图-业财角色扫盲（浅色）
+        theme: B
+        format: upscroll
+        status: done
+        note: A–I 上滑系列 A 类
+

@@ -2,11 +2,13 @@
 
 本仓库是 **3:4 贴图工作流** 的完整可携带包。
 
-开始任何出卡任务前，先 Read：
+换机、pull 之后、或继续未完成系列：先 Read `workspace/chats/CURRENT.md`。Cursor 聊天列表不会从 GitHub 恢复，以仓库文件为准。
+
+开始任何出卡任务前，再 Read：
 
 `.cursor/skills/34-tietu-workflow/SKILL.md`
 
-并遵守 `.cursor/rules/34-tietu-workflow.mdc`（主题必问 + 三套共用文字与骨架）、`34-tietu-watermark-safe-zone.mdc`（水印与防裁切）、`plain-speech.mdc`（跟人说话、写标题都用会上能说出口的人话）、`push-with-chats.mdc`（推云端必带本会话聊天备份）。文字见 `references/type-shared.md`，版式见 `references/layout-shared.md`。
+并遵守 `.cursor/rules/34-tietu-workflow.mdc`（主题必问 + 三套共用文字与骨架）、`34-tietu-watermark-safe-zone.mdc`（水印与防裁切）、`plain-speech.mdc`（跟人说话、写标题都用会上能说出口的人话）、`push-with-chats.mdc`（推云端必带本会话聊天备份）、`handoff-current.mdc`（换机先读进度指针）。文字见 `references/type-shared.md`，版式见 `references/layout-shared.md`。
 
 金标准：`examples/gold-a-ceo-star-dark/`、`examples/gold-b-ceo-star-light/`、`examples/gold-c-workshop-editorial/`。
 成型样例：`examples/sample-gm-variance-dark/`。
@@ -40,5 +42,5 @@
 
 ## 推云端必带聊天记录
 
-用户要 `git push` / 推云端时：先把本会话 transcript 拷到 `workspace/chats/`，更新该目录 README，再和代码一起提交推送。  
-规则见 `.cursor/rules/push-with-chats.mdc`。换机靠这份备份接话，不要只靠本机 Cursor 历史。
+用户要 `git push` / 推云端时：先把本会话 transcript 拷到 `workspace/chats/`，更新该目录 README **和** `CURRENT.md`，再和代码一起提交推送。  
+规则见 `.cursor/rules/push-with-chats.mdc`。换机先读 `CURRENT.md`，不要只靠本机 Cursor 历史。
