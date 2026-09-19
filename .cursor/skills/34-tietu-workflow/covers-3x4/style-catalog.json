@@ -3,7 +3,7 @@
   "aspect_ratio": "3:4",
   "export_px": [1080, 1440],
   "selection": "weighted_random_by_folder",
-  "selection_note": "默认按文件夹名稳定抽签；style 4（白字红强调）降权；禁止 Agent 每次手写 --style 4",
+  "selection_note": "默认按文件夹名稳定抽签；避开最近 2 次用过的样式；style 4 降权；禁止 Agent 每次手写 --style 4；出片后另渲 3 套备选进 封面/备选/",
   "layout_lock": {
     "locked_at": "2026-08-01",
     "align": "center",
@@ -70,6 +70,20 @@
       "name": "light-mesh",
       "label": "亮色 Mesh 浅底 + 深墨大字 + 橙系列标",
       "html": "templates/06-light-mesh.html",
+      "weight": 2
+    },
+    {
+      "id": "7",
+      "name": "dark-cargo",
+      "label": "港湾暗底 + 集装箱橙条 + 居中大白字",
+      "html": "templates/07-dark-cargo.html",
+      "weight": 2
+    },
+    {
+      "id": "8",
+      "name": "light-harbor",
+      "label": "港湾浅底 + 海绿系列标 + 深墨大字",
+      "html": "templates/08-light-harbor.html",
       "weight": 2
     }
   ],

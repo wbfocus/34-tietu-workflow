@@ -53,6 +53,25 @@ def ffprobe_has_audio(path: Path) -> bool:
     return bool(re.search(r"Audio:\s", blob))
 
 
+def _mean_luma(path: Path) -> float:
+    from PIL import Image
+
+    im = Image.open(path).convert("L").resize((108, 144))
+    return sum(im.getdata()) / (im.size[0] * im.size[1])
+
+
+def _extract_frame0(mp4: Path, jpg: Path) -> None:
+    ff = ffmpeg_bin()
+    subprocess.check_call(
+        [
+            ff, "-y", "-hide_banner", "-loglevel", "error",
+            "-i", str(mp4),
+            "-update", "1", "-frames:v", "1",
+            str(jpg),
+        ]
+    )
+
+
 def prepend_cover(
     cover: Path,
     video: Path,
@@ -62,6 +81,11 @@ def prepend_cover(
     height: int = H,
     pad_color: str = "0x000000",
 ) -> None:
+    """把封面图接到成片最前，正好 1 帧（1/30 秒）。
+
+    注意：封面输入不要用 ``-t 1/30``（帧可能被吃掉），也不要在 concat 后再套 ``fps``
+    （FFmpeg 9 会把这一帧丢掉，只剩静音多 1/30 秒，播起来像没拼上封面）。
+    """
     out.parent.mkdir(parents=True, exist_ok=True)
     if abs(hold - COVER_HOLD) > 0.0005:
         print(
@@ -71,6 +95,7 @@ def prepend_cover(
         )
     hold = COVER_HOLD
     has_a = ffprobe_has_audio(video)
+    # 先规范到 30fps，再 trim 成恰好 1 帧；concat 后只 format，不再 fps
     pad = (
         f"scale={width}:{height}:force_original_aspect_ratio=decrease,"
         f"pad={width}:{height}:(ow-iw)/2:(oh-ih)/2:color={pad_color},"
@@ -78,18 +103,22 @@ def prepend_cover(
     )
     ff = ffmpeg_bin()
     x264 = x264_compat(crf=18, preset="medium")
+    # 封面多喂一会儿再 trim，避免 -t 1/30 在部分 FFmpeg 上得到 0 帧
+    cover_in = [
+        "-loop", "1", "-framerate", str(FPS), "-t", "1", "-i", str(cover),
+    ]
     if has_a:
         fc = (
             f"[0:v]{pad},trim=end_frame=1,setpts=PTS-STARTPTS[v0];"
             f"[1:v]{pad},setpts=PTS-STARTPTS[v1];"
-            f"[v0][v1]concat=n=2:v=1:a=0,fps={FPS},format=yuv420p[vout];"
-            f"aevalsrc=0:d={1.0/FPS}:channel_layout=stereo:sample_rate=48000[a0];"
+            f"[v0][v1]concat=n=2:v=1:a=0,format=yuv420p[vout];"
+            f"aevalsrc=0:d={hold}:channel_layout=stereo:sample_rate=48000[a0];"
             f"[1:a]aformat=sample_rates=48000:channel_layouts=stereo,aresample=48000[a1];"
             f"[a0][a1]concat=n=2:v=0:a=1[aout]"
         )
         cmd = [
             ff, "-y",
-            "-loop", "1", "-framerate", str(FPS), "-t", f"{1.0/FPS:.6f}", "-i", str(cover),
+            *cover_in,
             "-i", str(video),
             "-filter_complex", fc,
             "-map", "[vout]", "-map", "[aout]",
@@ -101,11 +130,11 @@ def prepend_cover(
         fc = (
             f"[0:v]{pad},trim=end_frame=1,setpts=PTS-STARTPTS[v0];"
             f"[1:v]{pad},setpts=PTS-STARTPTS[v1];"
-            f"[v0][v1]concat=n=2:v=1:a=0,fps={FPS},format=yuv420p[vout]"
+            f"[v0][v1]concat=n=2:v=1:a=0,format=yuv420p[vout]"
         )
         cmd = [
             ff, "-y",
-            "-loop", "1", "-framerate", str(FPS), "-t", f"{1.0/FPS:.6f}", "-i", str(cover),
+            *cover_in,
             "-i", str(video),
             "-filter_complex", fc,
             "-map", "[vout]",
@@ -116,6 +145,22 @@ def prepend_cover(
     print("RUN", " ".join(cmd[:8]), "...")
     subprocess.check_call(cmd)
     assert_mp4_compat(out)
+
+    # 自检：第 0 帧必须接近封面图，不能是成片空镜
+    chk = out.with_suffix(".cover-frame0.jpg")
+    try:
+        _extract_frame0(out, chk)
+        cover_luma = _mean_luma(cover)
+        frame_luma = _mean_luma(chk)
+        if abs(cover_luma - frame_luma) > 8.0:
+            raise SystemExit(
+                f"封面未接到第 0 帧（封面亮度 {cover_luma:.1f} vs 第0帧 {frame_luma:.1f}）。"
+                f"请检查 {chk}"
+            )
+        print(f"cover frame0 OK (luma {frame_luma:.1f} ≈ cover {cover_luma:.1f})")
+    finally:
+        if chk.is_file():
+            chk.unlink()
 
 
 def main() -> int:

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=390, initial-scale=1, maximum-scale=1">
+<title>如何管好应收账款</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.2.5/chinese-simplified-900.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Bold/Bold.css"/>
+<link rel="stylesheet" href="layout-long.css"/>
+<link rel="stylesheet" href="theme-e-long.css"/>
+<style>
+  .term-tag {
+    display: inline-block; padding: 2px 8px;
+    font-size: 11px; font-weight: 700; margin-bottom: 4px;
+    letter-spacing: 0.06em;
+  }
+  .bar-row { margin: 8px 0 4px; }
+  .bar-lab { display: flex; justify-content: space-between; font-size: 12.5px; margin-bottom: 4px; color: #5C564E; }
+  .bar-track { height: 14px; background: #E5DFD4; border: 1px solid #1C1917; }
+  .bar-fill { height: 100%; background: #C23A2F; }
+  .bar-fill.ok { background: #2F5D50; }
+</style>
+</head>
+<body>
+<div class="phone" id="capture">
+  <div class="seal-corner" aria-hidden="true">朱印</div>
+  <div class="atm" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"></div>
+  <div class="content wenkai">
+
+    <header class="eli5-head" data-eli5-reveal>
+      <div class="wm-num ui-title">01</div>
+      <div class="head-row">
+        <div class="idx-sq terra ui-bold">01</div>
+        <div>
+          <div class="c-en ui-bold">RECEIVABLE</div>
+          <div class="c-cn">钱还在别人口袋里</div>
+        </div>
+      </div>
+      <h1 class="ui-title">如何管好<br/><span class="mark">应收账款</span></h1>
+      <p class="tagline">货发出去了，钱还没到账——账上先记一笔「别人欠我的」。这笔欠款管得好不好，直接看出<span class="mark">销售利不利索</span>、<span class="mark-sage">客户值不值得养</span>。</p>
+      <div class="pill-dark" data-eli5-reveal style="margin-top:10px">
+        <span class="pill" style="margin:0">公式</span>
+        <span>应收账款 = 全部价款 − 已收现金</span>
+      </div>
+      <div class="hero-row" data-eli5-reveal>
+        <div class="hero-orb ui-title">3</div>
+        <div>
+          <div class="big ui-title" style="margin:0">三面镜子</div>
+          <p class="muted" style="margin-top:4px">从销售看组织、从客户看价值、用财务手段把钱盘活。</p>
+        </div>
+      </div>
+      <div class="chip-row" data-eli5-reveal>
+        <span class="chip"><span class="dot" style="background:#C23A2F"></span>看销售</span>
+        <span class="chip"><span class="dot" style="background:#2F5D50"></span>看客户</span>
+        <span class="chip"><span class="dot" style="background:#8B6914"></span>盘活钱</span>
+      </div>
+    </header>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num terra ui-bold">1</span> 先说清楚它是什么</h2>
+      <div class="card-paper story" data-eli5-reveal>
+        <div class="emoji">📦</div>
+        <div class="body">
+          <div class="big ui-title">货走了，钱还没到</div>
+          <p class="muted">公司把货发出去，对方没一次付清，就产生了收款权。收入往往在发货时就记了——对应也要记一笔应收账款。</p>
+        </div>
+      </div>
+      <div class="hl-bar" data-eli5-reveal>
+        <div class="big ui-title">账上赚了，口袋未必有钱</div>
+        <p class="muted">利润好看，现金可能还卡在客户那儿。管应收，就是管「钱什么时候转回来」。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num sage ui-bold">2</span> 从应收看销售利不利索</h2>
+      <div class="card-callout" data-eli5-reveal>
+        <div class="big ui-title">回款天数，是销售组织的体检表</div>
+        <p class="muted">同样做男装、规模差不多的两家公司，回款快慢能差一倍多——差的不是运气，是渠道和激励有没有理顺。</p>
+      </div>
+      <div class="grid-2">
+        <div class="cell" data-eli5-reveal>
+          <div class="term-tag ok ui-bold">甲品牌</div>
+          <div class="v ui-title">约 30 天</div>
+          <p class="mini">渠道切开、门店有劲、数据盯得住——钱回来得快。</p>
+        </div>
+        <div class="cell" data-eli5-reveal>
+          <div class="term-tag hot ui-bold">乙品牌</div>
+          <div class="v ui-title">约 85 天</div>
+          <p class="mini">偏传统直营 + 定制，回款慢一截，现金更紧。</p>
+        </div>
+      </div>
+      <div class="card-paper" data-eli5-reveal style="padding:12px 14px">
+        <div class="big ui-title">回款天数对比（示意）</div>
+        <div class="bar-row">
+          <div class="bar-lab"><span>甲品牌</span><span class="ui-bold">30 天</span></div>
+          <div class="bar-track"><div class="bar-fill ok" style="width:35%"></div></div>
+        </div>
+        <div class="bar-row">
+          <div class="bar-lab"><span>乙品牌</span><span class="ui-bold">85 天</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width:94%"></div></div>
+        </div>
+        <p class="muted" style="margin-top:8px;font-size:12.5px">营收都在二十亿上下时，差的是回款，不是体量。</p>
+      </div>
+      <div class="list-row" data-eli5-reveal>
+        <div class="dot-n terra ui-bold">1</div>
+        <div class="body">
+          <div class="big ui-title">渠道切开卖</div>
+          <p class="muted">品牌店、工厂店、折扣店分档位——货对得上店，压货少，账也好清。</p>
+        </div>
+      </div>
+      <div class="list-row" data-eli5-reveal>
+        <div class="dot-n sage ui-bold">2</div>
+        <div class="body">
+          <div class="big ui-title">门店有劲才肯推</div>
+          <p class="muted">直营搞合伙、加盟搞分成——店里的人愿意卖，回款才跟得上。</p>
+        </div>
+      </div>
+      <div class="list-row" data-eli5-reveal>
+        <div class="dot-n ochre ui-bold">3</div>
+        <div class="body">
+          <div class="big ui-title">人和数据一起盯</div>
+          <p class="muted">培养能卖货的导购，再用客户数据管复购——线上清库存，别跟线下抢同一块蛋糕。</p>
+        </div>
+      </div>
+      <div class="pill-dark" data-eli5-reveal style="margin-top:8px">
+        <span>回款周期，往往就是销售组织利不利索的镜子。</span>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num ochre ui-bold">3</span> 从应收看客户值不值得养</h2>
+      <div class="tier w96" data-eli5-reveal>
+        <div class="tier-lab terra ui-bold">案例</div>
+        <div class="big ui-title">某工程公司 · 应收占资产约七成</div>
+        <p class="muted">账上二十多亿应收——最大的两家客户，欠账动辄过亿，还拖了三四年。</p>
+      </div>
+      <div class="card-blush pair-row" data-eli5-reveal>
+        <div class="x-mark ui-bold">×</div>
+        <div>
+          <div class="big ui-title">毛利薄，账却堆得高</div>
+          <p class="muted">赚得少，还把现金长期押在对方那儿——资金成本和坏账风险都高。</p>
+        </div>
+      </div>
+      <div class="card-sage pair-row" data-eli5-reveal>
+        <div class="ok-mark ui-bold">✓</div>
+        <div>
+          <div class="big ui-title">用应收给客户打分</div>
+          <p class="muted">利润薄 + 欠款多 + 拖很久 → 该不该继续做，要重新谈。应收是客户价值的一面镜子。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num terra ui-bold">4</span> 钱卡太久，怎么盘活</h2>
+      <div class="card-callout" data-eli5-reveal>
+        <div class="big ui-title">保理：把「别人欠我的」先换成现金</div>
+        <p class="muted">把应收账款卖给银行或保理公司，先拿到一笔贷款（扣手续费）。货还是你卖的，钱先周转起来。</p>
+      </div>
+      <div class="grid-2">
+        <div class="cell" data-eli5-reveal>
+          <div class="term-tag hot ui-bold">有追索</div>
+          <div class="v ui-title">银行可回头找你</div>
+          <p class="mini">买家不付款，保理方可向你追偿——风险你还扛着一截。</p>
+        </div>
+        <div class="cell" data-eli5-reveal>
+          <div class="term-tag cool ui-bold">无追索</div>
+          <div class="v ui-title">风险主要归保理方</div>
+          <p class="mini">买家不付，一般不再向你追——费用通常也更高。</p>
+        </div>
+      </div>
+      <div class="hl-bar" data-eli5-reveal>
+        <div class="big ui-title">适合谁</div>
+        <p class="muted">应收占资产很高、回款周期拉得很长的公司，常靠保理先把现金盘活——治标，治本还是销售与客户。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num sage ui-bold">5</span> 常见坑 → 修法</h2>
+      <div class="card-blush pair-row" data-eli5-reveal>
+        <div class="x-mark ui-bold">×</div>
+        <div>
+          <div class="big ui-title">只盯销售额，不盯回款</div>
+          <p class="muted">单子签得多、货出得欢，现金却进不来——账上热闹，口袋紧。</p>
+        </div>
+      </div>
+      <div class="card-sage pair-row" data-eli5-reveal>
+        <div class="ok-mark ui-bold">✓</div>
+        <div>
+          <div class="big ui-title">销售考核带上「钱有没有回来」</div>
+          <p class="muted">渠道、激励、数据都要围着回款转，不只围着出货转。</p>
+        </div>
+      </div>
+      <div class="card-blush pair-row" data-eli5-reveal>
+        <div class="x-mark ui-bold">×</div>
+        <div>
+          <div class="big ui-title">大客户欠着也不敢停</div>
+          <p class="muted">怕丢单，继续供货——欠得越多，越难收，风险滚雪球。</p>
+        </div>
+      </div>
+      <div class="card-sage pair-row" data-eli5-reveal>
+        <div class="ok-mark ui-bold">✓</div>
+        <div>
+          <div class="big ui-title">薄利 + 高欠款 → 重新谈</div>
+          <p class="muted">先算：养这个客户，现金成本划不划算。划不来就改账期、改量，或止损。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num ochre ui-bold">6</span> 带走这三块</h2>
+      <div class="brick">
+        <div class="item" data-eli5-reveal>
+          <div class="name ui-title">销售：回款天数是体检表</div>
+          <p class="desc">渠道切清楚、门店有劲、数据盯住——钱才回得快。</p>
+        </div>
+        <div class="item" data-eli5-reveal>
+          <div class="name ui-title">客户：用欠款给价值打分</div>
+          <p class="desc">毛利薄又欠得久，不是「大客户光环」，是风险名单。</p>
+        </div>
+        <div class="item shift" data-eli5-reveal>
+          <div class="name ui-title">财务：保理能救急，治本在前面</div>
+          <p class="desc">有追索 / 无追索先分清；现金盘活了，销售和客户仍要改。</p>
+        </div>
+      </div>
+      <div class="card-principle" data-eli5-reveal>
+        <div class="big ui-title">原则</div>
+        <p class="muted">应收账款不是「财务事后催款」——它照见<span class="mark">销售利不利索</span>，也照见<span class="mark-sage">客户值不值得养</span>。钱盘活只是手段，根还在组织和客户。</p>
+      </div>
+      <div class="pill-dark" data-eli5-reveal style="margin-top:8px">
+        <span>你们公司：回款慢在渠道，还是大客户欠着不敢停？</span>
+      </div>
+    </section>
+
+    <footer class="credit ui-bold" data-eli5-reveal>
+      @小微之家会计服务 &nbsp;|&nbsp; @老汪洞察 &nbsp;|&nbsp; @汪斌带你开公司
+      <div class="copy">素材整理 · 应收账款管理 · 墨纸版 · 案例已匿名</div>
+    </footer>
+    <div class="c-foot ui-bold" data-eli5-reveal>
+      <div><span class="c-foot-sq"></span>老汪洞察 · 墨纸</div>
+      <div>长图 · 管好应收</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

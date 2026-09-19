@@ -8,19 +8,24 @@ Thumbs.db
 .DS_Store
 covers-3x4/_work/
 .cursor/skills/34-tietu-workflow/covers-3x4/_work/
+
+# 成片视频体积大，换机本地重渲；不进仓
+*.mp4
+
+# HTMLcards：默认忽略，再按前缀放行（除 mp4 外的 HTML/PNG/文案等）
 workspace/HTMLcards/*
 !workspace/HTMLcards/.gitkeep
 !workspace/HTMLcards/_card-registry.yaml
-!workspace/HTMLcards/eli5-产品出库成本（深色）/
-!workspace/HTMLcards/eli5-产品出库成本（深色）/**
-!workspace/HTMLcards/长图-业财两张皮（浅色）/
-!workspace/HTMLcards/长图-业财两张皮（浅色）/**
-!workspace/HTMLcards/长图-假退假领（浅色）/
-!workspace/HTMLcards/长图-假退假领（浅色）/**
-!workspace/HTMLcards/长图-业财角色扫盲（浅色）/
-!workspace/HTMLcards/长图-业财角色扫盲（浅色）/**
-!workspace/HTMLcards/上滑_2026-09-17_系统与数据（浅色）/
-!workspace/HTMLcards/上滑_2026-09-17_系统与数据（浅色）/**
+!workspace/HTMLcards/上滑_*/
+!workspace/HTMLcards/上滑_*/**
+!workspace/HTMLcards/轮播_*/
+!workspace/HTMLcards/轮播_*/**
+!workspace/HTMLcards/长图-*/
+!workspace/HTMLcards/长图-*/**
+!workspace/HTMLcards/eli5-*/
+!workspace/HTMLcards/eli5-*/**
+!workspace/HTMLcards/橱窗_*/
+!workspace/HTMLcards/橱窗_*/**
 
 _prev_cover.png
 workspace/_extract_ai.txt

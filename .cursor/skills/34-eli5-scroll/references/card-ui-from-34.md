@@ -5,13 +5,21 @@
 
 写 HTML 前扫一遍；写完跑文末 QA。
 
-## 1. 三套主题（只换外壳）
+## 1. 九套主题（只换外壳）
 
 | ID | 名称 | CSS | 氛围层 |
 |---|---|---|---|
 | A | 深色玻璃 | `theme-a-long.css` | `.atm` 光晕 + `.noise` |
 | B | 亮色高级 | `theme-b-long.css` | `.mesh` + `.noise` |
 | C | 奶油刊物 | `theme-c-long.css` | 无 Mesh / 无玻璃 |
+| D | 工程蓝图 | `theme-d-long.css` | 网格底 + 青光晕 + 可选 `.bp-cross` |
+| E | 墨纸朱印 | `theme-e-long.css` | 冷灰纸 + 可选 `.seal-corner` |
+| F | 石板粉笔 | `theme-f-long.css` | 深绿石板 + 可选 `.chalk-mark` |
+| G | 丝网海报 | `theme-g-long.css` | 海报米色 + 可选 `.print-mark` |
+| H | 地铁线路 | `theme-h-long.css` | 浅灰网格 + 可选 `.metro-mark` / `.metro-line` |
+| I | 货柜码头 | `theme-i-long.css` | 港湾深蓝 + 可选 `.cargo-mark` |
+| J | 积木乐园 | `theme-j-long.css` | 米白暖底 + 可选 `.block-mark` |
+| K | 便签墙 | `theme-k-long.css` | 暖橙墙 + 可选 `.note-mark` |
 
 共用骨架：`layout-long.css`。类名与贴图相同：`.terra` / `.sage` / `.ochre` 是角色类。
 
@@ -66,6 +74,7 @@
 6. **对比** — `.card-blush` × → `.card-sage` ✓  
 7. **清单** — `.list-row` + `.dot-n`  
 8. **收口** — `.brick` + `.card-principle`（≤1）+ `.pill-dark` 转发  
+   - **间距铁律**：`.card-principle` 在 `layout-long.css` 里固定 `margin-top: 16px`；禁止主题 CSS 把原则框 `margin-top` 改回 0。上方是 `.brick` 时尤其容易贴死（brick 项不吃卡片的 `margin-bottom`）。
 
 本地可加短 `<style>` 补 `.grid-2` / `.list-row` / `.chip-row`（主题色跟 `theme-*-long.css`）。
 
@@ -77,6 +86,7 @@
 - [ ] 标题宋、正文楷；无紫靛塑料风
 - [ ] **画面与文件名无 `ELI5`/`eli5`**（页眉英文、页脚、封面、成片名）
 - [ ] **≥5 种**版式节奏（见第 5 节）；原则框 ≤1
+- [ ] **原则框与上方块有明显空隙**（目视 ≥ 卡片间距；禁止贴死）
 - [ ] 含贴图组件：大圆/分层/网格/清单至少命中 2 类以上
 - [ ] 弹出块 ≥8 且不是整页一块
 - [ ] 水印可见不抢读；落款完整

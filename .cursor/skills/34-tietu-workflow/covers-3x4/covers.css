@@ -86,6 +86,8 @@ html, body { margin: 0; background: #000; }
 }
 .title.chars5 { font-size: 148px; letter-spacing: 0.05em; }
 .title.chars6 { font-size: 128px; letter-spacing: 0.03em; }
+.title.chars7 { font-size: 112px; letter-spacing: 0.02em; }
+.title.chars8 { font-size: 96px; letter-spacing: 0.01em; line-height: 1.16; }
 
 .rule { display: none; } /* 参考图无下划线短条 */
 
@@ -207,3 +209,32 @@ html, body { margin: 0; background: #000; }
 .cover.light-mesh .chart span {
   background: linear-gradient(180deg, rgba(2, 132, 199, 0.45), rgba(2, 132, 199, 0.05));
 }
+
+/* 7 货柜暗底：港湾深蓝 + 集装箱橙 */
+.cover.dark-cargo {
+  --text: #ffffff;
+  --mute: rgba(226, 232, 240, 0.82);
+  color: var(--text);
+  background:
+    linear-gradient(90deg, transparent 0 8%, rgba(249, 115, 22, 0.55) 8% 14%, transparent 14% 22%, rgba(20, 184, 166, 0.4) 22% 28%, transparent 28% 100%),
+    radial-gradient(ellipse 90% 50% at 50% 100%, rgba(249, 115, 22, 0.38), transparent 58%),
+    linear-gradient(180deg, #071018 0%, #0B1A24 50%, #0E2430 100%);
+}
+.cover.dark-cargo .pill { color: var(--accent, #F97316); }
+.cover.dark-cargo .brand::before { background: var(--accent, #F97316); }
+
+/* 8 港湾浅底：雾白 + 海绿 */
+.cover.light-harbor {
+  --text: #0F172A;
+  --mute: #64748B;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse 70% 45% at 80% 0%, rgba(20, 184, 166, 0.16), transparent 55%),
+    radial-gradient(ellipse 80% 50% at 20% 100%, rgba(249, 115, 22, 0.12), transparent 55%),
+    linear-gradient(180deg, #F0FDFA 0%, #F8FAFC 50%, #EEF2FF 100%);
+}
+.cover.light-harbor .pill { color: var(--accent, #0D9488); }
+.cover.light-harbor .title { text-shadow: none; }
+.cover.light-harbor .sub { color: var(--mute); }
+.cover.light-harbor .brand { color: rgba(15, 23, 42, 0.72); }
+.cover.light-harbor .brand::before { background: var(--accent, #0D9488); }

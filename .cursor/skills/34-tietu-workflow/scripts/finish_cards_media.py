@@ -22,6 +22,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(COVERS))
 
 from cards_to_mp4 import DEFAULT_BGM, DEFAULT_WHOOSH, cards_to_mp4, collect_pngs  # noqa: E402
+from media_rotation import filter_ids, recent_covers, remember_cover  # noqa: E402
 from prepend_cover_frame import prepend_cover  # noqa: E402
 
 CATALOG = json.loads((COVERS / "style-catalog.json").read_text(encoding="utf-8"))
@@ -37,7 +38,7 @@ def pick_cover_style(
     """Pick cover style. Empty explicit → weighted random (style 4 down-weighted).
 
     Prefer folder-name seed so re-runs are stable but different jobs get variety.
-    Do not default to style 4 (white + rose hook) every time.
+    Avoids the last 2 used styles. Do not default to style 4 every time.
     """
     pool = CATALOG.get("pool") or []
     ids = {x["id"] for x in pool}
@@ -45,6 +46,7 @@ def pick_cover_style(
     if chosen:
         if chosen not in ids:
             raise SystemExit(f"unknown cover style {chosen}; pool={[x['id'] for x in pool]}")
+        remember_cover(chosen)
         return chosen
     weighted: list[str] = []
     for item in pool:
@@ -54,16 +56,56 @@ def pick_cover_style(
         weighted.extend([item["id"]] * max(1, w))
     if not weighted:
         raise SystemExit("cover style pool empty")
+    avoid = recent_covers(2)
+    weighted = filter_ids(weighted, avoid)
     rng_seed: str | int | None = seed
     if rng_seed is None and job is not None:
         rng_seed = job.name
     pick = random.Random(rng_seed).choice(weighted)
-    print("picked cover style", pick)
+    remember_cover(pick)
+    print("picked cover style", pick, f"(avoided {avoid})" if avoid else "")
     return pick
+
+
+def make_cover_alts(
+    card_dir: Path,
+    title: str,
+    sub: str,
+    pill: str,
+    brand: str = BRAND_DEFAULT,
+    primary_style: str = "",
+    count: int = 3,
+) -> list[Path]:
+    """Render alternate cover styles into 封面/备选/ for the user to pick."""
+    pool = CATALOG.get("pool") or []
+    ids = [x["id"] for x in pool if x["id"] != primary_style and x["id"] != "4"]
+    # Prefer unused; if short, allow style 4 last
+    if len(ids) < count:
+        ids = [x["id"] for x in pool if x["id"] != primary_style]
+    rng = random.Random(f"{card_dir.name}-alts")
+    rng.shuffle(ids)
+    picked = ids[: max(0, count)]
+    out_dir = card_dir / "封面" / "备选"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    paths: list[Path] = []
+    work = COVERS / "_work"
+    work.mkdir(exist_ok=True)
+    for sid in picked:
+        html_path = work / f"cover-alt-{sid}.html"
+        html_path.write_text(fill_cover_html(sid, pill, title, sub, brand), encoding="utf-8")
+        png = out_dir / f"cover-style-{sid}.png"
+        render_cover_file(html_path, png)
+        paths.append(png)
+        print("cover alt", png)
+    return paths
 
 
 def title_class(lines: list[str]) -> str:
     n = max((len(s) for s in lines), default=0)
+    if n >= 8:
+        return "chars8"
+    if n >= 7:
+        return "chars7"
     if n >= 6:
         return "chars6"
     if n >= 5:
@@ -215,7 +257,7 @@ def main() -> int:
     p.add_argument(
         "--style",
         default="",
-        help="1 / 1b / 2 / 3 / 4 / 5 / 6；空则按文件夹加权抽签（4 降权，禁止每次默认 4）",
+        help="1 / 1b / 2 / 3 / 4 / 5 / 6 / 7 / 8；空则按文件夹加权抽签（4 降权，避开最近用过的，禁止每次默认 4）",
     )
     p.add_argument("--seed", default=None)
     p.add_argument("--date", default="", help="成片日期 YYYY-MM-DD，默认今天")
@@ -270,6 +312,7 @@ def main() -> int:
     cover_png = make_official_cover(
         card_dir, title, sub, args.pill, args.brand, style_id
     )
+    make_cover_alts(card_dir, title, sub, args.pill, args.brand, primary_style=style_id, count=3)
 
     out_with = paths["carousel_cover"]
     prepend_cover(cover_png, carousel, out_with)

@@ -1,0 +1,153 @@
+/* H 地铁线路 · 390px 长卷（有别于 A–G） */
+html, body, .phone {
+  background: #F5F6F8;
+  color: #1C2430;
+}
+.phone {
+  background-image:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.mark { color: #E11D48; }
+.mark-sage { color: #0F766E; }
+.mark-ochre { color: #CA8A04; }
+
+.atm {
+  background:
+    radial-gradient(ellipse 80% 40% at 0% 0%, rgba(225, 29, 72, 0.06), transparent 50%),
+    radial-gradient(ellipse 60% 35% at 100% 100%, rgba(15, 118, 110, 0.07), transparent 50%);
+}
+.noise {
+  opacity: 0.03;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+}
+.wm {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='390' height='760' viewBox='0 0 390 760'%3E%3Ctext x='195' y='380' text-anchor='middle' dominant-baseline='middle' fill='rgba(28,36,48,0.04)' font-size='13' font-family='Microsoft YaHei,sans-serif' font-weight='600' transform='rotate(-28 195 380)'%3E%E8%80%81%E6%B1%AA%E6%B4%9E%E5%AF%9F%20%7C%20%E5%B0%8F%E5%BE%AE%E4%B9%8B%E5%AE%B6%3C/text%3E%3C/svg%3E");
+}
+.wm-num { color: #2563EB; opacity: 0.12; }
+
+.idx-sq.terra, .dot-n.terra, .num.terra, .x-mark, .tier-lab.terra { background: #E11D48; color: #fff; }
+.idx-sq.sage, .dot-n.sage, .num.sage, .ok-mark, .tier-lab.sage { background: #0F766E; color: #fff; }
+.idx-sq.ochre, .dot-n.ochre, .num.ochre, .tier-lab.ochre { background: #CA8A04; color: #fff; }
+.tier-lab.cool { background: #2563EB; color: #fff; }
+.tier-lab.ok { background: #0F766E; color: #fff; }
+.idx-sq, .dot-n, .num {
+  border-radius: 999px !important;
+}
+
+.c-en { color: #2563EB; letter-spacing: 0.18em; }
+.c-cn, .tagline, .muted, .box .sub, .arrow, .credit .copy { color: #64748B; }
+h1.ui-title, h2, .big, .brick .name { color: #1C2430; }
+h2 .num { color: #fff; }
+
+.card-paper,
+.grid-2 .cell,
+.list-row,
+.brick .item,
+.tier {
+  background: #FFFFFF;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 16px;
+  box-shadow: 0 2px 0 #E2E8F0;
+  position: relative;
+}
+.card-paper.story { border-left: 4px solid #E11D48; }
+.card-callout {
+  background: #EFF6FF;
+  border: 1.5px solid #2563EB;
+  border-radius: 16px;
+}
+.card-blush {
+  background: #FFF1F2;
+  border: 1.5px solid #E11D48;
+  border-radius: 16px;
+}
+.card-sage {
+  background: #F0FDFA;
+  border: 1.5px solid #0F766E;
+  border-radius: 16px;
+}
+.card-principle {
+  background: #FFFFFF;
+  border: 2px solid #2563EB;
+  border-radius: 16px;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+}
+.hl-bar {
+  background: #F0FDFA;
+  border-left: 4px solid #0F766E;
+  border-radius: 0 12px 12px 0;
+}
+.pill { background: #2563EB; color: #fff; border-radius: 999px; }
+.box {
+  border: 1.5px solid #CBD5E1;
+  background: #FFFFFF;
+  border-radius: 999px;
+  color: #1C2430;
+}
+.box.gray { background: #F1F5F9; }
+.box.orange { background: #FFF1F2; border-color: #E11D48; }
+.brick .desc { color: #475569; }
+.grid-2 .cell .v { color: #1C2430; }
+.grid-2 .cell .mini { color: #64748B; }
+.chip {
+  background: #FFFFFF;
+  border: 1.5px solid #CBD5E1;
+  color: #1C2430;
+  border-radius: 999px;
+}
+.hero-orb {
+  background: #2563EB;
+  border: 3px solid #FFFFFF;
+  color: #fff;
+  box-shadow: 0 0 0 3px #2563EB;
+  border-radius: 50%;
+}
+.hero-orb::after {
+  border: 2px dashed rgba(37, 99, 235, 0.35);
+  border-radius: 50%;
+  inset: -10px;
+}
+.pill-dark {
+  background: #1C2430;
+  color: #F8FAFC;
+  border-radius: 999px;
+  border: none;
+}
+.pill-dark .pill { background: #E11D48; color: #fff; }
+.c-foot {
+  border-top: 2px solid #CBD5E1;
+  color: #64748B;
+}
+.c-foot-sq { background: #E11D48; border-radius: 999px; }
+.credit {
+  border-top: 1px dashed #94A3B8;
+  color: #64748B;
+}
+.flow .arrow { color: #2563EB; }
+.term-tag.hot { background: #FFF1F2; color: #E11D48; border: 1px solid #E11D48; border-radius: 999px; }
+.term-tag.cool { background: #EFF6FF; color: #2563EB; border: 1px solid #2563EB; border-radius: 999px; }
+.term-tag.ok { background: #F0FDFA; color: #0F766E; border: 1px solid #0F766E; border-radius: 999px; }
+.term-tag.violet { background: #F5F3FF; color: #7C3AED; border: 1px solid #7C3AED; border-radius: 999px; }
+
+.metro-mark {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 3px solid #2563EB;
+  background: #fff;
+  box-shadow: inset 0 0 0 4px #E11D48;
+  z-index: 4;
+  pointer-events: none;
+}
+.metro-line {
+  height: 4px;
+  border-radius: 2px;
+  margin: 6px 0 10px;
+  background: linear-gradient(90deg, #E11D48 0%, #2563EB 40%, #0F766E 70%, #CA8A04 100%);
+}

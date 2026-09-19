@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=390, initial-scale=1, maximum-scale=1">
+<title>成本对象与流转</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.2.5/chinese-simplified-900.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Bold/Bold.css"/>
+<link rel="stylesheet" href="layout-long.css"/>
+<link rel="stylesheet" href="theme-b-long.css"/>
+<style>
+  .term-tag {
+    display: inline-block; padding: 2px 8px; border-radius: 6px;
+    font-size: 11px; font-weight: 700; margin-bottom: 4px;
+  }
+  .term-tag.hot { background: #FFF4E6; color: #FF7700; }
+  .term-tag.flow { background: #E0F2FE; color: #0284C7; }
+  .term-tag.stock { background: #ECFDF5; color: #047857; }
+  .term-tag.risk { background: #f5f5f4; color: #57534e; }
+  .full { font-size: 11.5px; color: #9A938C; margin-top: 2px; }
+</style>
+</head>
+<body>
+<div class="phone" id="capture">
+  <div class="mesh" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"></div>
+  <div class="content wenkai">
+
+    <header class="eli5-head" data-eli5-reveal>
+      <div class="wm-num ui-title">D</div>
+      <div class="head-row">
+        <div class="idx-sq terra ui-bold">D</div>
+        <div>
+          <div class="c-en ui-bold">WHERE COST SITS</div>
+          <div class="c-cn">成本对象与流转</div>
+        </div>
+      </div>
+      <h1 class="ui-title">这笔料工费，<br/>到底<span class="mark">趴在哪件货</span>上？</h1>
+      <p class="tagline">成本对象不是会计黑话。它问的是：<span class="mark">这钱记到哪张工单、哪批货</span>。</p>
+      <div class="pill-dark" data-eli5-reveal style="margin-top:10px">
+        <span class="pill" style="background:#FF7700;color:#fff;margin:0">一句话</span>
+        <span>钱跟着货走，货到哪一步，钱记到哪一步</span>
+      </div>
+      <div class="hero-row" data-eli5-reveal>
+        <div class="hero-orb ui-title">3</div>
+        <div>
+          <div class="big ui-title" style="margin:0">三个落点</div>
+          <p class="muted" style="margin-top:4px">还在做、做完入库、卖出去。钱落错一步，毛利就瞎。</p>
+        </div>
+      </div>
+      <div class="chip-row" data-eli5-reveal>
+        <span class="chip"><span class="dot" style="background:#FF7700"></span>BOM</span>
+        <span class="chip"><span class="dot" style="background:#0284C7"></span>WIP</span>
+        <span class="chip"><span class="dot" style="background:#047857"></span>入库</span>
+        <span class="chip"><span class="dot" style="background:#fb923c"></span>结转</span>
+      </div>
+    </header>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num terra ui-bold">1</span> 先记住一个比喻</h2>
+      <div class="card-paper story" data-eli5-reveal>
+        <div class="emoji">🏷️</div>
+        <div class="body">
+          <div class="big ui-title">给每笔钱贴一张货签</div>
+          <p class="muted">领料、报工、水电折旧，不能先混在一起再分。要问：<span class="mark">这张签贴在哪件货、哪张工单上</span>。签贴错了，后面算毛利全歪。</p>
+        </div>
+      </div>
+      <div class="hl-bar" data-eli5-reveal>
+        <div class="big ui-title">对象 = 钱记到谁头上</div>
+        <p class="muted">可以是一张工单、一个型号、一批货。先说清记到谁，再谈贵不贵。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num sage ui-bold">2</span> 钱跟着货怎么走</h2>
+      <div class="flow">
+        <div class="box gray" data-eli5-reveal>先定配方<span class="sub">BOM：这件货该用哪些料、用多少</span></div>
+        <div class="arrow">↓ 按路线做</div>
+        <div class="box" data-eli5-reveal>还在车间里<span class="sub">WIP：货没做完，钱已经花出去了，趴在在制品上</span></div>
+        <div class="arrow">↓ 做完入库</div>
+        <div class="box" data-eli5-reveal>变成库存<span class="sub">完工入库：钱从「在做」转到「产成品」</span></div>
+        <div class="arrow">↓ 卖出去才进成本</div>
+        <div class="box orange" data-eli5-reveal>销售结转<span class="sub">货出库了，库存成本才变成销售成本</span></div>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num ochre ui-bold">3</span> 会上常听到的几个</h2>
+      <div class="grid-2">
+        <div class="cell" data-eli5-reveal>
+          <div class="term-tag hot ui-bold">BOM</div>
+          <div class="v ui-title">该吃什么料</div>
+          <p class="mini">按设计，这件产品要用哪些料、用多少。配方错了，后面全是错。</p>
+          <div class="full">物料清单</div>
+        </div>
+        <div class="cell" data-eli5-reveal>
+          <div class="term-tag flow ui-bold">工艺路线</div>
+          <div class="v ui-title">过哪些工序</div>
+          <p class="mini">这件活要过哪些工位、标准工时多少。路线不清，人工和机时没法摊。</p>
+        </div>
+        <div class="cell" data-eli5-reveal>
+          <div class="term-tag hot ui-bold">成本对象</div>
+          <div class="v ui-title">钱记到谁头上</div>
+          <p class="mini">这笔料工费挂在哪张工单、哪个产品、哪批货。对象没定，成本就是一锅粥。</p>
+        </div>
+        <div class="cell" data-eli5-reveal>
+          <div class="term-tag stock ui-bold">WIP</div>
+          <div class="v ui-title">还在做的货</div>
+          <p class="mini">没做完、钱已经花了，趴在车间里。不是废料，是半成品上的成本。</p>
+          <div class="full">在制品</div>
+        </div>
+        <div class="cell" data-eli5-reveal>
+          <div class="term-tag stock ui-bold">完工入库</div>
+          <div class="v ui-title">做完进仓库</div>
+          <p class="mini">在制品变成产成品，钱跟着从 WIP 转到库存。</p>
+        </div>
+        <div class="cell" data-eli5-reveal>
+          <div class="term-tag flow ui-bold">销售结转</div>
+          <div class="v ui-title">卖掉才进成本</div>
+          <p class="mini">货卖出去，库存成本才变成销售成本。货还在库，不能当已售成本。</p>
+        </div>
+        <div class="cell" data-eli5-reveal>
+          <div class="term-tag risk ui-bold">暂估</div>
+          <div class="v ui-title">货到了票没到</div>
+          <p class="mini">先按估计价入账，票来了再调。长期不调，库存和成本都会虚。</p>
+        </div>
+        <div class="cell" data-eli5-reveal>
+          <div class="term-tag risk ui-bold">委外 / 报废</div>
+          <div class="v ui-title">发出去、废了谁背</div>
+          <p class="mini">外协的料和工要跟工单对得上；报废进成本还是进损失，责任要说清。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num terra ui-bold">4</span> 三层：钱落在哪</h2>
+      <div class="tier" data-eli5-reveal>
+        <div class="tier-lab terra ui-bold">配方</div>
+        <div class="tier-body">
+          <div class="big ui-title">BOM + 工艺路线</div>
+          <p class="muted">先说清这件货<span class="mark">该用什么料、过什么工序</span>。配方和路线是后面一切分摊的底子。</p>
+        </div>
+      </div>
+      <div class="tier w96" data-eli5-reveal>
+        <div class="tier-lab sage ui-bold">在做</div>
+        <div class="tier-body">
+          <div class="big ui-title">成本对象 + WIP</div>
+          <p class="muted">领料报工挂到具体工单或批次。货没做完，钱就趴在<span class="mark-sage">在制品</span>上。</p>
+        </div>
+      </div>
+      <div class="tier w92" data-eli5-reveal>
+        <div class="tier-lab ochre ui-bold">出库</div>
+        <div class="tier-body">
+          <div class="big ui-title">入库 → 销售结转</div>
+          <p class="muted">做完进仓库；卖掉才进销售成本。别把还在库里的货，当成已经卖掉的成本。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num sage ui-bold">5</span> 常见坑 → 修法</h2>
+      <div class="card-blush pair-row" data-eli5-reveal>
+        <div class="x-mark ui-bold">×</div>
+        <div>
+          <div class="big ui-title">料工费先混在一起</div>
+          <p class="muted">月末再拆到产品上。拆的时候靠感觉，哪个型号赚钱哪个亏，全是蒙的。</p>
+        </div>
+      </div>
+      <div class="card-sage pair-row" data-eli5-reveal>
+        <div class="ok-mark ui-bold">✓</div>
+        <div>
+          <div class="big ui-title">领料报工当时就挂工单</div>
+          <p class="muted">钱一发生，就问<span class="mark-sage">挂哪张工单、哪批货</span>。事后再摊，永远说不清。</p>
+        </div>
+      </div>
+      <div class="card-callout" data-eli5-reveal style="margin-top:10px">
+        <div class="big ui-title">假退假领另说</div>
+        <p class="muted">月底为了对账，形式上退料再领料、货其实没动——那是另一集的坑。这里先记住：<span class="mark">货动了，账才动</span>。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num ochre ui-bold">6</span> 开会时怎么对上号</h2>
+      <div class="list-row" data-eli5-reveal>
+        <div class="dot-n terra ui-bold">1</div>
+        <div class="body">
+          <div class="big ui-title">听到 BOM，问改没改过</div>
+          <p class="muted">图纸变了，BOM 跟没跟上。没跟上，系统按旧配方领料，成本就开始撒谎。</p>
+        </div>
+      </div>
+      <div class="list-row" data-eli5-reveal>
+        <div class="dot-n sage ui-bold">2</div>
+        <div class="body">
+          <div class="big ui-title">听到 WIP，问趴了多久</div>
+          <p class="muted">在制品长期不入库、不结转，钱堵在车间里，报表看着像库存，其实可能是烂尾。</p>
+        </div>
+      </div>
+      <div class="list-row" data-eli5-reveal>
+        <div class="dot-n ochre ui-bold">3</div>
+        <div class="body">
+          <div class="big ui-title">听到成本，问货卖了没有</div>
+          <p class="muted">货还在库，成本还在库存；卖掉才进销售成本。别拿库存成本去跟当月毛利硬碰。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num terra ui-bold">7</span> 今天带走这些</h2>
+      <div class="brick">
+        <div class="item" data-eli5-reveal>
+          <div class="name ui-title">先问钱记到哪件货</div>
+          <p class="desc">成本对象没定，料工费就是一锅粥，毛利没法谈。</p>
+        </div>
+        <div class="item" data-eli5-reveal>
+          <div class="name ui-title">在做、入库、卖掉，三步分开</div>
+          <p class="desc">WIP、产成品、销售成本，别混成一个「成本」。</p>
+        </div>
+        <div class="item shift" data-eli5-reveal>
+          <div class="name ui-title">配方错了，后面全错</div>
+          <p class="desc">BOM 和工艺路线是底子。底子不对，再精的分摊也白搭。</p>
+        </div>
+      </div>
+      <div class="card-principle" data-eli5-reveal>
+        <div class="big ui-title">原则</div>
+        <p class="muted">钱要能<span class="mark">跟着货走到每一步</span>。问不清趴在哪，就别先吵贵不贵。</p>
+      </div>
+      <div class="pill-dark" data-eli5-reveal style="margin-top:8px">
+        <span>下次听到「成本高了」，先问：高在哪张工单、哪批货、哪一步？</span>
+      </div>
+    </section>
+
+    <footer class="credit ui-bold" data-eli5-reveal>
+      @小微之家会计服务 &nbsp;|&nbsp; @老汪洞察 &nbsp;|&nbsp; @汪斌带你开公司
+      <div class="copy">仅供学习对照 · 假退假领见往期上滑</div>
+    </footer>
+    <div class="c-foot ui-bold" data-eli5-reveal>
+      <div><span class="c-foot-sq"></span>老汪洞察 · 信息图</div>
+      <div>长图 · 成本流转</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

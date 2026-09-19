@@ -1,4 +1,4 @@
-# 三套主题共用 · 文字铁律
+# 八套主题共用 · 文字铁律
 
 A / B / C **配色与材质不同**，文字纪律相同。版式骨架见 [layout-shared.md](layout-shared.md)。写任何主题的 HTML 前两篇都要读。
 
@@ -56,4 +56,4 @@ C 另有 `.mark-ochre` `#B8873A`，A/B 不要用。
 
 ## 文件夹和成片文件名
 
-工作文件夹和 MP4 同一套：`模式_YYYY-MM-DD_标题（深色|浅色|刊物）`。带封面成片加 `（带封面）.mp4`。禁止每套都叫 `showcase.mp4` / `carousel.mp4`。见 `scripts/delivery_names.py`。
+工作文件夹和 MP4 同一套：`模式_YYYY-MM-DD_标题（深色|浅色|刊物|蓝图|墨纸|石板|海报|地铁）`。带封面成片加 `（带封面）.mp4`。禁止每套都叫 `showcase.mp4` / `carousel.mp4`。见 `scripts/delivery_names.py`。

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Synthesize a short bubble-pop wav (no BGM, no VO)."""
+"""Synthesize a soft bubble-pop wav (under BGM; not a sharp click)."""
 from __future__ import annotations
 
 import math
@@ -11,7 +11,8 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUT = ROOT / "assets" / "sfx" / "bubble-pop.wav"
 
 
-def write_bubble(path: Path | None = None, seconds: float = 0.13) -> Path:
+def write_bubble(path: Path | None = None, seconds: float = 0.18) -> Path:
+    """Soft plop: lower pitch, gentle attack, almost no high click."""
     out = path or DEFAULT_OUT
     out.parent.mkdir(parents=True, exist_ok=True)
     sr = 44100
@@ -23,11 +24,14 @@ def write_bubble(path: Path | None = None, seconds: float = 0.13) -> Path:
         frames = bytearray()
         for i in range(n):
             t = i / sr
-            env = math.exp(-t * 26.0) * max(0.0, 1.0 - t / seconds)
-            freq = 920.0 * math.exp(-t * 8.5) + 210.0
+            # soft attack then slow decay (not a needle click)
+            attack = min(1.0, t / 0.012)
+            env = attack * math.exp(-t * 14.0) * max(0.0, 1.0 - t / seconds)
+            freq = 520.0 * math.exp(-t * 5.5) + 160.0
             sig = math.sin(2 * math.pi * freq * t)
-            click = math.sin(2 * math.pi * 2650.0 * t) * math.exp(-t * 85.0) * 0.22
-            v = (sig * 0.58 + click) * env * 0.62
+            # tiny shimmer, heavily damped
+            shimmer = math.sin(2 * math.pi * 1100.0 * t) * math.exp(-t * 40.0) * 0.06
+            v = (sig * 0.72 + shimmer) * env * 0.38
             v = max(-1.0, min(1.0, v))
             frames += struct.pack("<h", int(v * 32767))
         w.writeframes(bytes(frames))

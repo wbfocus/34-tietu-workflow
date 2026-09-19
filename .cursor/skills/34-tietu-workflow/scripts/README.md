@@ -36,7 +36,7 @@ py -3 qa_tietu.py pngs "<贴图文件夹>/成品图"
 py -3 qa_tietu.py showcase "<贴图文件夹>/成品视频/showcase.mp4" --n 8 --hold 5
 ```
 
-## ELI5 长图上滑 MP4（独立，无 BGM）
+## ELI5 长图上滑 MP4（独立；默认叠 BGM）
 
 ```bash
 py -3 finish_eli5_scroll.py "<长图文件夹>" --title "第一行|第二行" --sub "副标"

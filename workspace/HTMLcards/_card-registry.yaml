@@ -114,3 +114,39 @@ articles:
         format: upscroll
         status: done
         note: A–I 上滑系列 B 类 · 封面「业财融合 / 系统与数据」
+
+  - slug: finance-ops-fusion-overview
+    title: 业财融合 · 总纲
+    sets:
+      - folder: workspace/HTMLcards/上滑_2026-09-17_业财融合总纲（浅色）
+        theme: B
+        format: upscroll
+        status: done
+        note: A–I 上滑系列 C 类 · 封面「业财融合 / 总纲」
+
+  - slug: finance-ops-cost-object-flow
+    title: 业财融合 · 成本对象与流转
+    sets:
+      - folder: workspace/HTMLcards/上滑_2026-09-17_成本对象与流转（浅色）
+        theme: B
+        format: upscroll
+        status: done
+        note: A–I 上滑系列 D 类 · 封面「业财融合 / 成本流转」
+
+  - slug: finance-bp-front-stage
+    title: 财务从幕后走到台前
+    sets:
+      - folder: workspace/HTMLcards/上滑_2026-09-18_财务从幕后走到台前（深色）
+        theme: A
+        format: upscroll
+        status: done
+        note: 书页素材整理 · 正倒三角 / 管报 vs 三张表 / 产品A故事 · 封面「财务从幕后 / 走到台前」
+
+  - slug: finance-three-pillars
+    title: 财务三支柱如何分工与协同
+    sets:
+      - folder: workspace/HTMLcards/上滑_2026-09-18_财务三支柱如何分工与协同（深色）
+        theme: A
+        format: upscroll
+        status: done
+        note: 书页素材 · BP/COE/共享 · 无真实公司名 · 封面「财务三支柱 / 分工与协同」

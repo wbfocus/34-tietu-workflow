@@ -1,0 +1,65 @@
+/* 测绘切片 UI — 区别于 A 玻璃光晕 / B Mesh 暖白 */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #1c1a14;
+}
+.ui-bold { font-family: 'HarmonyOS_Sans_SC_Bold', 'HarmonyOS Sans SC', sans-serif; font-weight: 700; }
+.wenkai { font-family: 'LXGW WenKai', '霞鹜文楷', serif; }
+.display { font-family: 'ZCOOL XiaoWei', serif; }
+.canvas {
+  background: #1c1a14;
+  background-image:
+    linear-gradient(rgba(201, 162, 39, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 162, 39, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: -1px -1px;
+}
+.mark { position: absolute; width: 18px; height: 18px; border-color: #8a7a4a; border-style: solid; z-index: 40; pointer-events: none; }
+.mark-tl { top: 14px; left: 14px; border-width: 2px 0 0 2px; }
+.mark-tr { top: 14px; right: 14px; border-width: 2px 2px 0 0; }
+.mark-bl { bottom: 14px; left: 14px; border-width: 0 0 2px 2px; }
+.mark-br { bottom: 14px; right: 14px; border-width: 0 2px 2px 0; }
+.spine {
+  position: absolute;
+  left: 0;
+  top: 168px;
+  width: 44px;
+  padding: 18px 0;
+  background: #0EA5E9;
+  color: #1c1a14;
+  text-align: center;
+  letter-spacing: 0.18em;
+  writing-mode: vertical-rl;
+  z-index: 20;
+}
+.panel {
+  background: #252218;
+  border: 1px solid #3d382c;
+}
+.panel-hot {
+  background: #2c2318;
+  border: 1px solid rgba(255, 119, 0, 0.55);
+}
+.axis { position: relative; width: 168px; height: 168px; flex-shrink: 0; }
+.axis .hub {
+  position: absolute; left: 50%; top: 50%; width: 52px; height: 52px;
+  margin: -26px 0 0 -26px; border: 1px solid #8a7a4a; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #e8e0d0; background: #1c1a14; font-size: 18px; letter-spacing: 0.04em;
+}
+.axis .arm {
+  position: absolute; color: #8a8274; font-size: 22px;
+}
+.axis .arm.on { color: #FF7700; }
+.axis .n { left: 50%; top: 4px; transform: translateX(-50%); }
+.axis .e { right: 4px; top: 50%; transform: translateY(-50%); }
+.axis .s { left: 50%; bottom: 4px; transform: translateX(-50%); }
+.axis .w { left: 4px; top: 50%; transform: translateY(-50%); }
+.axis .line-h, .axis .line-v {
+  position: absolute; background: #3d382c; left: 50%; top: 50%;
+}
+.axis .line-h { width: 132px; height: 1px; margin: 0 0 0 -66px; }
+.axis .line-v { width: 1px; height: 132px; margin: -66px 0 0 0; }
+.chip { background: #252218; border: 1px solid #3d382c; }

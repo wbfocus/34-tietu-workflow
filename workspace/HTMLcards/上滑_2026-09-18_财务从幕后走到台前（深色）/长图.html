@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=390, initial-scale=1, maximum-scale=1">
+<title>财务从幕后走到台前</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.2.5/chinese-simplified-900.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Bold/Bold.css"/>
+<link rel="stylesheet" href="layout-long.css"/>
+<link rel="stylesheet" href="theme-a-long.css"/>
+<style>
+  .term-tag {
+    display: inline-block; padding: 2px 8px; border-radius: 6px;
+    font-size: 11px; font-weight: 700; margin-bottom: 4px;
+  }
+  .term-tag.hot { background: rgba(255,119,0,.2); color: #FF9A4D; }
+  .term-tag.cool { background: rgba(56,189,248,.15); color: #7DD3FC; }
+  .term-tag.ok { background: rgba(52,211,153,.15); color: #6EE7B7; }
+  .pyramid {
+    border-radius: 12px; padding: 10px 12px; margin: 6px 0;
+    text-align: center; font-size: 13px; line-height: 1.35;
+  }
+  .pyramid .lab { font-size: 11px; opacity: .7; margin-top: 2px; }
+  .pyr-now .pyramid:nth-child(1) { width: 42%; margin-left: auto; margin-right: auto; background: rgba(255,255,255,.06); }
+  .pyr-now .pyramid:nth-child(2) { width: 62%; margin-left: auto; margin-right: auto; background: rgba(255,255,255,.08); }
+  .pyr-now .pyramid:nth-child(3) { width: 82%; margin-left: auto; margin-right: auto; background: rgba(255,255,255,.1); }
+  .pyr-now .pyramid:nth-child(4) { width: 100%; background: rgba(255,119,0,.18); border: 1px solid rgba(255,119,0,.35); }
+  .pyr-next .pyramid:nth-child(1) { width: 100%; background: rgba(255,119,0,.22); border: 1px solid rgba(255,119,0,.4); }
+  .pyr-next .pyramid:nth-child(2) { width: 78%; margin-left: auto; margin-right: auto; background: rgba(255,255,255,.1); }
+  .pyr-next .pyramid:nth-child(3) { width: 58%; margin-left: auto; margin-right: auto; background: rgba(255,255,255,.08); }
+  .pyr-next .pyramid:nth-child(4) { width: 38%; margin-left: auto; margin-right: auto; background: rgba(255,255,255,.06); }
+</style>
+</head>
+<body>
+<div class="phone" id="capture">
+  <div class="atm" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"></div>
+  <div class="content wenkai">
+
+    <header class="eli5-head" data-eli5-reveal>
+      <div class="wm-num ui-title">01</div>
+      <div class="head-row">
+        <div class="idx-sq terra ui-bold">01</div>
+        <div>
+          <div class="c-en ui-bold">FRONT STAGE</div>
+          <div class="c-cn">财务BP转型</div>
+        </div>
+      </div>
+      <h1 class="ui-title">财务从幕后记账，<br/>走到台前<span class="mark">帮着拍板</span></h1>
+      <p class="tagline">不是多开几次会。是人从「录单据、查票据」里腾出来，去回答：<span class="mark">这单接不接、这产品还卖不卖</span>。</p>
+      <div class="pill-dark" data-eli5-reveal style="margin-top:10px">
+        <span class="pill" style="background:#FF7700;color:#fff;margin:0">一句话</span>
+        <span>金字塔要倒过来：少耗在交易上，多花在决策上</span>
+      </div>
+      <div class="hero-row" data-eli5-reveal>
+        <div class="hero-orb ui-title">4</div>
+        <div>
+          <div class="big ui-title" style="margin:0">工作层次分4级</div>
+          <p class="muted" style="margin-top:4px">记账 → 把关 → 出报表 → 帮着做决定。现在大多卡在前两层。</p>
+        </div>
+      </div>
+      <div class="chip-row" data-eli5-reveal>
+        <span class="chip"><span class="dot" style="background:#FF7700"></span>记账</span>
+        <span class="chip"><span class="dot" style="background:#38BDF8"></span>把关</span>
+        <span class="chip"><span class="dot" style="background:#A78BFA"></span>报表</span>
+        <span class="chip"><span class="dot" style="background:#34D399"></span>拍板</span>
+      </div>
+    </header>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num terra ui-bold">1</span> 现在 vs 以后</h2>
+      <div class="grid-2">
+        <div class="cell" data-eli5-reveal>
+          <div class="term-tag hot ui-bold">现在</div>
+          <div class="v ui-title">正三角</div>
+          <p class="mini">底下记账的人最多，上面帮着拍板的人最少。忙一天，决策用得上的数没几条。</p>
+        </div>
+        <div class="cell" data-eli5-reveal>
+          <div class="term-tag ok ui-bold">以后</div>
+          <div class="v ui-title">倒三角</div>
+          <p class="mini">重复记账交给系统和共享。人挪到上面：管报、预测、这单赚不赚。</p>
+        </div>
+      </div>
+      <div class="card-paper" data-eli5-reveal style="margin-top:10px">
+        <div class="big ui-title">正三角 · 资源堆在底下</div>
+        <div class="pyr-now" style="margin-top:8px">
+          <div class="pyramid" data-eli5-reveal>帮着拍板<div class="lab">最少</div></div>
+          <div class="pyramid" data-eli5-reveal>对外出报表</div>
+          <div class="pyramid" data-eli5-reveal>查票据、卡流程</div>
+          <div class="pyramid" data-eli5-reveal>录单、对账、搬数<div class="lab">人最多</div></div>
+        </div>
+      </div>
+      <div class="card-paper" data-eli5-reveal style="margin-top:10px">
+        <div class="big ui-title">倒三角 · 人挪到上面</div>
+        <div class="pyr-next" style="margin-top:8px">
+          <div class="pyramid" data-eli5-reveal>帮销售算清、参与拍板<div class="lab">主战场</div></div>
+          <div class="pyramid" data-eli5-reveal>管报 · 预算 · 分析</div>
+          <div class="pyramid" data-eli5-reveal>规则嵌进流程</div>
+          <div class="pyramid" data-eli5-reveal>记账交给系统 / 共享<div class="lab">变薄</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num sage ui-bold">2</span> 把关：别只当交警开罚单</h2>
+      <div class="card-blush pair-row" data-eli5-reveal>
+        <div class="x-mark ui-bold">×</div>
+        <div>
+          <div class="big ui-title">事后挑错</div>
+          <p class="muted">「这张票不合规」「那个章没盖」。事故已经发生了，销售单也耽误了。</p>
+        </div>
+      </div>
+      <div class="card-sage pair-row" data-eli5-reveal>
+        <div class="ok-mark ui-bold">✓</div>
+        <div>
+          <div class="big ui-title">提前装红绿灯</div>
+          <p class="muted">规则嵌进下单、报销、合同流程。少出事，也少堵车——业务转得动，风险也兜得住。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num ochre ui-bold">3</span> 三张表 ≠ 管报</h2>
+      <div class="flow">
+        <div class="box gray" data-eli5-reveal>对外三张表<span class="sub">资产负债表、利润表、现金流量表 · 给银行、税局、投资人</span></div>
+        <div class="arrow">↓ 销售负责人真正要看的</div>
+        <div class="box orange" data-eli5-reveal>对内管报<span class="sub">这个产品、这条线、这张单，到底赚不赚钱</span></div>
+      </div>
+      <div class="hl-bar" data-eli5-reveal>
+        <div class="big ui-title">财报像后视镜</div>
+        <p class="muted">能看见昨天和今天。开车还得看前面——预算、预测、下一步往哪打。</p>
+      </div>
+      <div class="list-row" data-eli5-reveal>
+        <div class="dot-n terra ui-bold">?</div>
+        <div class="body">
+          <div class="big ui-title">公司里几个人天天要看三张表？</div>
+          <p class="muted">多数销售负责人看了也帮不上忙。他们要的是：这个型号、这个客户，综合算是赚是亏。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num terra ui-bold">4</span> 真事：差点卖掉赚钱的产品</h2>
+      <div class="card-paper story" data-eli5-reveal>
+        <div class="emoji">📦</div>
+        <div class="body">
+          <div class="big ui-title">感觉 A 产品不赚钱</div>
+          <p class="muted">领导想砍掉或外包。翻对外三张表，看不出这个产品到底赚多少——表是给外面看的，不是按产品切开的。</p>
+        </div>
+      </div>
+      <div class="tier" data-eli5-reveal>
+        <div class="tier-lab terra ui-bold">手工</div>
+        <div class="tier-body">
+          <div class="big ui-title">把销售、成本、费用拆到产品</div>
+          <p class="muted">跨部门把数捞齐，做出产品赚钱报告。</p>
+        </div>
+      </div>
+      <div class="tier w96" data-eli5-reveal>
+        <div class="tier-lab sage ui-bold">结果</div>
+        <div class="tier-body">
+          <div class="big ui-title">A 产品其实很赚钱</div>
+          <p class="muted">差点因为「感觉」丢掉一块利润。没有管报，拍板就靠猜。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num sage ui-bold">5</span> 财务像仪表盘，不是后座乘客</h2>
+      <div class="grid-2">
+        <div class="cell" data-eli5-reveal>
+          <div class="term-tag cool ui-bold">老板</div>
+          <div class="v ui-title">握方向盘</div>
+          <p class="mini">往哪开，最终他拍板。</p>
+        </div>
+        <div class="cell" data-eli5-reveal>
+          <div class="term-tag hot ui-bold">财务BP</div>
+          <div class="v ui-title">仪表盘 + 导航</div>
+          <p class="mini">油够不够、路堵不堵、这单剩多少，提前说清楚。</p>
+        </div>
+      </div>
+      <div class="card-callout" data-eli5-reveal style="margin-top:10px">
+        <div class="big ui-title">合同能不能签</div>
+        <p class="muted">有的公司财经BP对合同有否决和上升权：分公司想签，财经BP说不行，就得往上报。不是拦生意，是<span class="mark">别接亏本单</span>。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2 data-eli5-reveal><span class="num ochre ui-bold">6</span> 人腾出来以后干什么</h2>
+      <div class="brick">
+        <div class="item" data-eli5-reveal>
+          <div class="name ui-title">别再靠人肉搬数</div>
+          <p class="desc">标准化、系统、共享能吃掉的，就别堆人在底下。</p>
+        </div>
+        <div class="item" data-eli5-reveal>
+          <div class="name ui-title">去做产品 / 客户赚钱表</div>
+          <p class="desc">销售问这单值不值得打，你能当场摊开数，而不是下周再回。</p>
+        </div>
+        <div class="item shift" data-eli5-reveal>
+          <div class="name ui-title">预算和预测当导航</div>
+          <p class="desc">不只报昨天，还要说：按现在打法，下个月会怎样。</p>
+        </div>
+      </div>
+      <div class="card-principle" data-eli5-reveal>
+        <div class="big ui-title">原则</div>
+        <p class="muted">财务BP不是多一个「做表的」。是从<span class="mark">记完账交差</span>，变成<span class="mark">进会场帮着拍板</span>。</p>
+      </div>
+      <div class="pill-dark" data-eli5-reveal style="margin-top:8px">
+        <span>下次开经营会，先问：桌上是对外三张表，还是销售真正要看的管报？</span>
+      </div>
+    </section>
+
+    <footer class="credit ui-bold" data-eli5-reveal>
+      @小微之家会计服务 &nbsp;|&nbsp; @老汪洞察 &nbsp;|&nbsp; @汪斌带你开公司
+      <div class="copy">素材整理 · 财务BP转型路径示意</div>
+    </footer>
+    <div class="c-foot ui-bold" data-eli5-reveal>
+      <div><span class="c-foot-sq"></span>老汪洞察 · 信息图</div>
+      <div>长图 · 走到台前</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=390, initial-scale=1, maximum-scale=1">
+<title>假退假领</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.2.5/chinese-simplified-900.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Bold/Bold.css"/>
+<link rel="stylesheet" href="layout-long.css"/>
+<link rel="stylesheet" href="theme-b-long.css"/>
+<style>
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 8px; }
+  .grid-2 .cell { border-radius: 12px; padding: 11px 12px; background: #fff; border: 1px solid #e7e5e4; box-shadow: 0 6px 16px rgba(14,165,233,.06); }
+  .grid-2 .cell .k { font-size: 12px; color: #6B6560; margin-bottom: 4px; }
+  .grid-2 .cell .v { font-size: 14px; line-height: 1.35; color: #1C1917; }
+  .chip-row { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 4px; }
+  .chip { background: #fff; border: 1px solid #e7e5e4; border-radius: 999px; padding: 5px 10px; font-size: 12px; font-weight: 700; color: #1C1917; box-shadow: 0 4px 12px rgba(14,165,233,.06); }
+  .chip .dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; margin-right: 5px; vertical-align: middle; }
+  .list-row { display: flex; gap: 8px; align-items: flex-start; background: #fff; border: 1px solid #e7e5e4; border-radius: 12px; padding: 10px 12px; margin-bottom: 8px; box-shadow: 0 6px 16px rgba(14,165,233,.06); }
+  .list-row .body { min-width: 0; flex: 1; }
+  .w96 { width: 96%; margin-left: auto; }
+  .w92 { width: 92%; margin-left: auto; }
+</style>
+</head>
+<body>
+<div class="phone" id="capture">
+  <div class="mesh" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="wm" aria-hidden="true"></div>
+  <div class="content wenkai">
+
+    <!-- 封面：大圆 + 判断 + 标签 -->
+    <header class="eli5-head" data-eli5-reveal>
+      <div class="wm-num ui-title">01</div>
+      <div class="head-row">
+        <div class="idx-sq terra ui-bold">01</div>
+        <div>
+          <div class="c-en ui-bold">BOOK MOVE</div>
+          <div class="c-cn">假退假领</div>
+        </div>
+      </div>
+      <h1 class="ui-title">货<span class="mark">不动</span>，<br/>账先退再领</h1>
+      <p class="tagline">车间余料还要接着用，真搬回仓太折腾。<span class="mark-sage">假退假领</span>：实物原地不动，只在账上做一次「先退库、再领用」。</p>
+      <div class="pill-dark" data-eli5-reveal style="margin-top:10px">
+        <span class="pill" style="background:#FF7700;color:#fff;margin:0">判断</span>
+        <span>它是账面管理技巧，不是把货搬走</span>
+      </div>
+      <div class="hero-row" data-eli5-reveal>
+        <div class="hero-orb ui-title">0</div>
+        <div>
+          <div class="big ui-title" style="margin:0">搬运次数 = 0</div>
+          <p class="muted" style="margin-top:4px">成本归期、项目归属、账实一致，一次做完。</p>
+        </div>
+      </div>
+      <div class="chip-row" data-eli5-reveal>
+        <span class="chip"><span class="dot" style="background:#FF7700"></span>假退</span>
+        <span class="chip"><span class="dot" style="background:#0EA5E9"></span>假领</span>
+        <span class="chip"><span class="dot" style="background:#0284C7"></span>跨月</span>
+        <span class="chip"><span class="dot" style="background:#fb923c"></span>转单</span>
+      </div>
+    </header>
+
+    <!-- 比喻 + 提示条 -->
+    <section>
+      <h2 data-eli5-reveal><span class="num terra ui-bold">1</span> 先记住一个比喻</h2>
+      <div class="card-paper story" data-eli5-reveal>
+        <div class="emoji">📒</div>
+        <div class="body">
+          <div class="big ui-title">米还在灶台旁</div>
+          <p class="muted">月底厨房剩半袋米，下月还要煮。米袋<span class="mark">不抬回米仓</span>，只在账本写：「退回米仓」再「领给厨房」——位置没变，归属算清了。</p>
+        </div>
+      </div>
+      <div class="hl-bar" data-eli5-reveal>
+        <div class="big ui-title">假退假领 = 账面搬家</div>
+        <p class="muted">把没用完的料，从「上月 / A 项目」记到「下月 / B 项目」。货还在现场，<span class="mark-sage">成本跟对人</span>。</p>
+      </div>
+      <div class="card-callout" data-eli5-reveal>
+        <div class="big ui-title">三个核心目的</div>
+        <p class="muted">① 精准算成本　② 保证账实相符　③ 少做实物搬运</p>
+      </div>
+    </section>
+
+    <!-- 竖向流程 -->
+    <section>
+      <h2 data-eli5-reveal><span class="num sage ui-bold">2</span> 它怎么转起来</h2>
+      <div class="flow">
+        <div class="box gray" data-eli5-reveal>现场有余料<span class="sub">月末 / 项目结束，料还在车间</span></div>
+        <div class="arrow">↓ 不搬仓，只记账</div>
+        <div class="box" data-eli5-reveal>假退回仓库<span class="sub">账上退库，结清本期成本</span></div>
+        <div class="arrow">↓ 下期或新项目接着用</div>
+        <div class="box orange" data-eli5-reveal>假领出车间<span class="sub">账上再领，成本进新期间 / 新订单</span></div>
+        <div class="arrow">↓ 结果</div>
+        <div class="box" data-eli5-reveal>货仍原地 · 账已换归属<span class="sub">财务、仓库、车间数量对齐</span></div>
+      </div>
+    </section>
+
+    <!-- 分层：为什么要做 -->
+    <section>
+      <h2 data-eli5-reveal><span class="num ochre ui-bold">3</span> 为什么非做不可</h2>
+      <div class="tier" data-eli5-reveal>
+        <div class="tier-lab terra ui-bold">成本</div>
+        <div class="tier-body">
+          <div class="big ui-title">算进对的期间 / 项目</div>
+          <p class="muted">上月没用完的料，不该压死在上月；假退假领让成本跟消耗走。</p>
+        </div>
+      </div>
+      <div class="tier w96" data-eli5-reveal>
+        <div class="tier-lab sage ui-bold">账实</div>
+        <div class="tier-body">
+          <div class="big ui-title">三本账说同一种话</div>
+          <p class="muted">财务账、仓库系统、车间实数一致，月底结账才站得住。</p>
+        </div>
+      </div>
+      <div class="tier w92" data-eli5-reveal>
+        <div class="tier-lab ochre ui-bold">效率</div>
+        <div class="tier-body">
+          <div class="big ui-title">少搬一趟货</div>
+          <p class="muted">真退真领费时费力；账面闭环，现场继续干。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2×2 场景网格 -->
+    <section>
+      <h2 data-eli5-reveal><span class="num terra ui-bold">4</span> 典型应用场景</h2>
+      <div class="grid-2">
+        <div class="cell" data-eli5-reveal>
+          <div class="k ui-bold">01 · 跨月结账</div>
+          <div class="v ui-title">月底假退</div>
+          <p class="muted" style="margin-top:4px;font-size:12.5px">下月初假领，余料接着用。</p>
+        </div>
+        <div class="cell" data-eli5-reveal>
+          <div class="k ui-bold">02 · 订单转移</div>
+          <div class="v ui-title">A 退 B 领</div>
+          <p class="muted" style="margin-top:4px;font-size:12.5px">剩 50 个螺丝，账上换单号。</p>
+        </div>
+        <div class="cell" data-eli5-reveal>
+          <div class="k ui-bold">03 · 寄售 / VMI</div>
+          <div class="v ui-title">耗用才结算</div>
+          <p class="muted" style="margin-top:4px;font-size:12.5px">货在厂里，账按真正消耗走。</p>
+        </div>
+        <div class="cell" data-eli5-reveal>
+          <div class="k ui-bold">04 · 项目收尾</div>
+          <div class="v ui-title">余料转下期</div>
+          <p class="muted" style="margin-top:4px;font-size:12.5px">项目关账清，料归属不悬空。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 坑 → 修 -->
+    <section>
+      <h2 data-eli5-reveal><span class="num sage ui-bold">5</span> 常见坑 → 修法</h2>
+      <div class="card-blush pair-row" data-eli5-reveal>
+        <div class="x-mark ui-bold">×</div>
+        <div>
+          <div class="big ui-title">闭门做账、不见货</div>
+          <p class="muted">坏料、丢料靠假退抹平；或只假退忘假领，账悬在半空。</p>
+        </div>
+      </div>
+      <div class="card-sage pair-row" data-eli5-reveal>
+        <div class="ok-mark ui-bold">✓</div>
+        <div>
+          <div class="big ui-title">现场清点 + 同期闭环</div>
+          <p class="muted">仓管到车间点数验质；假退与假领<span class="mark-sage">同日或同结账期</span>做完。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 风险清单 -->
+    <section>
+      <h2 data-eli5-reveal><span class="num ochre ui-bold">6</span> 缺监管会变乱象</h2>
+      <div class="list-row" data-eli5-reveal>
+        <div class="dot-n terra ui-bold">1</div>
+        <div class="body">
+          <div class="big ui-title">掩盖物料浪费</div>
+          <p class="muted">弄坏、弄丢的料，用假退做平账面。</p>
+        </div>
+      </div>
+      <div class="list-row" data-eli5-reveal>
+        <div class="dot-n sage ui-bold">2</div>
+        <div class="body">
+          <div class="big ui-title">账目悬空失真</div>
+          <p class="muted">只退不领、数量对不上，财务数据跑偏。</p>
+        </div>
+      </div>
+      <div class="list-row" data-eli5-reveal>
+        <div class="dot-n ochre ui-bold">3</div>
+        <div class="body">
+          <div class="big ui-title">车间「小金库」</div>
+          <p class="muted">余料脱离系统监管，私自截留。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 规范积木 + 原则 -->
+    <section>
+      <h2 data-eli5-reveal><span class="num terra ui-bold">7</span> 正确规范三件事</h2>
+      <div class="brick">
+        <div class="item" data-eli5-reveal>
+          <div class="name ui-title">表单写清「假退料」</div>
+          <p class="desc">与正常生产退料区分开，系统可检索、可审计。</p>
+        </div>
+        <div class="item" data-eli5-reveal>
+          <div class="name ui-title">仓管现场盘点确认</div>
+          <p class="desc">数量、质量都要看，不能只在办公室点鼠标。</p>
+        </div>
+        <div class="item shift" data-eli5-reveal>
+          <div class="name ui-title">退领限时同步完成</div>
+          <p class="desc">同一工作日或同一结账周期内闭环，避免账目悬空。</p>
+        </div>
+      </div>
+      <div class="card-principle" data-eli5-reveal>
+        <div class="big ui-title">原则</div>
+        <p class="muted">假退假领是<span class="mark">账面搬家</span>，不是免检通道；<span class="mark-sage">见货、标清、同期闭环</span>，才算真正账实相符。</p>
+      </div>
+      <div class="pill-dark" data-eli5-reveal style="margin-top:8px">
+        <span>转给仓管 / 车间 / 财务：余料接着用，先假退再假领</span>
+      </div>
+    </section>
+
+    <footer class="credit ui-bold" data-eli5-reveal>
+      @小微之家会计服务 &nbsp;|&nbsp; @老汪洞察 &nbsp;|&nbsp; @汪斌带你开公司
+      <div class="copy">仅供学习对照 · 非投资建议</div>
+    </footer>
+    <div class="c-foot ui-bold" data-eli5-reveal>
+      <div><span class="c-foot-sq"></span>老汪洞察 · 信息图</div>
+      <div>长图 · 假退假领</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

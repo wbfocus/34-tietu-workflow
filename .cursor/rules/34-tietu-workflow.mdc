@@ -1,5 +1,5 @@
 ---
-description: 3:4贴图制作工作流 — 出图前必须先问 A 深色玻璃 / B 亮色高级 / C 奶油刊物 主题
+description: 3:4贴图制作工作流 — 出图前必须先问 A–K 主题
 alwaysApply: true
 ---
 
@@ -11,40 +11,48 @@ alwaysApply: true
 
 **出片简称**：用户说「轮播」= 默认贴图+5秒翻页；「橱窗」= 橱窗砸入；「上滑」= 长图上滑（内部 skill `34-eli5-scroll`）。详见 `AGENTS.md`。成品画面与文件名 **禁止出现 ELI5/eli5**。
 
-## 三套备用主题
+## 十一套备用主题
 
-| ID | 名称 | 规范 | 金标准 |
+| ID | 名称 | 规范 | 金标准 / 样例 |
 |---|---|---|---|
 | **A** | 深色玻璃 | `.cursor/skills/34-tietu-workflow/references/theme-a-dark-glass.md` | `examples/gold-a-ceo-star-dark/` |
 | **B** | 亮色高级 | `.cursor/skills/34-tietu-workflow/references/theme-b-light-premium.md` | `examples/gold-b-ceo-star-light/` |
 | **C** | 奶油刊物 | `.cursor/skills/34-tietu-workflow/references/theme-c-cream-editorial.md` | `examples/gold-c-workshop-editorial/` |
+| **D** | 工程蓝图 | `.cursor/skills/34-tietu-workflow/references/theme-d-blueprint.md` | `workspace/HTMLcards/上滑_2026-09-19_企业经营就三件事（蓝图）/` |
+| **E** | 墨纸朱印 | `.cursor/skills/34-tietu-workflow/references/theme-e-ink-seal.md` | `workspace/HTMLcards/上滑_2026-09-19_如何管好应收账款（墨纸）/` |
+| **F** | 石板粉笔 | `.cursor/skills/34-tietu-workflow/references/theme-f-slate-chalk.md` | `workspace/HTMLcards/上滑_2026-09-19_钱收不回来怎么办（石板）/` |
+| **G** | 丝网海报 | `.cursor/skills/34-tietu-workflow/references/theme-g-screen-print.md` | `workspace/HTMLcards/上滑_2026-09-19_什么是销售费用（海报）/` |
+| **H** | 地铁线路 | `.cursor/skills/34-tietu-workflow/references/theme-h-metro.md` | `workspace/HTMLcards/上滑_2026-09-19_如何分析你所在的行业（地铁）/` |
+| **I** | 货柜码头 | `.cursor/skills/34-tietu-workflow/references/theme-i-cargo-dock.md` | `workspace/HTMLcards/上滑_2026-09-19_买的没有卖的精如何优化采购（货柜）/` |
+| **J** | 积木乐园 | `.cursor/skills/34-tietu-workflow/references/theme-j-block-play.md` | `workspace/HTMLcards/上滑_2026-09-19_财务是木桶上哪一块板（积木）/` |
+| **K** | 便签墙 | `.cursor/skills/34-tietu-workflow/references/theme-k-sticky-wall.md` | `workspace/HTMLcards/上滑_2026-09-19_财务与业务是什么关系（便签）/` |
 
 索引：`.cursor/skills/34-tietu-workflow/references/theme-index.md`
 
 ## 必问话术
 
 > 要做成 **3:4 贴图套图**（1080×1440），请选主题：
-> - **A 深色玻璃** — 夜间/科技感
-> - **B 亮色高级** — 日间/刊物感
-> - **C 奶油刊物** — 信息图/陶土鼠尾草（可选）
+> - **A～J** …（见主题表）
+> - **K 便签墙** — 暖橙墙粉青便签
 >
-> 回复 A、B 或 C；两套都要则回复「A+B」。
+> 回复 A–K；两套都要则回复「A+B」这类组合。
 
 ## 铁律
 
 - 出卡前读 `examples/_card-registry.yaml`，已登记 slug 不重复出
 - 尺寸默认 **3:4 · 1080×1440**，非用户明确要求不改比例
 - 主题规范优先于 design-system 旧字体方案
-- **三套共用文字**：正文霞鹜文楷 `.wenkai`，大标题/卡片标题思源宋体 `.ui-title`，数字/页码/水印 HarmonyOS `.ui-bold`；每段 1–3 个重点词 `.mark` / `.mark-sage`。全文见 `.cursor/skills/34-tietu-workflow/references/type-shared.md`
-- **三套共用骨架**：方标页眉 + 英文小标 + 巨号水印页码 + `.c-foot` + 六种版式节奏（封面大圆 / 对比 / 分层 / 网格 / 清单 / 结尾收口）。A 用玻璃、B 用 Mesh 氛围、C 用奶油白卡，**禁止**退回「胶囊页眉 + 等宽三列」。见 `references/layout-shared.md`
+- **十套共用文字**：正文霞鹜文楷 `.wenkai`，大标题/卡片标题思源宋体 `.ui-title`，数字/页码/水印 HarmonyOS `.ui-bold`；每段 1–3 个重点词 `.mark` / `.mark-sage`。全文见 `.cursor/skills/34-tietu-workflow/references/type-shared.md`
+- **十套共用骨架**：方标页眉 + 英文小标 + 巨号水印页码 + `.c-foot` + 六种版式节奏。A–K 各换外壳，**禁止**退回「胶囊页眉 + 等宽三列」。见 `references/layout-shared.md`
 - 页眉中文必须是读者能看懂的栏目名；**禁止**写「封面钩子 / 分镜 / CTA / slug」等内部词
-- 成片文件名：`模式_YYYY-MM-DD_标题（深色|浅色|刊物）.mp4`，带封面加 `（带封面）`。例：`上滑_2026-09-11_毛利根本不是一回事（深色）.mp4`。禁止每套都叫 `showcase.mp4`
+- 成片文件名：`模式_YYYY-MM-DD_标题（深色|浅色|刊物|蓝图|墨纸|石板|海报|地铁|货柜|积木|便签）.mp4`，带封面加 `（带封面）`
 - 橱窗砸入成片同样锁定 **3:4 · 1080×1440**，禁止做成 9:16 / 1080×1920
 - 竖向铺满：禁止内容全部顶在上半截、底下空一大块米色；用 `.board` + `space-between` 把最后一块贴到水印上沿（**禁止 flex-1**）
 - 橱窗静持默认 **5 秒**/张，禁止 10 秒
 - 橱窗音效只跟切页走：静持/空镜必须静音；出片后必须过 `qa_tietu.py`，不过自检不准交付
-- **长图上滑**走独立 skill `34-eli5-scroll`：先问 A/B/C，390px 长卷 → PNG → 3:4 上滑弹出；**禁止 BGM / 口播 / 字幕**；封面走 `covers-3x4/`（写入 `封面/cover-3x4.png`，禁止用长图头顶裁切冒充）；工作文件夹和成片都用 `上滑_YYYY-MM-DD_标题（深色|浅色|刊物）`，带封面成片加 `（带封面）.mp4`
-- **成品禁词 ELI5**：上滑作品的 HTML / PNG / 封面 / 成片文件名 **不得出现 `ELI5`/`eli5`**（页眉 `.c-en`、页脚、标题栏均禁止）。对内可叫 skill 名，对外只说「上滑 / 长图」
-- **上滑多样式默认开**：与贴图/橱窗共用 `layout-shared.md` 组件（`.hero-orb` / `.pill-dark` / `.tier` / 2×2 网格 / `.list-row`+`.dot-n` / 坑修 / `.brick` / `.card-principle`）。一套长卷 **≥5 种**节奏；**禁止**只写「比喻+流程+坑修+积木」流水账。用户说「上滑」即执行，不必等提醒「样式丰富」。详见 `34-eli5-scroll/references/card-ui-from-34.md`
-- **封面常换**：`covers-3x4` 池含暗底 1/1b/2/3、痛点钩子 4、浅色 5/6；出片时 `--style` 默认留空做加权抽签（4 降权）。**禁止**每套作品都 `--style 4`（白字红强调）。仅痛点问句钩子才显式指定 4
-- **成片编码**：H.264 High 4.0、yuv420p、**整 30fps**、**15360 tbn**、AAC 48kHz。封面第 0 帧必须正好 1/30 秒。**禁止 0.034 秒 / 30.01fps / 1000k tbn**（钉钉拒收）。出片后 `qa_tietu.py mp4`，不过检不准交付。见 `34-mp4-dingtalk.mdc`
+- **长图上滑**走独立 skill `34-eli5-scroll`：先问 A–K；**默认配 BGM**（曲库轮流，避开最近一首；未播过的歌禁止预写进 recent）+ 气泡音；**禁止口播 / 字幕**；封面 `封面/cover-3x4.png` + `封面/备选/`；大标题每行尽量 ≤6 字；**每期换一个封面风格**，LOGO 不变
+- **成品禁词 ELI5**：上滑作品画面与交付文件名不得出现 `ELI5`/`eli5`
+- **上滑多样式默认开**：一套长卷 ≥5 种节奏。详见 `34-eli5-scroll/references/card-ui-from-34.md`
+- **封面常换**：禁止每套都 `--style 4`；空 `--style` 抽签并避开最近 2 次；另渲 `封面/备选/` 3 套。池：1/1b/2/3/4/5/6/7/8
+- **BGM 轮流**：曲库各首轮流，避开最近一首；禁止连着几期同一首。历史：`assets/media-rotation.json`
+- **成片编码**：H.264 High 4.0、yuv420p、整 30fps、15360 tbn、AAC 48kHz。见 `34-mp4-dingtalk.mdc`

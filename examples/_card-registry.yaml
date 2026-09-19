@@ -83,3 +83,48 @@ articles:
         status: done
         note: A–I 上滑系列 A 类
 
+  - slug: finance-ops-systems-data
+    title: 业财融合 · 系统与数据
+    sets:
+      - folder: workspace/HTMLcards/上滑_2026-09-17_系统与数据（浅色）
+        theme: B
+        format: upscroll
+        status: done
+        note: A–I 上滑系列 B 类
+
+  - slug: finance-ops-fusion-overview
+    title: 业财融合 · 总纲
+    sets:
+      - folder: workspace/HTMLcards/上滑_2026-09-17_业财融合总纲（浅色）
+        theme: B
+        format: upscroll
+        status: done
+        note: A–I 上滑系列 C 类
+
+  - slug: finance-ops-cost-object-flow
+    title: 业财融合 · 成本对象与流转
+    sets:
+      - folder: workspace/HTMLcards/上滑_2026-09-17_成本对象与流转（浅色）
+        theme: B
+        format: upscroll
+        status: done
+        note: A–I 上滑系列 D 类
+
+  - slug: finance-bp-front-stage
+    title: 财务从幕后走到台前
+    sets:
+      - folder: workspace/HTMLcards/上滑_2026-09-18_财务从幕后走到台前（深色）
+        theme: A
+        format: upscroll
+        status: done
+        note: 书页素材 · 深色上滑 · 非 A–I 主线
+
+  - slug: finance-three-pillars
+    title: 财务三支柱如何分工与协同
+    sets:
+      - folder: workspace/HTMLcards/上滑_2026-09-18_财务三支柱如何分工与协同（深色）
+        theme: A
+        format: upscroll
+        status: done
+        note: 书页素材 · 深色上滑 · 非 A–I 主线
+

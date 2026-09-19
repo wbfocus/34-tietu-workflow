@@ -71,7 +71,7 @@ py -3 .cursor/skills/34-tietu-workflow/scripts/finish_cards_showcase.py ".\works
 
 产出 `成品视频/橱窗_YYYY-MM-DD_标题（主题）.mp4`（**1080×1440 · 3:4**，不是 9:16）。
 
-另有独立 **长图上滑**（大图少字长卷，不是多页贴图）：选 A/B/C 主题 → 390px HTML → 高清长图 PNG → 3:4 从下往上滑，卡片依次弹出 + 气泡音（**无 BGM、无口播字幕**）。成品画面与文件名禁止出现 `ELI5`。
+另有独立 **长图上滑**（大图少字长卷，不是多页贴图）：选 A/B/C 主题 → 390px HTML → 高清长图 PNG → 3:4 从下往上滑，卡片依次弹出 + 气泡音 + 默认轻 BGM（**无口播字幕**）。成品画面与文件名禁止出现 `ELI5`。
 
 ```powershell
 py -3 .cursor/skills/34-tietu-workflow/scripts/finish_eli5_scroll.py ".\examples\eli5-scroll-sample-c"

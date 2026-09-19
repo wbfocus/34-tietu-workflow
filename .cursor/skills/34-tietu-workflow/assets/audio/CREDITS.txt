@@ -1,14 +1,22 @@
-bgm-serene-view.mp3  ← 当前默认
-Mixkit — Serene View — Arulo
-https://mixkit.co/free-stock-music/
-轻 chill 底床。Mixkit License（可商用；不强制署名）。
+上滑 BGM 曲库（每次出片随机抽一首；同一套文件夹名会抽到同一首，方便返修）
 
-备选：
-- bgm-piano-reflections.mp3（Mixkit Piano Reflections — Ahjay Stelino）
+当前池：
+- 尘缘.mp3                          跳过前奏 12s
+- 001刘艺雯 - 听闻远方有你 - 10倍音质.mp3   跳过前奏 18s
+- 013云朵 - 我的楼兰 - 10倍音质.mp3         跳过前奏 35s
+- 014范茹 - 时间你慢些走 - 10倍音质.mp3     跳过前奏 11s
+
+每首歌前奏时长不同，登记在同目录 `bgm-intro-skip.json`（改秒数即可，文件名须与 mp3 完全一致）。
+
+指定某首：finish_eli5_scroll.py … --bgm "assets/audio/某首.mp3"
+关掉：--no-bgm
+
+兜底（池空才用，不进随机）：
+- bgm-serene-view.mp3 — Mixkit Serene View — Arulo（可商用）
 
 翻页音效：
 - ../sfx/whoosh-page.wav（Mixkit whoosh-1490，默认 5 秒轮播用）
-- ../sfx/sample-slide.wav、sample-smash.wav（橱窗砸入：从 examples/参考样例/1.mp4 切页原声裁出）
+- ../sfx/sample-slide.wav、sample-smash.wav（橱窗砸入）
 
-ELI5 上滑弹出：
-- ../sfx/bubble-pop.wav（脚本 `make_bubble_sfx.py` 合成的短促气泡，无第三方采样）
+上滑弹出：
+- ../sfx/bubble-pop.wav（脚本合成软气泡）
