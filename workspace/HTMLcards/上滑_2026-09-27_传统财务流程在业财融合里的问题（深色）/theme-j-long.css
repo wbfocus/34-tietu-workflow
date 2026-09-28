@@ -1,0 +1,158 @@
+/* J 积木乐园 · 390px 长卷（有别于 A–I） */
+html, body, .phone {
+  background: #FFF8EE;
+  color: #1C1917;
+}
+.phone {
+  background-image:
+    radial-gradient(circle at 8% 6%, rgba(225, 29, 72, 0.07), transparent 42%),
+    radial-gradient(circle at 92% 88%, rgba(37, 99, 235, 0.07), transparent 45%),
+    radial-gradient(circle at 70% 20%, rgba(234, 179, 8, 0.08), transparent 40%);
+}
+.mark { color: #E11D48; }
+.mark-sage { color: #2563EB; }
+.mark-ochre { color: #CA8A04; }
+
+.atm {
+  background:
+    linear-gradient(90deg, transparent 0 70%, rgba(225, 29, 72, 0.04) 70% 78%, transparent 78%),
+    linear-gradient(90deg, transparent 0 82%, rgba(37, 99, 235, 0.05) 82% 90%, transparent 90%),
+    linear-gradient(90deg, transparent 0 92%, rgba(234, 179, 8, 0.06) 92% 100%);
+}
+.noise {
+  opacity: 0.03;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+}
+.wm {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='390' height='760' viewBox='0 0 390 760'%3E%3Ctext x='195' y='380' text-anchor='middle' dominant-baseline='middle' fill='rgba(28,25,23,0.04)' font-size='13' font-family='Microsoft YaHei,sans-serif' font-weight='600' transform='rotate(-28 195 380)'%3E%E8%80%81%E6%B1%AA%E6%B4%9E%E5%AF%9F%20%7C%20%E5%B0%8F%E5%BE%AE%E4%B9%8B%E5%AE%B6%3C/text%3E%3C/svg%3E");
+}
+.wm-num { color: #E11D48; opacity: 0.12; }
+
+.idx-sq.terra, .dot-n.terra, .num.terra, .x-mark, .tier-lab.terra { background: #E11D48; color: #fff; }
+.idx-sq.sage, .dot-n.sage, .num.sage, .ok-mark, .tier-lab.sage { background: #2563EB; color: #fff; }
+.idx-sq.ochre, .dot-n.ochre, .num.ochre, .tier-lab.ochre { background: #EAB308; color: #1C1917; }
+.tier-lab.cool { background: #2563EB; color: #fff; }
+.tier-lab.ok { background: #16A34A; color: #fff; }
+.idx-sq, .dot-n, .num, .x-mark, .ok-mark {
+  border-radius: 10px !important;
+}
+
+.c-en { color: #E11D48; letter-spacing: 0.18em; }
+.c-cn, .tagline, .muted, .box .sub, .arrow, .credit .copy { color: #78716C; }
+h1.ui-title, h2, .big, .brick .name { color: #1C1917; }
+h2 .num { color: #fff; }
+
+.card-paper,
+.grid-2 .cell,
+.list-row,
+.brick .item,
+.tier {
+  background: #FFFFFF;
+  border: 2.5px solid #1C1917;
+  border-radius: 14px;
+  box-shadow: 4px 4px 0 #FDBA74;
+  position: relative;
+}
+.card-paper.story { border-left: 6px solid #E11D48; box-shadow: 4px 4px 0 #FECDD3; }
+.card-callout {
+  background: #FEF3C7;
+  border: 2.5px solid #EAB308;
+  border-radius: 14px;
+  box-shadow: 4px 4px 0 #FDE68A;
+}
+.card-blush {
+  background: #FFE4E6;
+  border: 2.5px solid #E11D48;
+  border-radius: 14px;
+  box-shadow: 4px 4px 0 #FECDD3;
+}
+.card-sage {
+  background: #DBEAFE;
+  border: 2.5px solid #2563EB;
+  border-radius: 14px;
+  box-shadow: 4px 4px 0 #BFDBFE;
+}
+.card-principle {
+  background: #FFFFFF;
+  border: 2.5px dashed #E11D48;
+  border-radius: 14px;
+  box-shadow: 0 0 0 4px rgba(225, 29, 72, 0.08);
+}
+.hl-bar {
+  background: #DBEAFE;
+  border-left: 6px solid #2563EB;
+  border-radius: 0 14px 14px 0;
+  box-shadow: none;
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+}
+.pill { background: #E11D48; color: #fff; border-radius: 999px; }
+.box {
+  border: 2.5px solid #1C1917;
+  background: #fff;
+  border-radius: 12px;
+  color: #1C1917;
+  box-shadow: 3px 3px 0 #FDBA74;
+}
+.box.gray { background: #F5F5F4; }
+.box.orange { background: #FFEDD5; border-color: #EA580C; }
+.brick .desc { color: #57534E; }
+.grid-2 .cell .v { color: #1C1917; }
+.grid-2 .cell .mini { color: #78716C; font-size: 12px; line-height: 1.4; margin-top: 4px; }
+.chip {
+  background: #fff;
+  border: 2px solid #1C1917;
+  color: #1C1917;
+  border-radius: 999px;
+  box-shadow: 2px 2px 0 #FDBA74;
+}
+.hero-orb {
+  background: #E11D48;
+  border: 3px solid #1C1917;
+  color: #fff;
+  box-shadow: 5px 5px 0 #FDBA74;
+  border-radius: 18px;
+}
+.hero-orb::after {
+  border: 2px dashed rgba(225, 29, 72, 0.4);
+  border-radius: 24px;
+  inset: -10px;
+}
+.pill-dark {
+  background: #1C1917;
+  color: #FFF8EE;
+  border-radius: 999px;
+  border: none;
+}
+.pill-dark .pill { background: #EAB308; color: #1C1917; }
+.c-foot {
+  border-top: 2.5px solid #1C1917;
+  color: #78716C;
+}
+.c-foot-sq { background: #E11D48; border-radius: 4px; }
+.takeaways li::before { background: #E11D48; color: #fff; }
+.credit { color: #57534E; border-top: 2px solid #E7E5E4; }
+
+.block-mark {
+  position: absolute;
+  top: 16px;
+  right: 12px;
+  width: 36px;
+  height: 48px;
+  z-index: 2;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.block-mark span {
+  display: block;
+  height: 14px;
+  border-radius: 4px;
+  border: 1.5px solid #1C1917;
+}
+.block-mark span:nth-child(1) { background: #E11D48; }
+.block-mark span:nth-child(2) { background: #EAB308; }
+.block-mark span:nth-child(3) { background: #2563EB; }

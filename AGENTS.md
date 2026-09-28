@@ -12,6 +12,8 @@
 
 用户亲手改过的句子记在：`workspace/corrections/订正流水账.md`。写画面文案前必读；用户每更正一次必须追加一条。
 
+画面文案、封面标题、配套短标题必须调用 Qwen3.8-Max（`scripts/write_copy_qwen.py`），Agent 不得自己起稿当终稿。见 `.cursor/rules/copy-via-qwen.mdc`。
+
 金标准：`examples/gold-a-ceo-star-dark/`、`examples/gold-b-ceo-star-light/`、`examples/gold-c-workshop-editorial/`。
 成型样例：`examples/sample-gm-variance-dark/`。
 新产出：`workspace/HTMLcards/`。

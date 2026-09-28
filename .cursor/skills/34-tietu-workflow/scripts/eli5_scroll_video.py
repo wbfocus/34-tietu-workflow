@@ -28,9 +28,13 @@ POP_DUR = 0.42
 STAGGER = 0.16
 POP_PX = 22.0
 REVEAL_PAD = 96  # pop after entering from the bottom
-BUBBLE_VOL = 0.12  # 轻点一下，别盖过 BGM
+BUBBLE_VOL = 0.28  # 短促点一下，不能盖住整首歌
 SFX_MIN_GAP = 4.0  # 约每 4 秒最多一声；画面照常弹
-BGM_VOL = 0.045  # 有声底压低，别盖过气泡
+# 无口播：歌是主声，要听得清。按原文件响度补到大约 -14 dB，峰值留在 -1 dB 以内。
+# 《尘缘》这类峰值偏低的歌会自动补得更多，避免轮到它又变小声。
+BGM_TARGET_MEAN_DB = -14.0
+BGM_PEAK_CEIL_DB = -1.0
+BGM_VOL = 0.85  # 量不到原文件响度时的兜底（以前 0.045，几乎听不见）
 BGM_FADE_IN = 0.5
 BGM_FADE_OUT = 1.8
 BGM_INTRO_SKIP_DEFAULT = 20.0  # 曲库未登记某首时的兜底
@@ -69,6 +73,64 @@ def load_bgm_intro_skips() -> dict[str, float]:
         except (TypeError, ValueError):
             continue
     return out
+
+
+_VOL_CACHE: dict[str, tuple[float, float]] = {}
+
+
+def probe_mean_max_db(path: Path) -> tuple[float, float] | None:
+    """抽一段量平均响度和峰值，供补音量。失败则返回 None。"""
+    key = str(path.resolve())
+    if key in _VOL_CACHE:
+        return _VOL_CACHE[key]
+    proc = subprocess.run(
+        [
+            ffmpeg_bin(), "-hide_banner", "-ss", "12", "-t", "25",
+            "-i", str(path), "-af", "volumedetect", "-f", "null", "-",
+        ],
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+    )
+    mean_db = max_db = None
+    for ln in (proc.stderr or "").splitlines():
+        if "mean_volume:" in ln:
+            try:
+                mean_db = float(ln.split("mean_volume:")[1].strip().split()[0])
+            except ValueError:
+                pass
+        elif "max_volume:" in ln:
+            try:
+                max_db = float(ln.split("max_volume:")[1].strip().split()[0])
+            except ValueError:
+                pass
+    if mean_db is None or max_db is None:
+        return None
+    _VOL_CACHE[key] = (mean_db, max_db)
+    return mean_db, max_db
+
+
+def volume_for_bgm(bgm: Path | None) -> float:
+    """把不同歌补到差不多的听感。原文件越轻，乘数越大。"""
+    if bgm is None or not Path(bgm).is_file():
+        return BGM_VOL
+    measured = probe_mean_max_db(Path(bgm))
+    if measured is None:
+        print(f"BGM gain {bgm.name}: probe failed, fallback x{BGM_VOL}", flush=True)
+        return BGM_VOL
+    mean_db, max_db = measured
+    gain_db = BGM_TARGET_MEAN_DB - mean_db
+    if max_db + gain_db > BGM_PEAK_CEIL_DB:
+        gain_db = BGM_PEAK_CEIL_DB - max_db
+    gain_db = max(-8.0, min(10.0, gain_db))
+    vol = 10 ** (gain_db / 20.0)
+    print(
+        f"BGM gain {bgm.name}: mean {mean_db:.1f} dB, peak {max_db:.1f} dB"
+        f" -> x{vol:.2f} ({gain_db:+.1f} dB)",
+        flush=True,
+    )
+    return vol
 
 
 def intro_skip_for(bgm: Path | None) -> float:
@@ -135,12 +197,14 @@ def bgm_af_chain(
     label: str,
     dur: float,
     *,
-    vol: float = BGM_VOL,
+    vol: float | None = None,
     out: str = "bgm",
     bgm: Path | None = None,
     skip: float | None = None,
 ) -> str:
-    """跳过该曲前奏 → 循环 → 裁到成片时长 → 音量/淡入淡出。"""
+    """跳过该曲前奏 → 循环 → 裁到成片时长 → 按原文件响度补音量 → 淡入淡出。"""
+    if vol is None:
+        vol = volume_for_bgm(bgm)
     fade_out_st = max(0.0, dur - BGM_FADE_OUT)
     if skip is None:
         skip = intro_skip_for(bgm)
@@ -478,7 +542,7 @@ def mix_bgm_onto_mp4(
     bgm: Path,
     out: Path | None = None,
     *,
-    vol: float = BGM_VOL,
+    vol: float | None = None,
 ) -> Path:
     """把 BGM 叠进已有上滑成片（保留气泡轨），视频流 copy。"""
     if not mp4.is_file():

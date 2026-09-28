@@ -78,11 +78,11 @@ license: MIT
 2.5 读反塑料感 → references/anti-plastic-design.md（三张旋钮 + 版式手法 + 禁用项）
 2.6 读共用文字 → references/type-shared.md（楷体正文 + 宋体标题 + 重点词 + 禁内部词）
 2.7 读共用骨架 → references/layout-shared.md（方标页眉 + 巨号水印 + 六种版式）
-3. 写 HTML → design-system.md + type-shared.md + layout-shared.md + 所选主题（3:4 竖版 1080×1440）；套图版式要有节奏变化；**写文案前必读** `workspace/corrections/订正流水账.md`
+3. 写文案：`scripts/write_copy_qwen.py --kind scene`（Qwen3.8-Max）出成稿，再按成稿写 HTML → design-system.md + type-shared.md + layout-shared.md + 所选主题（3:4 竖版 1080×1440）；套图版式要有节奏变化；**写文案前必读** `workspace/corrections/订正流水账.md`。禁止 Agent 自己起画面文案当终稿。见 `.cursor/rules/copy-via-qwen.mdc`
 3.5 出图前 QA → anti-plastic-design.md 第七节 + **design-system 水印安全区 & 画布防裁切 & 竖向铺满**（见 `.cursor/rules/34-tietu-watermark-safe-zone.mdc` B/C/D 节；**截图前不可跳过**）
 4. 截图 → scripts/render.mjs → 成品图/*.png
 4.5 PNG 铺满自检 → `qa_tietu.py pngs`（底 25% 不能只剩水印）
-5. 配套文案 + 关键词
+5. 配套文案 + 关键词（`write_copy_qwen.py --kind caption`，不要 Agent 自拟终稿）
 6. 合成轮播 MP4 → 每张可读 **5 秒** + 交界 **约 1 秒丝滑转场**（每次一种、不重复；8 张仍 ≈ 40 秒）+ 固定 BGM
 7. 出 3:4 封面（1080×1440）并拼进成片第 0 帧
 ```

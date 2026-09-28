@@ -5,7 +5,8 @@
 出图 / 出片跑完之后，为这一套写一份 `配套文案与关键词.md`。  
 **轮播 / 橱窗 / 上滑都要写**；上滑成片后这是必做工序，不能漏。
 
-写之前必读 `workspace/corrections/订正流水账.md`；短标题和关键词都用人话（会上能说出口），禁止黑话当标题。
+写之前必读 `workspace/corrections/订正流水账.md`；短标题和关键词都用人话（会上能说出口），禁止黑话当标题。  
+正文由 `scripts/write_copy_qwen.py --kind caption` 起稿（Qwen3.8-Max），不要 Agent 自己写成终稿。
 
 ---
 

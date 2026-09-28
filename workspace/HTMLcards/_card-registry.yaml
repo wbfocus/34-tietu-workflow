@@ -150,3 +150,12 @@ articles:
         format: upscroll
         status: done
         note: 书页素材 · BP/COE/共享 · 无真实公司名 · 封面「财务三支柱 / 分工与协同」
+
+  - slug: traditional-finance-process-ops-fusion
+    title: 传统财务流程在业财融合里的问题
+    sets:
+      - folder: workspace/HTMLcards/上滑_2026-09-27_传统财务流程在业财融合里的问题（深色）
+        theme: A
+        format: upscroll
+        status: done
+        note: 书页素材只抓传统流程问题 · 深色上滑 · BGM 尘缘

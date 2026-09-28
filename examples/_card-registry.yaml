@@ -128,3 +128,12 @@ articles:
         status: done
         note: 书页素材 · 深色上滑 · 非 A–I 主线
 
+  - slug: traditional-finance-process-ops-fusion
+    title: 传统财务流程在业财融合里的问题
+    sets:
+      - folder: workspace/HTMLcards/上滑_2026-09-27_传统财务流程在业财融合里的问题（深色）
+        theme: A
+        format: upscroll
+        status: done
+        note: 书页素材只抓流程问题 · 深色上滑 · BGM 尘缘
+

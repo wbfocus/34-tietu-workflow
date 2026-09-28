@@ -16,7 +16,7 @@ license: MIT
 2. Playwright 导出 **高清长图 PNG**（公众号也能用）。
 3. FFmpeg 做成 **从下往上滑** 的 3:4 视频：底板在爬，卡片/步骤块 **依次弹出**（淡入 + 上移）。
 4. 每个对象出现时放一声 **气泡音效**。
-5. **默认配 BGM**（`assets/audio/` 曲库轮流一首，避开最近用过的；**每首歌前奏秒数不同**，见 `bgm-intro-skip.json`，压在气泡下）；**禁止口播、禁止字幕条。** 例外才 `--no-bgm`；指定曲目用 `--bgm`。历史见 `34-tietu-workflow/assets/media-rotation.json`。
+5. **默认配 BGM**（`assets/audio/` 曲库轮流一首，避开最近用过的；**每首歌前奏秒数不同**，见 `bgm-intro-skip.json`）。无口播，歌是主声，必须听得清；按原文件响度补到差不多（峰值偏低的《尘缘》会多补一点）。气泡只是短促一声，不许把整首歌压下去。**禁止口播、禁止字幕条。** 例外才 `--no-bgm`；指定曲目用 `--bgm`。历史见 `34-tietu-workflow/assets/media-rotation.json`。
 
 静态 PNG 自己不会逐个动画。出片时用「底板 + 每块精灵图」叠上去，所以 HTML 里的块必须能单独截下来（用 `data-eli5-reveal`）。
 
@@ -53,6 +53,7 @@ license: MIT
 
 写之前读 `references/card-ui-from-34.md`。字体/组件类名与贴图共用（`.ui-title` / `.wenkai` / `.card-paper` / 坑修 / 原则框）。  
 写文案前必读 `workspace/corrections/订正流水账.md`（用户亲手改过的句子，禁止再犯）。
+**画面文案与配套文案不由 Agent 起稿**：先把要点写入 brief，再调用 `34-tietu-workflow/scripts/write_copy_qwen.py`（Qwen3.8-Max）。规则见 `.cursor/rules/copy-via-qwen.mdc`。
 书页改编：案例与数据**另拟**，禁止照抄原文；适当位置用第一人称老汪观察（见 `plain-speech.mdc`）。
 
 **不必再问**：用户已说 A / B / C / D / E / 深色 / 浅色 / 奶油 / 蓝图 / 墨纸 / 图纸。
@@ -63,12 +64,13 @@ license: MIT
 0. 问主题 A–I
 1. 复制对应模板 + layout-long.css + theme-X-long.css
    → workspace/HTMLcards/上滑_YYYY-MM-DD_短标题（深色|浅色|刊物|蓝图|墨纸|石板|海报|地铁|货柜）/
-2. 填 HTML（比喻 → 竖向流程 → 坑修 → 积木 → 原则框）
+2. 写文案：`write_copy_qwen.py --kind scene` 出画面成稿，再按成稿填 HTML
+   （比喻 → 竖向流程 → 坑修 → 积木 → 原则框）
    每个要弹出的块保留 data-eli5-reveal
 3. py -3 finish_eli5_scroll.py "<文件夹>"
    （封面文案可加 --title "第一行|第二行" --sub "副标" --pill "经营分析小卡片"；**不要默认 --style 4**，空则自动换封面并渲备选）
 4. 交付：成品图/long.png + 封面/cover-3x4.png + 封面/备选/ + 成品视频/`上滑_…（货柜）.mp4` + 同名`（带封面）`
-5. 【必做】根据成片内容写 `配套文案与关键词.md`
+5. 【必做】`write_copy_qwen.py --kind caption` 写 `配套文案与关键词.md`
    → 短标题备选 5～8 条 + 关键词 3～4 组（写法见 34-tietu-workflow/references/caption-keywords.md）
 ```
 
@@ -137,7 +139,7 @@ py -3 ".cursor/skills/34-tietu-workflow/scripts/finish_eli5_scroll.py" ".\worksp
 | 视频 | **1080×1440 · 整 30fps · 15360 tbn · H.264 High 4.0 · 约 18–90 秒** |
 | 运动 | 内容上滑（窗口下移） |
 | 入画 | 块进入画面后淡入 + 上移约 22px / 0.42s |
-| 声音 | 气泡 `bubble-pop.wav` + 曲库随机 BGM（跳过前奏，压在气泡下）；AAC 48kHz |
+| 声音 | 曲库 BGM 为主（跳过前奏，按响度补到听得清，《尘缘》单独多补）+ 短促气泡；AAC 48kHz |
 | 禁止 | 口播、字幕、9:16、**30.01fps、1000k tbn、封面停 0.034 秒** |
 
 出片后必须：`py -3 ".cursor/skills/34-tietu-workflow/scripts/qa_tietu.py" mp4 "<带封面.mp4>"`。不过检不准交付。
