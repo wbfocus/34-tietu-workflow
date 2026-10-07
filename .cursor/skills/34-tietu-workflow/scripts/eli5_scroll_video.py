@@ -21,9 +21,10 @@ from mp4_compat import assert_mp4_compat
 W, H, FPS = 1080, 1440, 30
 HOLD_START = 0.85
 HOLD_END = 1.35
-PX_PER_SEC = 78.0
+PX_PER_SEC = 60.0  # 2026-09-29 订正：78 太快，放慢到 60
 MIN_SECONDS = 18.0
-MAX_SECONDS = 90.0
+MAX_SECONDS = 600.0  # 2026-10-01 订正：150s 会把长卷偷偷加速（150s 上限 = 实际 112px/s）
+#                      改由 travel/PX_PER_SEC 决定时长；此处只作防呆天花板，不参与调速
 POP_DUR = 0.42
 STAGGER = 0.16
 POP_PX = 22.0
@@ -35,6 +36,7 @@ SFX_MIN_GAP = 4.0  # 约每 4 秒最多一声；画面照常弹
 BGM_TARGET_MEAN_DB = -14.0
 BGM_PEAK_CEIL_DB = -1.0
 BGM_VOL = 0.85  # 量不到原文件响度时的兜底（以前 0.045，几乎听不见）
+BGM_USER_SCALE = 0.7  # 2026-09-29 订正：BGM 有点吵，整体压到 70%
 BGM_FADE_IN = 0.5
 BGM_FADE_OUT = 1.8
 BGM_INTRO_SKIP_DEFAULT = 20.0  # 曲库未登记某首时的兜底
@@ -114,17 +116,17 @@ def probe_mean_max_db(path: Path) -> tuple[float, float] | None:
 def volume_for_bgm(bgm: Path | None) -> float:
     """把不同歌补到差不多的听感。原文件越轻，乘数越大。"""
     if bgm is None or not Path(bgm).is_file():
-        return BGM_VOL
+        return BGM_VOL * BGM_USER_SCALE
     measured = probe_mean_max_db(Path(bgm))
     if measured is None:
         print(f"BGM gain {bgm.name}: probe failed, fallback x{BGM_VOL}", flush=True)
-        return BGM_VOL
+        return BGM_VOL * BGM_USER_SCALE
     mean_db, max_db = measured
     gain_db = BGM_TARGET_MEAN_DB - mean_db
     if max_db + gain_db > BGM_PEAK_CEIL_DB:
         gain_db = BGM_PEAK_CEIL_DB - max_db
     gain_db = max(-8.0, min(10.0, gain_db))
-    vol = 10 ** (gain_db / 20.0)
+    vol = 10 ** (gain_db / 20.0) * BGM_USER_SCALE
     print(
         f"BGM gain {bgm.name}: mean {mean_db:.1f} dB, peak {max_db:.1f} dB"
         f" -> x{vol:.2f} ({gain_db:+.1f} dB)",

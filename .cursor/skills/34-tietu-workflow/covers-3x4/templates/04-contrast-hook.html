@@ -15,5 +15,24 @@
     </div>
     <div class="brand">{{BRAND}}</div>
   </div>
+  <script>
+    // 2026-10-01 订正：hook-q 固定 128px 时每行超 6 字会折出孤字（4 行）。
+    // 自动缩号：行数超 2 就降字号，最低 84px，保证「最多 2 行」硬规则。
+    (function () {
+      var h = document.querySelector('.hook-q');
+      if (!h) return;
+      var twoLines = function () {
+        var lh = parseFloat(getComputedStyle(h).lineHeight) || 1.14 * parseFloat(getComputedStyle(h).fontSize);
+        return Math.round(h.getBoundingClientRect().height) <= Math.ceil(lh * 2 + 2);
+      };
+      var size = parseFloat(getComputedStyle(h).fontSize) || 128;
+      var tries = 0;
+      while (!twoLines() && size > 84 && tries < 30) {
+        size -= 6;
+        h.style.fontSize = size + 'px';
+        tries++;
+      }
+    })();
+  </script>
 </body>
 </html>

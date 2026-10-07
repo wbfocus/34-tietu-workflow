@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>Cover 4 · contrast hook</title>
+<link rel="stylesheet" href="../../../../.cursor/skills/34-tietu-workflow/covers-3x4/covers.css" />
+<style>.cover{--accent:var(--orange)}</style>
+</head>
+<body>
+  <div class="cover" id="root">
+    <div class="pill">经营分析小卡片</div>
+    <div class="hero">
+      <h1 class="hook-q">项目要算四笔账<br><span class="bad">从机会管到回款</span></h1>
+      <p class="hook-a">项目财务怎么参与项目</p>
+    </div>
+    <div class="brand">汪斌带你开公司</div>
+  </div>
+  <script>
+    // 2026-10-01 订正：7 字/行在 128px 下折出孤字，自动缩号保 2 行
+    (function () {
+      var h = document.querySelector('.hook-q');
+      if (!h) return;
+      var twoLines = function () {
+        var lh = parseFloat(getComputedStyle(h).lineHeight) || 1.14 * parseFloat(getComputedStyle(h).fontSize);
+        return Math.round(h.getBoundingClientRect().height) <= Math.ceil(lh * 2 + 2);
+      };
+      var size = parseFloat(getComputedStyle(h).fontSize) || 128;
+      var tries = 0;
+      while (!twoLines() && size > 84 && tries < 30) {
+        size -= 6;
+        h.style.fontSize = size + 'px';
+        tries++;
+      }
+    })();
+  </script>
+</body>
+</html>

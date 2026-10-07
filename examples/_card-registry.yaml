@@ -77,7 +77,7 @@ articles:
   - slug: finance-ops-roles-org
     title: 业财融合 · 角色与组织
     sets:
-      - folder: workspace/HTMLcards/长图-业财角色扫盲（浅色）
+      - folder: workspace/HTMLcards/上滑_2026-09-16_业财角色扫盲（浅色）
         theme: B
         format: upscroll
         status: done

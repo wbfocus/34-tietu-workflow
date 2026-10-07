@@ -1,5 +1,6 @@
 node_modules/
 .playwright-browsers/
+.workbuddy/
 __pycache__/
 *.pyc
 .env
@@ -20,21 +21,14 @@ workspace/HTMLcards/*
 !workspace/HTMLcards/上滑_*/**
 !workspace/HTMLcards/轮播_*/
 !workspace/HTMLcards/轮播_*/**
-!workspace/HTMLcards/长图-*/
-!workspace/HTMLcards/长图-*/**
-!workspace/HTMLcards/eli5-*/
-!workspace/HTMLcards/eli5-*/**
 !workspace/HTMLcards/橱窗_*/
 !workspace/HTMLcards/橱窗_*/**
 
 _prev_cover.png
 workspace/_extract_ai.txt
 
-# local temp / probe folders (do not push)
-workspace/_1mp4_frames/
-workspace/_chrome_render_profile/
-workspace/_showcase_smoke/
-workspace/_smash_probe/
+# 本地归档：临时/调试/草稿，不进仓
+workspace/archive/
 
 examples/**/成品图/
 examples/**/harvest/

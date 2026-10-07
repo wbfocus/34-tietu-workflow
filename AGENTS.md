@@ -48,3 +48,7 @@
 
 用户要 `git push` / 推云端时：先把本会话 transcript 拷到 `workspace/chats/`，更新 `handoff-current.mdc` 与 `CURRENT.md` 里的「当前状态」，再和代码一起提交推送。  
 规则见 `.cursor/rules/push-with-chats.mdc`。
+
+## 目录结构维护
+
+目录地图见根目录 `目录树.md`：先看它把握全局。每次项目结构变化（新增/移动/改名/删除目录）后，Agent 必须同步更新 `目录树.md`。

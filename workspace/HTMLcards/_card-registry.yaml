@@ -100,11 +100,11 @@ articles:
   - slug: finance-ops-roles-org
     title: 业财融合 · 角色与组织
     sets:
-      - folder: workspace/HTMLcards/长图-业财角色扫盲（浅色）
+      - folder: workspace/HTMLcards/上滑_2026-09-16_业财角色扫盲（浅色）
         theme: B
         format: upscroll
         status: done
-        note: A–I 上滑系列 A 类 · 封面「业财融合 / 角色与组织」· 旧夹名暂留
+        note: A–I 上滑系列 A 类 · 封面「业财融合 / 角色与组织」
 
   - slug: finance-ops-systems-data
     title: 业财融合 · 系统与数据
@@ -158,4 +158,40 @@ articles:
         theme: A
         format: upscroll
         status: done
-        note: 书页素材只抓传统流程问题 · 深色上滑 · BGM 尘缘
+        note: 书页素材只抓传统流程问题 · 深色上滑 · BGM 我的楼兰 · 2026-09-28 用户不满意重做（旧版在 workspace/archive 同名_旧版）
+
+  - slug: ops-finance-fusion-integrated-ifs
+    title: 公司级变革怎么给业财融合创造条件
+    sets:
+      - folder: workspace/HTMLcards/上滑_2026-09-29_业财融合怎么落地（积木）
+        theme: J
+        format: upscroll
+        status: done
+        note: 书页素材 · IFS 变革解法篇 · 积木主题 · BGM 尘缘（--bgm 传文件路径）· 封面样式 1 短标题两行「公司级变革|业财融合才落地」· 90s · 33 弹出 · 2026-09-29 订正：封面≤2行+去老汪口吻（已固化 plain-speech.mdc）
+
+  - slug: integrated-finance-ifs-intro
+    title: 集成财务IFS
+    sets:
+      - folder: workspace/HTMLcards/上滑_2026-09-29_集成财务IFS（墨纸）
+        theme: E
+        format: upscroll
+        status: done
+        note: 科普文素材（用户直接发文字）· 墨纸朱印主题（随机抽中）· BGM 尘缘（用户指定，连用第二期）· 封面样式 7 两行「财务接上业务|账才追得上经营」（首版3行已订正重出）· 77.7s · 30 弹出 · 无老汪口吻（新规生效）
+
+  - slug: data-flow-process-through-data
+    title: 流程通的核心是数据通
+    sets:
+      - folder: workspace/HTMLcards/上滑_2026-09-29_流程通的核心是数据通（货柜）
+        theme: I
+        format: upscroll
+        status: done
+        note: 书页素材（用户要求去华为信息，只留论点知识点）· 货柜码头主题（随机抽中，首用）· BGM 尘缘（用户指定，连用第三期）· 封面样式 3 两行「财务数据不准|经营分析吵不停」· 139.2s · 38 弹出 · 无老汪口吻 · QA OK · 2026-09-29 订正：排版松一档（呼吸感覆盖）+ 例子换运输测算 + 速度 60px/s、时长不封顶（脚本常量已改，规则级）
+
+  - slug: project-four-accounts
+    title: 项目要算四笔账
+    sets:
+      - folder: workspace/HTMLcards/上滑_2026-10-01_项目四算（地铁）
+        theme: H
+        format: upscroll
+        status: done
+        note: 书页素材 4.2「掌握项目四算与财务解决方案」（已去华为化）· 地铁线路主题（随机抽中，首用）· BGM 祝福祖国（用户指定，新入池 0s 前奏）· 封面样式 4 两行「项目要算四笔账|从机会管到回款」· 280.1s · 61 弹出 · 无老汪口吻 · QA OK · 2026-10-01 bug 修复：MAX_SECONDS 150→600（原上限把长卷偷偷加速 1.88 倍，规则级）
