@@ -10,10 +10,7 @@ Thumbs.db
 covers-3x4/_work/
 .cursor/skills/34-tietu-workflow/covers-3x4/_work/
 
-# 成片视频体积大，换机本地重渲；不进仓
-*.mp4
-
-# HTMLcards：默认忽略，再按前缀放行（除 mp4 外的 HTML/PNG/文案等）
+# HTMLcards：默认忽略，再按前缀放行
 workspace/HTMLcards/*
 !workspace/HTMLcards/.gitkeep
 !workspace/HTMLcards/_card-registry.yaml
@@ -23,6 +20,9 @@ workspace/HTMLcards/*
 !workspace/HTMLcards/轮播_*/**
 !workspace/HTMLcards/橱窗_*/
 !workspace/HTMLcards/橱窗_*/**
+
+# 成片视频体积大，换机本地重渲；不进仓（必须放在上面放行规则之后才能生效）
+*.mp4
 
 _prev_cover.png
 workspace/_extract_ai.txt
